@@ -51,5 +51,10 @@ public class Restaurant {
         this.tags = tags;
     }
 
+    @Override
+    public String toString() {
+        return "Restaurant Name:" + name + "\n" +
+        "Price"
+    }
 
 }
