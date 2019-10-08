@@ -7,7 +7,7 @@
     tools:context=".AddRestaurantActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,14 +18,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/userResturantTitle"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button">
+        app:layout_constraintTop_toBottomOf="@+id/btnBack">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -41,9 +41,10 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/userResturantTitle">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userRating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Rating out of 10" />
@@ -60,6 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Price" />
@@ -76,13 +78,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Notes" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnAdd"
         android:layout_width="156sp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"

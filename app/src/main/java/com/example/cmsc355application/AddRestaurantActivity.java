@@ -14,6 +14,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
 
     private Restaurant createRestaurant(){
 
+        String userTitle = "" //GET RESTURANTS FOROM
         Restaurant newRestaurant = new Restaurant();
 
 
