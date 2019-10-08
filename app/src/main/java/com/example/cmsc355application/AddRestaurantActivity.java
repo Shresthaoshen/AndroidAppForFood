@@ -11,4 +11,6 @@ public class AddRestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_restaurant);
     }
+
+    //need a done button
 }
