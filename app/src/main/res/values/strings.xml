@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CMSC 355 Application</string>
+    <string name="title_activity_restaurant_view">RestaurantViewActivity</string>
 </resources>
