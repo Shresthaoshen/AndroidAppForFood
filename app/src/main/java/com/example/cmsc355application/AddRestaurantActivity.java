@@ -12,5 +12,11 @@ public class AddRestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_restaurant);
     }
 
-    //need a done button
+    private Restaurant createRestaurant(){
+
+        Restaurant newRestaurant = new Restaurant();
+
+
+        return newRestaurant;
+    }
 }

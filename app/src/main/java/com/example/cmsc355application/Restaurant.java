@@ -8,7 +8,8 @@ public class Restaurant {
     private String notes;
     private String[] tags;
 
-    public Restaurant () {
+    public Restaurant (String name) {
+        setName(name);
     }
 
     public String getName() {
@@ -53,8 +54,11 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Restaurant Name:" + name + "\n" +
-        "Price"
+        return "Restaurant Name: " + name + "\n" +
+            "Price: $" +  price + "\n" +
+            "Rating: " + rating + "\n" +
+            "Notes:\n" + notes + "\n" +
+            "Tags:" + tags;
     }
 
 }
