@@ -7,9 +7,21 @@
     tools:context=".MainActivity">
 
     <SearchView
+        android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:layout_height="80px"
+        android:layout_height="100px"
         android:layout_marginTop="56dp"
+        android:background="#ECECEC"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="27dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Recents"
+        android:textSize="36sp"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        tools:layout_editor_absoluteX="6dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
