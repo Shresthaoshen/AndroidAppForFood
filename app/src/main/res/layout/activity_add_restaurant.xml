@@ -13,12 +13,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
-        android:text="<"
+        android:text="\u2190"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userResturantTitle"
+        android:id="@+id/txtTitle"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -28,57 +28,66 @@
         app:layout_constraintTop_toBottomOf="@+id/btnBack">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userTitleEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Restaurant Title" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3"
+        android:id="@+id/txtRating"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userResturantTitle">
+        app:layout_constraintTop_toBottomOf="@+id/txtTitle">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userRating"
+        <EditText
+            android:id="@+id/numRating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Rating out of 10" />
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Rating"
+            android:inputType="numberDecimal" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout4"
+        android:id="@+id/txtPrice"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/txtRating">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userPrice"
+        <EditText
+            android:id="@+id/numPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Price" />
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Price"
+            android:inputType="numberDecimal" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout5"
+        android:id="@+id/txtNotes"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+        app:layout_constraintTop_toBottomOf="@+id/txtPrice">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userNotes"
+            android:id="@+id/userNotesEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Notes" />
@@ -89,6 +98,7 @@
         android:layout_width="156sp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
+        android:onClick="clickSubmit"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
