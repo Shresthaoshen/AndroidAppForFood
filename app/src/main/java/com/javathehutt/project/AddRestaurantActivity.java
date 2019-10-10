@@ -1,4 +1,4 @@
-package com.example.cmsc355application;
+package com.javathehutt.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,22 +9,20 @@ import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.text.NumberFormat;
-
 public class AddRestaurantActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_restaurant);
+        setContentView(com.javathehutt.project.R.layout.activity_add_restaurant);
     }
 
     private Restaurant createRestaurant(){
 
-        TextInputEditText txtTitle = findViewById(R.id.txtTitle);
-        EditText numRating = findViewById(R.id.numRating);
-        EditText numPrice = findViewById(R.id.numPrice);
-        TextInputEditText txtNotes = findViewById(R.id.txtNotes);
+        TextInputEditText txtTitle = findViewById(com.javathehutt.project.R.id.txtTitle);
+        EditText numRating = findViewById(com.javathehutt.project.R.id.numRating);
+        EditText numPrice = findViewById(com.javathehutt.project.R.id.numPrice);
+        TextInputEditText txtNotes = findViewById(com.javathehutt.project.R.id.txtNotes);
 
 
         Restaurant newRestaurant = new Restaurant(txtTitle.getText().toString());

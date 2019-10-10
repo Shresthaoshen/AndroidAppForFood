@@ -1,4 +1,4 @@
-package com.example.cmsc355application;
+package com.javathehutt.project;
 
 public class Restaurant {
 

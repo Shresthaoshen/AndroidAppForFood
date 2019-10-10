@@ -1,7 +1,6 @@
-package com.example.cmsc355application;
+package com.javathehutt.project;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
 public class ViewRestaurantActivity extends AppCompatActivity {
@@ -9,6 +8,6 @@ public class ViewRestaurantActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_restaurant);
+        setContentView(com.javathehutt.project.R.layout.activity_view_restaurant);
     }
 }

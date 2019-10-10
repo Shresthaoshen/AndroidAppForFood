@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cmsc355application">
+    package="com.javathehutt.project">
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewRestaurantActivity"></activity>
-        <activity android:name=".AddRestaurantActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.javathehutt.project.ViewRestaurantActivity"></activity>
+        <activity android:name="com.javathehutt.project.AddRestaurantActivity" />
+        <activity android:name="com.javathehutt.project.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
