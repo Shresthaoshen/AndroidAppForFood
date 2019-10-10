@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private SimpleCursorAdapter adapter;
     final String[] dataFrom = new String[] {DatabaseHelper._ID, DatabaseHelper.NAME, DatabaseHelper.PRICE,
             DatabaseHelper.RATING, DatabaseHelper.NOTES, DatabaseHelper.TAGS};
-    final int[] dataTo = new int[] {R.id.id, R.id.name, R.id.price, R.id.rating, R.id.notes, R.id.tags};
+    final int[] dataTo = new int[] {R.id.rsrtName, R.id.rsrtPrice, R.id.rsrtRating};
 
     //UI setup
     private ListView listRsrt;
