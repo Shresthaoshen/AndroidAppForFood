@@ -3,10 +3,10 @@ package com.javathehutt.project;
 public class Restaurant {
 
     private String name;
-    private int price;
-    private int rating;
+    private double price;
+    private double rating;
     private String notes;
-    //private String[] tags;
+    private String tags;
 
     public Restaurant (String name) {
         setName(name);
@@ -20,19 +20,19 @@ public class Restaurant {
         this.name = name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
     }
 
@@ -44,21 +44,21 @@ public class Restaurant {
         this.notes = notes;
     }
 
-    /*public String[] getTags() {
+    public String getTags() {
         return tags;
     }
 
-    public void setTags(String[] tags) {
+    public void setTags(String tags) {
         this.tags = tags;
-    }*/
+    }
 
     @Override
     public String toString() {
         return "Restaurant Name: " + name + "\n" +
             "Price: $" +  price + "\n" +
             "Rating: " + rating + "\n" +
-            "Notes:\n" + notes + "\n";
-            //"Tags:" + tags;
+            "Notes:\n" + notes + "\n"+
+            "Tags:" + tags;
     }
 
 }

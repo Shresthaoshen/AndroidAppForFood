@@ -14,11 +14,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(com.javathehutt.project.R.layout.activity_add_restaurant);
-    }
-
-    private void createRestaurant(){
-
+        setContentView(R.layout.activity_add_restaurant);
     }
 
     public void clickSubmit (View view) {
