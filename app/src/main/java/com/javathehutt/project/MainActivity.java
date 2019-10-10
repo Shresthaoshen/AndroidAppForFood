@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -44,13 +45,7 @@ public class MainActivity extends AppCompatActivity {
         databaseManager.open();
         Cursor cursor = databaseManager.fetch();
 
-        uiListRsrt = (ListView) findViewById(R.id.lstRsrt);
-        uiListRsrt.setEmptyView(findViewById(R.id.txtEmptyList));
-
-//        adapter = new SimpleCursorAdapter(this, R.layout.activity_view_restaurant, cursor, dataFrom, dataTo, 0);
-//        adapter.notifyDataSetChanged();
-
-        uiListRsrt.setAdapter(adapter);
+        databaseManager.insert(demoRsrt());
 
     }
 
@@ -58,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         Intent modifyIntent = new Intent(this, EditRestaurantActivity.class);
         startActivityForResult(modifyIntent, modifySubmit_CONFIG_REQUEST);
     }
+
 
     public void clickAdd (View view){
         Intent addIntent = new Intent(this, AddRestaurantActivity.class);
@@ -73,6 +69,16 @@ public class MainActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+    private Restaurant demoRsrt() {
+        Restaurant newRsrt = new Restaurant("title");
+
+        newRsrt.setRating(0.1);
+        newRsrt.setPrice(3.4);
+        newRsrt.setNotes("noteees");
+
+        return newRsrt;
     }
 
 }

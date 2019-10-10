@@ -10,11 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e68c35d0-d865-441b-a9cf-057867f21508" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_emp_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_emp_list.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,11 +42,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="636">
-              <caret line="70" column="80" lean-forward="true" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="80" />
+            <state relative-caret-position="945">
+              <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
             </state>
           </provider>
         </entry>
@@ -63,11 +60,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="45" column="50" lean-forward="true" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+            <state relative-caret-position="578">
+              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -189,8 +186,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_emp_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" />
       </list>
     </option>
@@ -526,10 +523,10 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="70" column="80" lean-forward="true" selection-start-line="70" selection-start-column="16" selection-end-line="70" selection-end-column="80" />
+        <state relative-caret-position="578">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -540,10 +537,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="45" column="50" lean-forward="true" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
+        <state relative-caret-position="945">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
         </state>
       </provider>
     </entry>
