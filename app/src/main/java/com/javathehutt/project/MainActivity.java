@@ -6,12 +6,19 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 //from now own, fuck spelling - restaurant is going to be shortened to rsrt
+//if the user interacts with it - user(Type)(Name)  example userTxtName
+//if it's for the ui - ui(Type)(Name) example uiTxtName
+
+
+
 public class MainActivity extends AppCompatActivity {
 
     //database setup
@@ -22,28 +29,34 @@ public class MainActivity extends AppCompatActivity {
     final int[] dataTo = new int[] {R.id.rsrtName, R.id.rsrtPrice, R.id.rsrtRating};
 
     //UI setup
-    private ListView listRsrt;
+    private ListView uiListRsrt;
 
     //activity requests
     private final int addSubmit_CONFIG_REQUEST = 1;
+    private final int modifySubmit_CONFIG_REQUEST = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_emp_list);
+        setContentView(R.layout.activity_main);
 
         databaseManager = new DatabaseManager(this);
         databaseManager.open();
         Cursor cursor = databaseManager.fetch();
 
-        listRsrt = (ListView) findViewById(R.id.lstRsrt);
-        listRsrt.setEmptyView(findViewById(R.id.txtEmptyList));
+        uiListRsrt = (ListView) findViewById(R.id.lstRsrt);
+        uiListRsrt.setEmptyView(findViewById(R.id.txtEmptyList));
 
-        adapter = new SimpleCursorAdapter(this, R.layout.activity_view_restaurant, cursor, dataFrom, dataTo, 0);
-        adapter.notifyDataSetChanged();
+//        adapter = new SimpleCursorAdapter(this, R.layout.activity_view_restaurant, cursor, dataFrom, dataTo, 0);
+//        adapter.notifyDataSetChanged();
 
-        listRsrt.setAdapter(adapter);
+        uiListRsrt.setAdapter(adapter);
 
+    }
+
+    public void clickModify (View view){
+        Intent modifyIntent = new Intent(this, EditRestaurantActivity.class);
+        startActivityForResult(modifyIntent, modifySubmit_CONFIG_REQUEST);
     }
 
     public void clickAdd (View view){
@@ -61,10 +74,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
-    protected void onBackResult(int requestCode, int resultCode, Intent backData){
-
-    }
-
 
 }

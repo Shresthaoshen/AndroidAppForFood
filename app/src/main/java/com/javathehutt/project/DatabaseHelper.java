@@ -26,8 +26,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //creating table query
     public static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + _ID +
-            " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT NOT NULL, " + PRICE + " DOUBLE, " +
-            RATING + " DOUBLE, " + NOTES + " TEXT, " + TAGS + " TEXT, SEPERATE BY ',' ";
+            " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT NOT NULL, " + PRICE + " REAL, " +
+            RATING + " REAL, " + NOTES + " TEXT, " + TAGS + " TEXT);";
 
     public DatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
