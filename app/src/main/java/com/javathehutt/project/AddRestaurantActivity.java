@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
 
 public class AddRestaurantActivity extends AppCompatActivity {
 
@@ -17,12 +14,18 @@ public class AddRestaurantActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_add_restaurant);
-
     }
 
     public void clickSubmit (View view) {
+        Intent submitIntent = new Intent(this, MainActivity.class);
 
+        submitIntent.putExtra("rsrtName", "added a new one, boys");
+        submitIntent.putExtra("rsrtPrice", 5.0);
+        submitIntent.putExtra("rsrtRating", 3.4);
+
+        setResult(RESULT_OK, submitIntent);
+
+        finish();
     }
 
 }

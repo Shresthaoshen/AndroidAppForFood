@@ -19,8 +19,8 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
         android:layout_marginTop="40dp"
         android:text="Recents"
         android:textSize="36sp"
@@ -32,35 +32,27 @@
         android:layout_width="wrap_content"
         android:layout_height="56sp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
         android:clickable="true"
         android:onClick="clickAdd"
         app:backgroundTint="#CECECE"
+        app:elevation="3dp"
+        app:hoveredFocusedTranslationZ="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:pressedTranslationZ="3dp"
         app:srcCompat="@android:drawable/ic_input_add" />
 
-    <TextView
-        android:id="@+id/txtEmptyList"
-        android:layout_width="372dp"
-        android:layout_height="337dp"
-        android:layout_marginTop="116dp"
-        android:text="NO ENTRIES"
+    <include
+        layout="@layout/restaurant_list"
+        android:layout_width="382dp"
+        android:layout_height="519dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
-
-    <ListView
-        android:id="@+id/lstRsrt"
-        android:layout_width="373dp"
-        android:layout_height="337dp"
-        android:layout_marginTop="116dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView">
-
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias=".5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

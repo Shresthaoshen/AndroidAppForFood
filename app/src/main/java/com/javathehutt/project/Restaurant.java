@@ -12,6 +12,12 @@ public class Restaurant {
         setName(name);
     }
 
+    public Restaurant(String name, double price, double rating) {
+        this.name = name;
+        this.price = price;
+        this.rating = rating;
+    }
+
     public String getName() {
         return name;
     }
