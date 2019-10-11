@@ -13,6 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
+        android:onClick="clickBack"
         android:text="\u2190"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -98,6 +99,7 @@
         android:layout_width="156sp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
+        android:onClick="clickUpdate"
         android:text="Update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,8 +109,11 @@
         android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clickDelete"
         android:text="Delete Restuarant"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="553dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

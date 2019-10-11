@@ -22,16 +22,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    //database setup
-    private DatabaseManager databaseManager;
-    private SimpleCursorAdapter adapter;
-    final String[] dataFrom = new String[] {DatabaseHelper._ID, DatabaseHelper.NAME, DatabaseHelper.PRICE,
-            DatabaseHelper.RATING, DatabaseHelper.NOTES, DatabaseHelper.TAGS};
-    final int[] dataTo = new int[] {R.id.rsrtName, R.id.rsrtPrice, R.id.rsrtRating};
-
-    //UI setup
-    private ListView uiListRsrt;
-
     //activity requests
     private final int addSubmit_CONFIG_REQUEST = 1;
     private final int modifySubmit_CONFIG_REQUEST = 2;
@@ -40,16 +30,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+            }
 
-        databaseManager = new DatabaseManager(this);
-        databaseManager.open();
-        Cursor cursor = databaseManager.fetch();
-
-        databaseManager.insert(demoRsrt());
-
-    }
-
-    public void clickModify (View view){
+    public void clickItem_Edit (View view){
         Intent modifyIntent = new Intent(this, EditRestaurantActivity.class);
         startActivityForResult(modifyIntent, modifySubmit_CONFIG_REQUEST);
     }
@@ -71,14 +54,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private Restaurant demoRsrt() {
-        Restaurant newRsrt = new Restaurant("title");
+    protected void onEditResult(int requestCode, int resultCode, Intent submitData){
+        if (requestCode == addSubmit_CONFIG_REQUEST) {
+            if (resultCode == RESULT_OK) {
 
-        newRsrt.setRating(0.1);
-        newRsrt.setPrice(3.4);
-        newRsrt.setNotes("noteees");
+                Toast.makeText(this, "switched over", Toast.LENGTH_LONG).show();
 
-        return newRsrt;
+            }
+
+        }
     }
+
+    protected void onBackResult(int requestCode, int resultCode, Intent backData){
+
+    }
+
 
 }

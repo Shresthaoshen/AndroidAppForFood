@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class EditRestaurantActivity extends AppCompatActivity {
 
@@ -13,8 +14,18 @@ public class EditRestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_restaurant);
     }
 
-    protected void onBackResult(int requestCode, int resultCode, Intent backData){
+    public void clickBack (View view){
 
     }
+
+    public void clickUpdate (View view){
+
+    }
+
+
+    public void clickDelete (View view){
+
+    }
+
 
 }
