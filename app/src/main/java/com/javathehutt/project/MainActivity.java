@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     //activity requests
     private final int addSubmit_CONFIG_REQUEST = 1;
-    private final int editUpdate_CONFIG_REQUEST = 2;
     private final int viewBack_CONFIG_REQUEST = 2;
 
     private ListView rsrtListView;
@@ -64,16 +63,17 @@ public class MainActivity extends AppCompatActivity {
         final RsrtListAdapter adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtList);
         rsrtListView.setAdapter(adapter);
 
-        //THIS WORKS AHAHAH
+
+        //short click to get into view state
         rsrtListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+
                 Restaurant rsrt = adapter.getItemAtPosition(position);
                 Intent viewIntent = new Intent(thisContext, ViewRestaurantActivity.class);
                 startActivityForResult(viewIntent, viewBack_CONFIG_REQUEST);
             }
         });
-
 
     }
 
@@ -83,10 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void clickItem_Edit (View view){
-        Intent modifyIntent = new Intent(this, EditRestaurantActivity.class);
-        startActivityForResult(modifyIntent, editUpdate_CONFIG_REQUEST);
-    }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent submitData){
         super.onActivityResult(requestCode, resultCode, submitData);
@@ -100,13 +96,6 @@ public class MainActivity extends AppCompatActivity {
 
             if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "switched over from back", Toast.LENGTH_LONG).show();
-            }
-        }
-
-        //on edit -> click Update
-        if (requestCode == editUpdate_CONFIG_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                Toast.makeText(this, "switched over from edit", Toast.LENGTH_LONG).show();
             }
         }
 

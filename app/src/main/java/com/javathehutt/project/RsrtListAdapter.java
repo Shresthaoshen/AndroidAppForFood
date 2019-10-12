@@ -48,7 +48,6 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         txtRating.setText(rating);
         txtPrice.setText("$" + price);
 
-
         return cConvertView;
     }
 
