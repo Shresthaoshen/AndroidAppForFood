@@ -15,7 +15,11 @@ public class EditRestaurantActivity extends AppCompatActivity {
     }
 
     public void clickBack (View view){
+        Intent backIntent = new Intent(this, MainActivity.class);
 
+        setResult(RESULT_OK, backIntent);
+
+        finish();
     }
 
     public void clickUpdate (View view){

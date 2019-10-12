@@ -1,26 +1,18 @@
 package com.javathehutt.project;
 
-import androidx.annotation.CallSuper;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+
 
 
 //from now own, fuck spelling - restaurant is going to be shortened to rsrt
@@ -34,16 +26,20 @@ public class MainActivity extends AppCompatActivity {
     //activity requests
     private final int addSubmit_CONFIG_REQUEST = 1;
     private final int editUpdate_CONFIG_REQUEST = 2;
-    private final int back_CONFIG_REQUEST = 3;
+    private final int viewBack_CONFIG_REQUEST = 2;
 
     private ListView rsrtListView;
 
     public ArrayList<Restaurant> rsrtList;
 
+    private Context thisContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        thisContext = this;
 
         rsrtListView = findViewById(R.id.lstRsrt);
 
@@ -65,30 +61,45 @@ public class MainActivity extends AppCompatActivity {
                 txtEmpty.setVisibility(View.INVISIBLE);
             }
 
-        RsrtListAdapter adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtList);
+        final RsrtListAdapter adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtList);
         rsrtListView.setAdapter(adapter);
+
+        //THIS WORKS AHAHAH
+        rsrtListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+                Restaurant rsrt = adapter.getItemAtPosition(position);
+                Intent viewIntent = new Intent(thisContext, ViewRestaurantActivity.class);
+                startActivityForResult(viewIntent, viewBack_CONFIG_REQUEST);
+            }
+        });
+
 
     }
 
     public void clickAdd (View view){
         Intent addIntent = new Intent(this, AddRestaurantActivity.class);
         startActivityForResult(addIntent, addSubmit_CONFIG_REQUEST);
+
+    }
+
+    public void clickItem_Edit (View view){
+        Intent modifyIntent = new Intent(this, EditRestaurantActivity.class);
+        startActivityForResult(modifyIntent, editUpdate_CONFIG_REQUEST);
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent submitData){
+        super.onActivityResult(requestCode, resultCode, submitData);
+
         //on add -> click Submit
         if (requestCode == addSubmit_CONFIG_REQUEST) {
             if (resultCode == RESULT_OK) {
 
-                String name = submitData.getExtras().getString("rsrtName");
-                Double price = submitData.getExtras().getDouble("rsrtPrice");
-                Double rating = submitData.getExtras().getDouble("rsrtRating");
-
-                //Restaurant newRsrt = new Restaurant(name, price,rating);
-
-                //rsrtList.add(newRsrt);
-
                 Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
+            }
+
+            if (resultCode == RESULT_CANCELED) {
+                Toast.makeText(this, "switched over from back", Toast.LENGTH_LONG).show();
             }
         }
 
@@ -99,22 +110,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        //on edit or add -> click back
-        if (requestCode == back_CONFIG_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                Toast.makeText(this, "switched over from back", Toast.LENGTH_LONG).show();
-            }
-        }
     }
-
-    public void clickItem_Edit (View view){
-        Intent modifyIntent = new Intent(this, EditRestaurantActivity.class);
-        startActivityForResult(modifyIntent, editUpdate_CONFIG_REQUEST);
-    }
-
-
-
-
-
 
 }
