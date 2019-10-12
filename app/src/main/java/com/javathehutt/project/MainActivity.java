@@ -43,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
         rsrtListView = findViewById(R.id.lstRsrt);
 
             //for testing
-            Restaurant rsrt1 = new Restaurant("1", 4.5, 5);
-            Restaurant rsrt2 = new Restaurant("2", 4.5, 5);
-            Restaurant rsrt3 = new Restaurant("3", 4.5, 5);
-            Restaurant rsrt4 = new Restaurant("4", 4.5, 5);
+            Restaurant rsrt1 = new Restaurant("Rsrt 1", 4.2, 0);
+            Restaurant rsrt2 = new Restaurant("Rsrt 2", 69.69, 5.12);
+            Restaurant rsrt3 = new Restaurant("Rsrt 3", 500000.21, 5.3);
+            Restaurant rsrt4 = new Restaurant("Rsrt 4", 0.01, 10);
 
             rsrtList = new ArrayList<>();
             rsrtList.add(rsrt1);
