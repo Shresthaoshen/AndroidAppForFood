@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
+    DatabaseHelper myDb;
 
     //activity requests
     private final int addSubmit_CONFIG_REQUEST = 1;
@@ -40,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //calls database constructor to create a database
+        myDb= new DatabaseHelper(this);
+
+
+
+
+
+
         thisContext = this;
 
         rsrtListView = findViewById(R.id.lstRsrt);
@@ -55,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         rsrtList.add(rsrt2);
         rsrtList.add(rsrt3);
         rsrtList.add(rsrt4);
+
+
 
         //turns off visibility of "no entries" - manual for now we'll figure out how to automatic it later
         TextView txtEmpty = findViewById(R.id.txtEmptyList);
