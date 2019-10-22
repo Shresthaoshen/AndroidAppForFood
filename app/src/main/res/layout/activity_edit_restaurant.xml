@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnBack">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userTitleEdit"
+            android:id="@+id/editText_Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter Restaurant Title" />
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtTitle">
 
         <EditText
-            android:id="@+id/numRating"
+            android:id="@+id/editText_Rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtRating">
 
         <EditText
-            android:id="@+id/numPrice"
+            android:id="@+id/editText_Price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txtPrice">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userNotesEdit"
+            android:id="@+id/editText_Notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Notes" />

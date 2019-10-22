@@ -24,7 +24,7 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
-    DatabaseHelper myDb;
+//    DatabaseHelper myDb;
 
     //activity requests
     private final int addSubmit_CONFIG_REQUEST = 1;
@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //calls database constructor to create a database
-        myDb= new DatabaseHelper(this);
+//        //calls database constructor to create a database
+//        myDb= new DatabaseHelper(this);
 
 
 

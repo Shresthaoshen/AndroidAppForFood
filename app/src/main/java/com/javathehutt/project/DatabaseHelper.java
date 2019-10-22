@@ -1,5 +1,6 @@
 package com.javathehutt.project;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -12,12 +13,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "RESTAURANT_TABLE";
 
     //data table columns
-    public static final String _ID = "ID";
+    public static final String ID = "ID";
     public static final String NAME = "Restaurant Name";
     public static final String PRICE = "Price";
     public static final String RATING = "Rating";
     public static final String NOTES = "Notes";
-//    public static final String TAGS = "Tags";
+    public static final String TAGS = "Tags";
 
 
 
@@ -32,14 +33,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
-        SQLiteDatabase database = this.getWritableDatabase();
+
+
     }
 
     //called when there's no database and the app needs one
     @Override
     public void onCreate(SQLiteDatabase database) {
 //        database.execSQL(CREATE_TABLE);
-        database.execSQL("create table " + TABLE_NAME +" (ID PRIMARY KEY AUTOINCREMENT, NAME TEXT, PRICE INTEGER, RATING INTEGER, NOTES TEXT)");
+        database.execSQL("create table " + TABLE_NAME +" ( ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PRICE INTEGER, RATING INTEGER, NOTES TEXT, TAGS TEXT)");
     }
 
     //called when scheme version we need != our current one
@@ -47,5 +49,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(database);
+    }
+
+    public boolean insertData(String restaurantName, String price, String rating, String notes, String tags) {
+        //Database constructor
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        //First value in brackets is column name, second is value of data
+        //Dont need one for ID because it's auto-incremented and generated
+        contentValues.put(NAME, restaurantName);
+        contentValues.put(PRICE, price);
+        contentValues.put(RATING, rating);
+        contentValues.put(NOTES, notes);
+        contentValues.put(TAGS, tags);
+
+        //First argument table name, second is null, third is content values
+        long result = database.insert(TABLE_NAME, null, contentValues);
+
+        if (result == -1) {
+            return false;
+        } else {
+            return true;
+        }
+
     }
 }

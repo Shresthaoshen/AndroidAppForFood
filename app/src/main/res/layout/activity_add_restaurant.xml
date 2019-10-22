@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:onClick="clickBack"
         android:text="\u2190"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,16 +24,18 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnBack">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userTitleEdit"
+        <EditText
+            android:id="@+id/editText_Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
             android:hint="Enter Restaurant Title"
-           />// android:imeOptions="actionDone"/>
+            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -42,19 +44,19 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle">
 
         <EditText
-            android:id="@+id/numRating"
+            android:id="@+id/editText_Rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
             android:hint="Rating"
-            android:inputType="numberDecimal"
-            android:imeOptions="actionDone"/>
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,12 +66,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtRating">
 
         <EditText
-            android:id="@+id/numPrice"
+            android:id="@+id/editText_Price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -85,22 +87,44 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPrice">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userNotesEdit"
+        <EditText
+            android:id="@+id/editText_Notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Notes" />
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Notes"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="360sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNotes">
+
+        <EditText
+            android:id="@+id/editText_Tags"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Tags"
+            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="156sp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="8dp"
         android:onClick="clickSubmit"
         android:text="Add"
         app:layout_constraintBottom_toBottomOf="parent"
