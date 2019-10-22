@@ -14,7 +14,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AddRestaurantActivity extends AppCompatActivity {
     DatabaseHelper myDb;
-    EditText editTitle, editRating, editPrice, editNotes, editTags;
+    EditText editTitle, editNotes, editTags, editRating, editPrice;
     Button btnAdd;
 
 
@@ -31,6 +31,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
         //Cast variables
         editTitle = (EditText) findViewById(R.id.editText_Title);
         editRating = (EditText) findViewById(R.id.editText_Rating);
+
         editPrice = (EditText) findViewById(R.id.editText_Price);
         editNotes = (EditText) findViewById(R.id.editText_Notes);
         editTags = (EditText) findViewById(R.id.editText_Tags);
@@ -49,7 +50,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
                                 editPrice.getText().toString(),
                                 editNotes.getText().toString(),
                                 editTags.getText().toString());
-                        if (isInserted = true) {
+                        if (isInserted == true) {
                             Toast.makeText(AddRestaurantActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                         } else {
                             Toast.makeText(AddRestaurantActivity.this, "Data not Inserted", Toast.LENGTH_LONG).show();

@@ -41,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase database) {
 //        database.execSQL(CREATE_TABLE);
-        database.execSQL("create table " + TABLE_NAME +" ( ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PRICE INTEGER, RATING INTEGER, NOTES TEXT, TAGS TEXT)");
+        database.execSQL("create table " + TABLE_NAME +" ( ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, PRICE TEXT, RATING TEXT, NOTES TEXT, TAGS TEXT)");
     }
 
     //called when scheme version we need != our current one
