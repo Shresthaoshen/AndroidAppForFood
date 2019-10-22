@@ -9,13 +9,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="235acf66-3318-40c5-a095-f5f2933c44da" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
-    </list>
+    <list default="true" id="235acf66-3318-40c5-a095-f5f2933c44da" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +142,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -368,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571752956519</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="working on widget">
+      <created>1571764878765</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1571764878765</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -385,7 +387,7 @@
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.50208044" side_tool="true" weight="0.19943222" />
       <window_info id="Capture Tool" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49791956" visible="true" weight="0.2771855" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49791956" visible="true" weight="0.2771855" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
@@ -407,7 +409,7 @@
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info active="true" anchor="right" id="Preview" order="4" visible="true" weight="0.37739873" />
+      <window_info anchor="right" id="Preview" order="4" visible="true" weight="0.37739873" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
     <layout-to-restore>
@@ -486,7 +488,8 @@
     <MESSAGE value="Formatted activity main so that everything isn't on top of each other, and removed the default top nav" />
     <MESSAGE value="Database revisions, and added database initialization in Main Activity" />
     <MESSAGE value="More updates to database, including adding code to insert data to database from addrestaurantactivity. Also made improvements to add restaurant xml file. Deleted database manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="More updates to database, including adding code to insert data to database from addrestaurantactivity. Also made improvements to add restaurant xml file. Deleted database manager" />
+    <MESSAGE value="working on widget" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on widget" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DeleteRestaurantActivity.java" />
