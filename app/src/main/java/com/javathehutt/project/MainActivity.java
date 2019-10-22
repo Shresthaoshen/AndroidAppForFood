@@ -106,8 +106,8 @@ public class MainActivity extends AppCompatActivity {
 
                         Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
 
-                        TextView txtEmpty = findViewById(R.id.txtEmptyList);
-                        txtEmpty.setVisibility(View.INVISIBLE);
+                        //TextView txtEmpty = findViewById(R.id.txtEmptyList);
+                        //txtEmpty.setVisibility(View.INVISIBLE);
 
                         data = myDb.getAllData();
                         data.moveToPosition(data.getCount()-1);
