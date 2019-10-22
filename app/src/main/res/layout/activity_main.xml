@@ -9,7 +9,7 @@
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
-        android:layout_height="100px"
+        android:layout_height="100dp"
         android:layout_marginTop="56dp"
         android:background="#ECECEC"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,14 +28,14 @@
         app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/addRecentButton"
         android:layout_width="wrap_content"
         android:layout_height="56sp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
         android:clickable="true"
-        android:onClick="clickAdd"
+        android:focusable="true"
         app:backgroundTint="#CECECE"
         app:elevation="3dp"
         app:hoveredFocusedTranslationZ="3dp"
