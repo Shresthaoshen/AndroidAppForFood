@@ -55,10 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
         data = myDb.getAllData();
 
+        TextView txtEmpty = findViewById(R.id.txtEmptyList);
+
         if (data.getCount() == 0) {
             Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
         }else {
-
+            txtEmpty.setVisibility(View.INVISIBLE);
             while(data.moveToNext()){
                 String title = (data.getString(1));
                 String rating = (data.getString(2));
@@ -75,12 +77,6 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget2, rsrtList);
         rsrtListView.setAdapter(adapter);
-
-        //turns off visibility of "no entries"
-        TextView txtEmpty = findViewById(R.id.txtEmptyList);
-        if (rsrtList.size() > 0) {
-            txtEmpty.setVisibility(View.INVISIBLE);
-        }
 
 
         //short click to get into view state
@@ -109,7 +105,12 @@ public class MainActivity extends AppCompatActivity {
                     if (resultCode == Activity.RESULT_OK) {
 
                         Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
-                        data.moveToPosition(data.getCount() - 1);
+
+                        TextView txtEmpty = findViewById(R.id.txtEmptyList);
+                        txtEmpty.setVisibility(View.INVISIBLE);
+
+                        data = myDb.getAllData();
+                        data.moveToPosition(data.getCount()-1);
                             String title = (data.getString(1));
                             String rating = (data.getString(2));
                             String price = (data.getString(3));
