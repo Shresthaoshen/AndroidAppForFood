@@ -3,8 +3,8 @@ package com.javathehutt.project;
 public class Restaurant {
 
     private String name;
-    private double price;
-    private double rating;
+    private String price;
+    private String rating;
     private String notes;
     private String tags;
 
@@ -12,10 +12,12 @@ public class Restaurant {
         setName(name);
     }
 
-    public Restaurant(String name, double price, double rating) {
+    public Restaurant(String name, String price, String rating, String notes, String tags) {
         this.name = name;
         this.price = price;
         this.rating = rating;
+        this.notes = notes;
+        this.tags = tags;
     }
 
     public String getName() {
@@ -26,19 +28,19 @@ public class Restaurant {
         this.name = name;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
-    public double getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 

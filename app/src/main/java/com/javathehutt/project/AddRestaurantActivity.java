@@ -65,6 +65,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
     public void clickSubmit (View view) {
         Intent submitIntent = new Intent(this, MainActivity.class);
 
+
         setResult(RESULT_OK, submitIntent);
 
         finish();

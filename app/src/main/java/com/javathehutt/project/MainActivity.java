@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,7 +25,9 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
-//    DatabaseHelper myDb;
+    DatabaseHelper myDb;
+    RsrtListAdapter adapter;
+
 
     //activity requests
     private final int addSubmit_CONFIG_REQUEST = 1;
@@ -40,11 +43,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        //calls database constructor to create a database
-//        myDb= new DatabaseHelper(this);
-
-
+        myDb = new DatabaseHelper(this);
 
 
 
@@ -53,19 +52,37 @@ public class MainActivity extends AppCompatActivity {
 
         rsrtListView = findViewById(R.id.lstRsrt);
 
-        //for testing
-        Restaurant rsrt1 = new Restaurant("Rsrt 1", 4.2, 0);
-        Restaurant rsrt2 = new Restaurant("Rsrt 2", 69.69, 5.12);
-        Restaurant rsrt3 = new Restaurant("Rsrt 3", 500000.21, 5.3);
-        Restaurant rsrt4 = new Restaurant("Rsrt 4", 0.01, 10);
-
-        rsrtList = new ArrayList<>();
-        rsrtList.add(rsrt1);
-        rsrtList.add(rsrt2);
-        rsrtList.add(rsrt3);
-        rsrtList.add(rsrt4);
 
 
+
+
+        rsrtList = new ArrayList<Restaurant>();
+//        rsrtList.add(rsrt1);
+
+        Cursor data = myDb.getAllData();
+
+        if (data.getCount() == 0) {
+            Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
+        }else {
+
+            while(data.moveToNext()){
+                String title = (data.getString(1));
+                String rating = (data.getString(2));
+                String price = (data.getString(3));
+                String notes = (data.getString(4));
+                String tags = (data.getString(5));
+
+                Restaurant rsrt1 = new Restaurant(title,price,rating,notes,tags);
+
+                rsrtList.add(rsrt1);
+
+
+
+            }
+        }
+
+        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtList);
+        rsrtListView.setAdapter(adapter);
 
         //turns off visibility of "no entries" - manual for now we'll figure out how to automatic it later
         TextView txtEmpty = findViewById(R.id.txtEmptyList);
@@ -73,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
             txtEmpty.setVisibility(View.INVISIBLE);
         }
 
-        final RsrtListAdapter adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtList);
-        rsrtListView.setAdapter(adapter);
+
 
 
         //short click to get into view state

@@ -33,9 +33,10 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         //get restaurant information
         String name = getItem(cPosition).getName();
         String rating = getItem(cPosition).getRating() + "";
+        String price = getItem(cPosition).getPrice();
 
-        Double decimalPrice = getItem(cPosition).getPrice();
-        String price  = String.format("%.02f", decimalPrice);
+//        String decimalPrice = getItem(cPosition).getPrice();
+//        String price  = String.format("%.02f", decimalPrice);
 
         LayoutInflater inflater = LayoutInflater.from(context);
         cConvertView = inflater.inflate(resource, cParent, false);
