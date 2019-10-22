@@ -76,23 +76,29 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(viewIntent, viewBack_CONFIG_REQUEST);
             }
         });
+    }
 
+    public void clickAdd (View view){
 
-        Button addRecentButton = findViewById(R.id.addRecentButton);
-        addRecentButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent addIntent = new Intent(getApplicationContext(), AddRestaurantActivity.class);
-                startActivityForResult(addIntent, addSubmit_CONFIG_REQUEST);
-
-            }
-        });
-
-        Intent submitData = new Intent(getApplicationContext(), AddRestaurantActivity.class);
-
+        Intent addIntent = new Intent(this, AddRestaurantActivity.class);
+        startActivityForResult(addIntent, addSubmit_CONFIG_REQUEST);
 
     }
+//        Button addRecentButton = findViewById(R.id.addRecentButton);
+//        addRecentButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent addIntent = new Intent(getApplicationContext(), AddRestaurantActivity.class);
+//                startActivityForResult(addIntent, addSubmit_CONFIG_REQUEST);
+//
+//            }
+//        });
+
+//        Intent submitData = new Intent(getApplicationContext(), AddRestaurantActivity.class);
+
+
+
 
     protected void onActivityResult(int requestCode, int resultCode, Intent submitData){
             super.onActivityResult(requestCode, resultCode, submitData);
@@ -128,12 +134,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 
-//    public void clickAdd (View view){
-//
-//        Intent addIntent = new Intent(this, AddRestaurantActivity.class);
-//        startActivityForResult(addIntent, addSubmit_CONFIG_REQUEST);
-//
-//    }
+
 
 
     }

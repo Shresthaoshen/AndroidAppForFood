@@ -36,6 +36,7 @@
         android:layout_marginRight="12dp"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="clickAdd"
         app:backgroundTint="#CECECE"
         app:elevation="3dp"
         app:hoveredFocusedTranslationZ="3dp"
