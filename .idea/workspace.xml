@@ -9,13 +9,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="235acf66-3318-40c5-a095-f5f2933c44da" name="Default Changelist" comment="Added button &amp; intent for new restaurant entry from the main activity– app keeps closing in the emulator though">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+    <list default="true" id="235acf66-3318-40c5-a095-f5f2933c44da" name="Default Changelist" comment="Formatted activity main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,12 +63,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="-27">
+              <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+            <state relative-caret-position="45">
+              <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -79,12 +85,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
+            <state relative-caret-position="524">
+              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2679#2978#0" expanded="true" />
-                <element signature="e#2977#2978#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,13 +128,15 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/ViewRestaurantActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="262" />
     <option name="y" value="23" />
-    <option name="width" value="1665" />
-    <option name="height" value="813" />
+    <option name="width" value="1178" />
+    <option name="height" value="821" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -169,6 +175,12 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="CMSC 355 Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
@@ -282,7 +294,21 @@
       <option name="project" value="LOCAL" />
       <updated>1570839195127</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added button &amp; intent for new restaurant entry from the main activity– app keeps closing in the emulator though. Also got rid of redundant casting in MainActivity class">
+      <created>1571703907579</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1571703907579</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed add button– floating action button couldn't be cast as regular button">
+      <created>1571704524668</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1571704524668</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -295,23 +321,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1665" height="813" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="813" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.50208044" side_tool="true" weight="0.19943222" />
       <window_info id="Capture Tool" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49791956" visible="true" weight="0.17313617" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49791956" visible="true" weight="0.20100144" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Logcat" order="0" weight="0.32972136" />
+      <window_info anchor="bottom" id="Logcat" order="0" weight="0.32871014" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.32972136" />
       <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.32972136" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.32972136" />
-      <window_info active="true" anchor="bottom" id="Messages" order="4" visible="true" weight="0.32871014" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.32871014" />
       <window_info anchor="bottom" id="Run" order="5" weight="0.32972136" />
       <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32972136" />
@@ -396,7 +422,9 @@
     <MESSAGE value="worked on populating the list - for some reason the AddRestaurant view isn't popping up now so idk what happened there&#10;ignoring the database for rn &#10;UI spacing is f*ed up maybe Ryan you can fix that?" />
     <MESSAGE value="Added an onclick listener for the listitems and also fixed the weird thing with the AddActivity" />
     <MESSAGE value="Added button &amp; intent for new restaurant entry from the main activity– app keeps closing in the emulator though" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added button &amp; intent for new restaurant entry from the main activity– app keeps closing in the emulator though" />
+    <MESSAGE value="Added button &amp; intent for new restaurant entry from the main activity– app keeps closing in the emulator though. Also got rid of redundant casting in MainActivity class" />
+    <MESSAGE value="Fixed add button– floating action button couldn't be cast as regular button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed add button– floating action button couldn't be cast as regular button" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DeleteRestaurantActivity.java" />
@@ -485,6 +513,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/restaurant_list.xml">
       <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
@@ -493,27 +535,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="80" column="33" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2679#2978#0" expanded="true" />
-            <element signature="e#2977#2978#0" expanded="true" />
-          </folding>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+        <state relative-caret-position="45">
+          <caret line="3" column="59" selection-start-line="3" selection-start-column="59" selection-end-line="3" selection-end-column="59" />
         </state>
       </provider>
     </entry>
