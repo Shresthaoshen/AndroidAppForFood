@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,10 +44,6 @@ public class MainActivity extends AppCompatActivity {
 //        myDb= new DatabaseHelper(this);
 
 
-
-
-
-
         thisContext = this;
 
         rsrtListView = findViewById(R.id.lstRsrt);
@@ -73,7 +68,9 @@ public class MainActivity extends AppCompatActivity {
             txtEmpty.setVisibility(View.INVISIBLE);
         }
 
-        final RsrtListAdapter adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtList);
+        //THIS IS WHERE IT ADDS ITEMS TO A LIST
+        //takes context, layout to fit it into, and the list w/ information
+        final RsrtListAdapter adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget2, rsrtList);
         rsrtListView.setAdapter(adapter);
 
 
