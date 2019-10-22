@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         rsrtListView = findViewById(R.id.lstRsrt);
 
             //for testing
+
             Restaurant rsrt1 = new Restaurant("Rsrt 1", 4.2, 0);
             Restaurant rsrt2 = new Restaurant("Rsrt 2", 69.69, 5.12);
             Restaurant rsrt3 = new Restaurant("Rsrt 3", 500000.21, 5.3);
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 Restaurant rsrt = adapter.getItemAtPosition(position);
                 Intent viewIntent = new Intent(thisContext, ViewRestaurantActivity.class);
                 startActivityForResult(viewIntent, viewBack_CONFIG_REQUEST);
+
             }
         });
 

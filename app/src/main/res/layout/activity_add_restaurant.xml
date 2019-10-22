@@ -32,7 +32,8 @@
             android:id="@+id/userTitleEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Restaurant Title" />
+            android:hint="Enter Restaurant Title"
+           />// android:imeOptions="actionDone"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -52,7 +53,8 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Rating"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:imeOptions="actionDone"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
