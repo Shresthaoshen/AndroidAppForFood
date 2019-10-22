@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,9 +46,22 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         TextView txtRating = (TextView) cConvertView.findViewById(R.id.rsrtRating);
         TextView txtPrice = (TextView) cConvertView.findViewById(R.id.rsrtPrice);
 
+        ProgressBar prgsBar = (ProgressBar) cConvertView.findViewById(R.id.progressBar);
+
         txtName.setText(name);
         txtRating.setText(rating);
         txtPrice.setText("$" + price);
+
+
+        double prgRating = getItem(cPosition).getRating();
+        prgRating = Math.round(prgRating);
+        int prgRatingInt = (int) prgRating;
+
+        if (prgRatingInt > prgsBar.getMax()) {
+            prgsBar.setMax(prgRatingInt);
+        }
+
+        prgsBar.setProgress(prgRatingInt);
 
         return cConvertView;
     }
