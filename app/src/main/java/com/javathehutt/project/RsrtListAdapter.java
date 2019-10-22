@@ -52,16 +52,16 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         txtRating.setText(rating);
         txtPrice.setText("$" + price);
 
-
-        double prgRating = getItem(cPosition).getRating();
-        prgRating = Math.round(prgRating);
-        int prgRatingInt = (int) prgRating;
-
-        if (prgRatingInt > prgsBar.getMax()) {
-            prgsBar.setMax(prgRatingInt);
-        }
-
-        prgsBar.setProgress(prgRatingInt);
+//
+//        String prgRating = getItem(cPosition).getRating();
+//        prgRating = Math.round(prgRating);
+//        int prgRatingInt = (int) prgRating;
+//
+//        if (prgRatingInt > prgsBar.getMax()) {
+//            prgsBar.setMax(prgRatingInt);
+//        }
+//
+//        prgsBar.setProgress(prgRatingInt);
 
         return cConvertView;
     }

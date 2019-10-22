@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtList);
+        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget2, rsrtList);
         rsrtListView.setAdapter(adapter);
 
         //turns off visibility of "no entries" - manual for now we'll figure out how to automatic it later
