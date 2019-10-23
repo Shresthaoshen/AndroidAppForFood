@@ -54,8 +54,10 @@ public class MainActivity extends AppCompatActivity {
         rsrtListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Restaurant rsrt = adapter.getItemAtPosition(position);
+                //Restaurant rsrt = adapter.getItemAtPosition(position);
                 Intent viewIntent = new Intent(thisContext, ViewRestaurantActivity.class);
+                viewIntent.putExtra("position", position);
+                viewIntent.putExtra("id", id);
                 startActivityForResult(viewIntent, viewBack_CONFIG_REQUEST);
             }
         });
