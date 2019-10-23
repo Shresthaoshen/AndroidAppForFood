@@ -52,10 +52,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="10.0"
             android:gravity="center_vertical"
-            android:max="10"
+            android:max="100"
             android:progress="9"
             android:paddingBottom="1dp"
             android:paddingTop="3dp"
+
             />
     </LinearLayout>
 
