@@ -90,11 +90,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPrice">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <EditText
             android:id="@+id/editText_Notes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Notes" />
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
