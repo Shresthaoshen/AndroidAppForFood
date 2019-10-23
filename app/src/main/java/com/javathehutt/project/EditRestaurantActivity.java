@@ -67,7 +67,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
     }
 
-
     public void updateData () {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
