@@ -75,8 +75,8 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
                 boolean isUpdate = databaseHelper.updateData(positionString,
                         editTitle.getText().toString(),
-                        editPrice.getText().toString(),
                         editRating.getText().toString(),
+                        editPrice.getText().toString(),
                         editNotes.getText().toString(),
                         editTags.getText().toString());
 
