@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingBottom="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp">
 
         <TextView
             android:id="@+id/uiTxtTitleLabel"
@@ -38,8 +41,8 @@
             android:id="@+id/uiTxtRatingLabel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="fill_vertical"
             android:layout_weight="90.0"
+            android:gravity="center"
             android:text="RATING" />
 
         <ProgressBar
@@ -51,6 +54,8 @@
             android:gravity="center_vertical"
             android:max="10"
             android:progress="9"
+            android:paddingBottom="1dp"
+            android:paddingTop="3dp"
             />
     </LinearLayout>
 

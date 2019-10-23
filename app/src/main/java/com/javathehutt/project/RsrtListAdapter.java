@@ -31,43 +31,38 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
     public View getView(int cPosition, @Nullable View cConvertView, @NonNull ViewGroup cParent) {
         DecimalFormat priceFormat = new DecimalFormat("#.##");
 
-        //get restaurant information
-        String name = getItem(cPosition).getName();
-        String rating = getItem(cPosition).getRating() + "";
-        String price = getItem(cPosition).getPrice();
+        //get restaurant information that's displayed on the widget
+        String uiName = getItem(cPosition).getName();
+        String uiRating = getItem(cPosition).getRating() + "";
+        String uiPrice = getItem(cPosition).getPrice();
 
-//        String decimalPrice = getItem(cPosition).getPrice();
-//        String price  = String.format("%.02f", decimalPrice);
+        //casting numbers to numbers
+        double decimalPrice = Double.parseDouble(uiPrice);
+        double decimalRating = Double.parseDouble(uiPrice);
 
+        //format numbers
+        String price  = String.format("%.02f", decimalPrice);
+        int intRating = (int) Math.round(decimalRating);
+
+        //place information on the widget layout
         LayoutInflater inflater = LayoutInflater.from(context);
         cConvertView = inflater.inflate(resource, cParent, false);
 
-        TextView txtName = (TextView) cConvertView.findViewById(R.id.uiTxtTitleLabel);
-        TextView txtRating = (TextView) cConvertView.findViewById(R.id.uiTxtRatingLabel);
-        TextView txtPrice = (TextView) cConvertView.findViewById(R.id.uiTxtPriceLabel);
+        //assign information to widget
+        TextView editName = (TextView) cConvertView.findViewById(R.id.uiTxtTitleLabel);
+        TextView editRating = (TextView) cConvertView.findViewById(R.id.uiTxtRatingLabel);
+        TextView editPrice = (TextView) cConvertView.findViewById(R.id.uiTxtPriceLabel);
 
-        ProgressBar prgsBar = (ProgressBar) cConvertView.findViewById(R.id.uiBarRating);
+        ProgressBar barRating = (ProgressBar) cConvertView.findViewById(R.id.uiBarRating);
 
-        txtName.setText(name);
-        txtRating.setText(rating);
-        txtPrice.setText("$" + price);
+        editName.setText(uiName);
+        editRating.setText(uiRating);
+        editPrice.setText("$" + uiPrice);
 
-//
-//        String prgRating = getItem(cPosition).getRating();
-//        prgRating = Math.round(prgRating);
-//        int prgRatingInt = (int) prgRating;
-//
-//        if (prgRatingInt > prgsBar.getMax()) {
-//            prgsBar.setMax(prgRatingInt);
-//        }
-//
-//        prgsBar.setProgress(prgRatingInt);
+        //set rating bar amount
+        barRating.setProgress(intRating);
 
         return cConvertView;
     }
 
-    //testing some stuff
-    public Restaurant getItemAtPosition(int position){
-        return getItem(position);
-    }
 }

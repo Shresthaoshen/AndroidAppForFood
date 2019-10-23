@@ -101,10 +101,13 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
     public void clickBack (View view){
         Intent backIntent = new Intent(this, ViewRestaurantActivity.class);
+            dataUpdated = false;
+            backIntent.putExtra("dataUpdated", dataUpdated);
         setResult(RESULT_CANCELED, backIntent);
         finish();
     }
 
+    //TODO
     public void clickDelete (View view){
         Intent backIntent = new Intent(this, ViewRestaurantActivity.class);
         setResult(RESULT_OK, backIntent);

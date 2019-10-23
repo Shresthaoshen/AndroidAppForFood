@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseHelper databaseHelper;
     private Cursor databaseCursor;
 
-    //activity requests
+    //activity managers
     private final int addSubmit_CONFIG_REQUEST = 1;
     private final int viewBack_CONFIG_REQUEST = 2;
     private boolean dataUpdated = false;
@@ -92,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if (requestCode == viewBack_CONFIG_REQUEST){
                     if (resultCode == Activity.RESULT_CANCELED) {
+
+                        //checks to see if any data was modified while in the activity
                         dataUpdated = submitData.getExtras().getBoolean("dataUpdated");
 
                         if (dataUpdated){
