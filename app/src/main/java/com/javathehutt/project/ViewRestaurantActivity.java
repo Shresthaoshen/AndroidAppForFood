@@ -3,6 +3,7 @@ package com.javathehutt.project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -12,12 +13,31 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
     private final int editUpdate_CONFIG_REQUEST = 2;
 
+    DatabaseHelper myDb;
+    Cursor data;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_restaurant);
 
+        Intent thisIntent = getIntent();
+        int id = thisIntent.getExtras().getInt("id");
 
+        TextView rsrtTitle = (TextView) findViewById(R.id.viewRestaurantLabel);
+
+        myDb = new DatabaseHelper(this);
+        data = myDb.getAllData();
+
+        data.moveToPosition(id);
+        int ID = (data.getInt(0));
+        String title = (data.getString(1));
+        String rating = (data.getString(2));
+        String price = (data.getString(3));
+        String notes = (data.getString(4));
+        String tags = (data.getString(5));
+
+        rsrtTitle.setText(title);
 
     }
 
