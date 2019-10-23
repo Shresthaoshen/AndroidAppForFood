@@ -80,4 +80,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
 
     }
+
+    public boolean updateData(String id, String restaurantName, String price,String rating, String notes, String tags) {
+        SQLiteDatabase database = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put(ID, id);
+        contentValues.put(NAME, restaurantName);
+        contentValues.put(PRICE, price);
+        contentValues.put(RATING, rating);
+        contentValues.put(NOTES, notes);
+        contentValues.put(TAGS, tags);
+
+        database.update(TABLE_NAME, contentValues, "ID = ?" ,new String[] { id });
+        return true;
+
+    }
 }
