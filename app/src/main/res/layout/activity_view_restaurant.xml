@@ -36,7 +36,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="RESTAURANT"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
