@@ -23,6 +23,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    //to-do - change rating to be /100 always to allow for smaller increments (just multiplying the decimals)
+    //to-do - get price formatting correctly when adding
+
     //database managers
     private DatabaseHelper databaseHelper;
     private Cursor databaseCursor;

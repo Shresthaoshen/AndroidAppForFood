@@ -41,7 +41,7 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         double decimalRating = Double.parseDouble(uiPrice);
 
         //format numbers
-        String price  = String.format("%.02f", decimalPrice);
+        String formatPrice  = String.format("%.02f", decimalPrice);
         int intRating = (int) Math.round(decimalRating);
 
         //place information on the widget layout
@@ -57,7 +57,7 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
 
         editName.setText(uiName);
         editRating.setText(uiRating);
-        editPrice.setText("$" + uiPrice);
+        editPrice.setText("$" + formatPrice);
 
         //set rating bar amount
         barRating.setProgress(intRating);
