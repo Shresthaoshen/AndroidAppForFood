@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EditRestaurantActivity extends AppCompatActivity {
 
@@ -64,6 +65,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 boolean isUpdate = myDb.updateData(holder,
                         rsrtTitle.getText().toString(),
                         rsrtPrice.getText().toString(),
@@ -72,6 +74,13 @@ public class EditRestaurantActivity extends AppCompatActivity {
                         rsrtTags.getText().toString());
 
                 clickUpdate(view);
+
+                if (isUpdate == true) {
+                    Toast.makeText(EditRestaurantActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(EditRestaurantActivity.this, "Data not Updated", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
     }
