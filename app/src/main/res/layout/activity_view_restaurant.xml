@@ -27,8 +27,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762" />
+        app:layout_constraintTop_toBottomOf="@+id/noteDisplay"
+        app:layout_constraintVertical_bias="0.76" />
 
     <TextView
         android:id="@+id/viewRestaurantLabel"
@@ -80,24 +80,35 @@
 
     <TextView
         android:id="@+id/ratingDisplay"
-        android:layout_width="260sp"
+        android:layout_width="300sp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
 
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="57dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/viewRestaurantRating"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewRestaurantLabel" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:id="@+id/priceDisplay"
+        android:layout_width="300sp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="56dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/viewRestaurantPrice"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingDisplay" />
+
+    <TextView
+        android:id="@+id/noteDisplay"
+        android:layout_width="300sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/priceDisplay" />
 </androidx.constraintlayout.widget.ConstraintLayout>
