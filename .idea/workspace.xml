@@ -91,8 +91,8 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="495" />
-    <option name="y" value="32" />
-    <option name="width" value="1432" />
+    <option name="y" value="31" />
+    <option name="width" value="1433" />
     <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -156,7 +156,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-10-22T23:19:40.950Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/SQLite" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
