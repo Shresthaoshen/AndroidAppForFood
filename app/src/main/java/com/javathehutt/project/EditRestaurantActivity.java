@@ -8,51 +8,95 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditRestaurantActivity extends AppCompatActivity {
 
-    DatabaseHelper myDb;
-    Cursor data;
+    //database managers
+    DatabaseHelper databaseHelper;
+    Cursor databaseCursor;
+
+    //UI Managers
+    EditText editTitle, editRating, editPrice, editNotes, editTags;
     Button btnUpdate;
 
-    //comment
-    EditText rsrtTitle, rsrtRating, rsrtPrice, rsrtNotes, rsrtTags;
+    //position records
     int position;
-    String holder;
+    String positionString;
+
+    //update tracker
+    boolean dataUpdated = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_restaurant);
 
+        //set up database managers
+        databaseHelper = new DatabaseHelper(this);
+        databaseCursor = databaseHelper.getAllData();
+
+        //get ID information from viewIntent
         Intent thisIntent = getIntent();
         position = thisIntent.getExtras().getInt("id");
 
-        rsrtTitle = findViewById(R.id.editText_Title);
-        rsrtRating = (EditText) findViewById(R.id.editText_Rating);
-        rsrtPrice = (EditText) findViewById(R.id.editText_Price);
-        rsrtNotes = (EditText) findViewById(R.id.editText_Notes);
-        rsrtTags = (EditText) findViewById(R.id.editText_Tags);
+        //cast variables
+        editTitle = (EditText) findViewById(R.id.userTxtTitle);
+        editRating = (EditText) findViewById(R.id.userTxtRating);
+        editPrice = (EditText) findViewById(R.id.userTxtPrice);
+        editNotes = (EditText) findViewById(R.id.userTxtNotes);
+        editTags = (EditText) findViewById(R.id.userTextTags);
+        btnUpdate = (Button) findViewById(R.id.uiBtnUpdate);
 
-        myDb = new DatabaseHelper(this);
-        data = myDb.getAllData();
+        //move cursor to position
+        databaseCursor.moveToPosition(position);
 
-        data.moveToPosition(position);
-        int ID = (data.getInt(0));
+        //get ID of current and cast to String
+        int ID = (databaseCursor.getInt(0));
+        positionString = (String.valueOf(databaseCursor.getInt(0)));
 
-        String tags = (data.getString(5));
+        //prepopulate edit fields with current info
+        editTitle.setText(databaseCursor.getString(1));
+        editRating.setText(databaseCursor.getString(2));
+        editPrice.setText(databaseCursor.getString(3));
+        editNotes.setText(databaseCursor.getString(4));
+        String tags = (databaseCursor.getString(5));
 
-        rsrtTitle.setText(data.getString(1));
-        rsrtRating.setText(data.getString(2));
-        rsrtPrice.setText(data.getString(3));
-        rsrtNotes.setText(data.getString(4));
-
-        holder = (String.valueOf(data.getInt(0)));
-
+        //updateData when called
         updateData();
 
+    }
+
+
+    public void updateData () {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                boolean isUpdate = databaseHelper.updateData(positionString,
+                        editTitle.getText().toString(),
+                        editPrice.getText().toString(),
+                        editRating.getText().toString(),
+                        editNotes.getText().toString(),
+                        editTags.getText().toString());
+
+                if (isUpdate == true) {
+                    Toast.makeText(EditRestaurantActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
+                    dataUpdated = true;
+                } else {
+                    Toast.makeText(EditRestaurantActivity.this, "Data Not Updated", Toast.LENGTH_LONG).show();
+                }
+
+                clickUpdate(view);
+            }
+        });
+    }
+
+    public void clickUpdate (View view){
+        Intent updateIntent = new Intent(this, ViewRestaurantActivity.class);
+            updateIntent.putExtra("dataUpdated", dataUpdated);
+        setResult(RESULT_OK, updateIntent);
+        finish();
     }
 
     public void clickBack (View view){
@@ -60,38 +104,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
         setResult(RESULT_CANCELED, backIntent);
         finish();
     }
-
-    public void updateData () {
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                boolean isUpdate = myDb.updateData(holder,
-                        rsrtTitle.getText().toString(),
-                        rsrtPrice.getText().toString(),
-                        rsrtRating.getText().toString(),
-                        rsrtNotes.getText().toString(),
-                        rsrtTags.getText().toString());
-
-                clickUpdate(view);
-
-                if (isUpdate == true) {
-                    Toast.makeText(EditRestaurantActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
-                } else {
-                    Toast.makeText(EditRestaurantActivity.this, "Data not Updated", Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
-    }
-
-    public void clickUpdate (View view){
-
-        Intent backIntent = new Intent(this, ViewRestaurantActivity.class);
-        setResult(RESULT_OK, backIntent);
-        finish();
-    }
-
 
     public void clickDelete (View view){
         Intent backIntent = new Intent(this, ViewRestaurantActivity.class);

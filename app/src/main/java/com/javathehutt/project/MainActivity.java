@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     //activity requests
     private final int addSubmit_CONFIG_REQUEST = 1;
     private final int viewBack_CONFIG_REQUEST = 2;
+    private boolean dataUpdated = false;
 
     //list managers
     private ListView uiListView;
@@ -90,7 +91,12 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if (requestCode == viewBack_CONFIG_REQUEST){
-                    if (resultCode == Activity.RESULT_OK) {
+                    if (resultCode == Activity.RESULT_CANCELED) {
+                        dataUpdated = submitData.getExtras().getBoolean("dataUpdated");
+
+                        if (dataUpdated){
+                            updateRecentList();
+                        }
                         Toast.makeText(this, "switched over from view", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -104,8 +110,8 @@ public class MainActivity extends AppCompatActivity {
         databaseCursor = databaseHelper.getAllData();
 
         //initialized ui elements
-        uiListView = findViewById(R.id.lstRsrt);
-        TextView uiTxtEmpty = findViewById(R.id.txtEmptyList);
+        uiListView = findViewById(R.id.uiListRsrt);
+        TextView uiTxtEmpty = findViewById(R.id.uiTxtEmpty);
 
         //creates a new ArrayList of type Restaurant
         rsrtArrayList = new ArrayList<>();
@@ -134,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //populates listView from rsrtArrayList
-        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget2, rsrtArrayList);
+        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtArrayList);
         uiListView.setAdapter(adapter);
     }
 

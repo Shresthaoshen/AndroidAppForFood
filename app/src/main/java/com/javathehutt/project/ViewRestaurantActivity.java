@@ -13,10 +13,14 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
     private final int editUpdate_CONFIG_REQUEST = 2;
 
+    //database managers
     DatabaseHelper myDb;
     Cursor data;
 
     int id;
+
+    //watches for updated data
+    boolean dataUpdated = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +30,14 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         Intent thisIntent = getIntent();
         id = thisIntent.getExtras().getInt("id");
 
-        TextView rsrtTitle = (TextView) findViewById(R.id.restaurantLabel);
-        TextView rsrtRating = (TextView) findViewById(R.id.ratingDisplay);
-        TextView rsrtPrice = (TextView) findViewById(R.id.priceDisplay);
-        TextView rsrtNotes = (TextView) findViewById(R.id.noteDisplay);
+        buildInformation();
+    }
+
+    protected void buildInformation() {
+        TextView rsrtTitle = (TextView) findViewById(R.id.uiTxtTitleLabel);
+        TextView rsrtRating = (TextView) findViewById(R.id.uiTxtRating);
+        TextView rsrtPrice = (TextView) findViewById(R.id.uiTxtPrice);
+        TextView rsrtNotes = (TextView) findViewById(R.id.uiTxtNotes);
 
         myDb = new DatabaseHelper(this);
         data = myDb.getAllData();
@@ -47,7 +55,6 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         rsrtRating.setText(rating);
         rsrtPrice.setText(price);
         rsrtNotes.setText(notes);
-
     }
 
     public void clickItem_Edit (View view){
@@ -58,6 +65,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
     public void clickBack (View view){
         Intent backIntent = new Intent(this, MainActivity.class);
+            backIntent.putExtra("dataUpdated", dataUpdated);
         setResult(RESULT_CANCELED, backIntent);
         finish();
     }
@@ -69,6 +77,12 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         if (requestCode == editUpdate_CONFIG_REQUEST) {
 
             if (resultCode == RESULT_OK) {
+                dataUpdated = submitData.getExtras().getBoolean("dataUpdated");
+
+                if (dataUpdated){
+                    buildInformation();
+                }
+
                 Toast.makeText(this, "switched over from edit", Toast.LENGTH_LONG).show();
             }
 

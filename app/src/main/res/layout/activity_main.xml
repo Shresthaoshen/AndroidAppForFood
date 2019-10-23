@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/uiSearch"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
@@ -16,7 +16,7 @@
         tools:layout_editor_absoluteX="27dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/uiTxtRecents"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -25,10 +25,10 @@
         android:text="Recents"
         android:textSize="36sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/uiSearch" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addRecentButton"
+        android:id="@+id/uiBtnAdd"
         android:layout_width="wrap_content"
         android:layout_height="56sp"
         android:layout_marginTop="16dp"
@@ -41,11 +41,12 @@
         app:elevation="3dp"
         app:hoveredFocusedTranslationZ="3dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintTop_toBottomOf="@+id/uiSearch"
         app:pressedTranslationZ="3dp"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <include
+        android:id="@+id/uiInclude"
         layout="@layout/restaurant_list"
         android:layout_width="382dp"
         android:layout_height="300dp"
@@ -53,6 +54,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtRecents" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

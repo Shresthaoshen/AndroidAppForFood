@@ -33,7 +33,7 @@ public class ExperienceRVA_Test2 {
     @Test
     public void mainActivityTest() {
         ViewInteraction imageButton = onView(
-                allOf(withId(R.id.addRecentButton),
+                allOf(withId(R.id.uiBtnAdd),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),

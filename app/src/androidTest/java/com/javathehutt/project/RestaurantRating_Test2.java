@@ -39,7 +39,7 @@ public class RestaurantRating_Test2 {
     @Test
     public void restaurantRating_Test2() {
         ViewInteraction floatingActionButton = onView(
-                allOf(withId(R.id.addRecentButton),
+                allOf(withId(R.id.uiBtnAdd),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -49,37 +49,37 @@ public class RestaurantRating_Test2 {
         floatingActionButton.perform(click());
 
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.editText_Title),
+                allOf(withId(R.id.userTxtTitle),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.txtTitle),
+                                        withId(R.id.uiTxtTitleLabel),
                                         0),
                                 0),
                         isDisplayed()));
         appCompatEditText.perform(replaceText("Cava"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.editText_Rating),
+                allOf(withId(R.id.userTxtRating),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.txtRating),
+                                        withId(R.id.uiTxtRatingLabel),
                                         0),
                                 0),
                         isDisplayed()));
         appCompatEditText2.perform(replaceText("8"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.editText_Rating), withText("8"),
+                allOf(withId(R.id.userTxtRating), withText("8"),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.txtRating),
+                                        withId(R.id.uiTxtRatingLabel),
                                         0),
                                 0),
                         isDisplayed()));
         appCompatEditText3.perform(pressImeActionButton());
 
         ViewInteraction appCompatButton = onView(
-                allOf(withId(R.id.btnAdd), withText("Add"),
+                allOf(withId(R.id.uiBtnAdd), withText("Add"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -89,7 +89,7 @@ public class RestaurantRating_Test2 {
         appCompatButton.perform(click());
 
         ViewInteraction progressBar = onView(
-                allOf(withId(R.id.progressBar),
+                allOf(withId(R.id.uiBarRating),
                         childAtPosition(
                                 childAtPosition(
                                         IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class),

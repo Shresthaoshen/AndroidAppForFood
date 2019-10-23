@@ -7,7 +7,7 @@
     tools:context=".ViewRestaurantActivity">
 
     <Button
-        android:id="@+id/btnBack2"
+        android:id="@+id/uiBtnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/uiBtnEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="clickItem_Edit"
@@ -27,11 +27,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noteDisplay"
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtNotes"
         app:layout_constraintVertical_bias="0.76" />
 
     <TextView
-        android:id="@+id/restaurantLabel"
+        android:id="@+id/uiTxtTitleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -41,10 +41,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack2" />
+        app:layout_constraintTop_toBottomOf="@+id/uiBtnBack" />
 
     <TextView
-        android:id="@+id/viewRestaurantRating"
+        android:id="@+id/uiTxtRatingLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -54,10 +54,10 @@
         android:layout_marginTop="57dp"
         android:text="Rating: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restaurantLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtTitleLabel" />
 
     <TextView
-        android:id="@+id/viewRestaurantPrice"
+        android:id="@+id/uiTxtPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -65,10 +65,10 @@
         android:layout_marginTop="56dp"
         android:text="Price: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewRestaurantRating" />
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtRatingLabel" />
 
     <TextView
-        android:id="@+id/viewRestaurantNotes"
+        android:id="@+id/uiTxtNotesLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -76,10 +76,10 @@
         android:layout_marginTop="56dp"
         android:text="Notes: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewRestaurantPrice" />
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtPriceLabel" />
 
     <TextView
-        android:id="@+id/ratingDisplay"
+        android:id="@+id/uiTxtRating"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
 
@@ -88,10 +88,10 @@
         android:layout_marginRight="16dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restaurantLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtTitleLabel" />
 
     <TextView
-        android:id="@+id/priceDisplay"
+        android:id="@+id/uiTxtPrice"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -99,10 +99,10 @@
         android:layout_marginRight="16dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ratingDisplay" />
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtRating" />
 
     <TextView
-        android:id="@+id/noteDisplay"
+        android:id="@+id/uiTxtNotes"
         android:layout_width="300sp"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -110,5 +110,5 @@
         android:layout_marginRight="16dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/priceDisplay" />
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtPrice" />
 </androidx.constraintlayout.widget.ConstraintLayout>

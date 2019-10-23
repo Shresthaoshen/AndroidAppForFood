@@ -38,7 +38,7 @@ public class OrganizedNotes_Test3 {
     @Test
     public void organizedNotes_Test3() {
         ViewInteraction floatingActionButton = onView(
-                allOf(withId(R.id.addRecentButton),
+                allOf(withId(R.id.uiBtnAdd),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -48,17 +48,17 @@ public class OrganizedNotes_Test3 {
         floatingActionButton.perform(click());
 
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.editText_Title),
+                allOf(withId(R.id.userTxtTitle),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.txtTitle),
+                                        withId(R.id.uiTxtTitleLabel),
                                         0),
                                 0),
                         isDisplayed()));
         appCompatEditText.perform(replaceText("Oshen"), closeSoftKeyboard());
 
         ViewInteraction appCompatButton = onView(
-                allOf(withId(R.id.btnAdd), withText("Add"),
+                allOf(withId(R.id.uiBtnAdd), withText("Add"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -68,7 +68,7 @@ public class OrganizedNotes_Test3 {
         appCompatButton.perform(click());
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.rsrtName), withText("Oshen"),
+                allOf(withId(R.id.uiTxtTitleLabel), withText("Oshen"),
                         childAtPosition(
                                 childAtPosition(
                                         IsInstanceOf.<View>instanceOf(android.widget.LinearLayout.class),

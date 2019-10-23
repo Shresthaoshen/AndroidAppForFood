@@ -34,7 +34,7 @@ public class ExperienceRVA_Test1 {
     @Test
     public void experienceRVA_Test1() {
         ViewInteraction listView = onView(
-                allOf(withId(R.id.lstRsrt),
+                allOf(withId(R.id.uiListRsrt),
                         childAtPosition(
                                 childAtPosition(
                                         IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class),

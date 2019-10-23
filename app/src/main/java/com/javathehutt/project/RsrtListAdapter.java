@@ -42,11 +42,11 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         LayoutInflater inflater = LayoutInflater.from(context);
         cConvertView = inflater.inflate(resource, cParent, false);
 
-        TextView txtName = (TextView) cConvertView.findViewById(R.id.rsrtName);
-        TextView txtRating = (TextView) cConvertView.findViewById(R.id.rsrtRating);
-        TextView txtPrice = (TextView) cConvertView.findViewById(R.id.rsrtPrice);
+        TextView txtName = (TextView) cConvertView.findViewById(R.id.uiTxtTitleLabel);
+        TextView txtRating = (TextView) cConvertView.findViewById(R.id.uiTxtRatingLabel);
+        TextView txtPrice = (TextView) cConvertView.findViewById(R.id.uiTxtPriceLabel);
 
-        ProgressBar prgsBar = (ProgressBar) cConvertView.findViewById(R.id.progressBar);
+        ProgressBar prgsBar = (ProgressBar) cConvertView.findViewById(R.id.uiBarRating);
 
         txtName.setText(name);
         txtRating.setText(rating);

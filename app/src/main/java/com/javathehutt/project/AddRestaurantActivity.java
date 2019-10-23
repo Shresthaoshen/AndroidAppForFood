@@ -9,14 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 
 public class AddRestaurantActivity extends AppCompatActivity {
-    DatabaseHelper myDb;
-    EditText editTitle, editNotes, editTags, editRating, editPrice;
-    Button btnAdd;
+    //database managers
+    DatabaseHelper databaseHelper;
 
+    //ui managers
+    EditText editTitle, editNotes, editTags, editRating, editPrice;
+    Button btnSubmit;
 
 
     @Override
@@ -25,27 +25,26 @@ public class AddRestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_restaurant);
 
         //calls database constructor to create a database
-        myDb= new DatabaseHelper(this);
+        databaseHelper = new DatabaseHelper(this);
 
+        //cast variables
+        editTitle = (EditText) findViewById(R.id.userTxtTitle);
+        editRating = (EditText) findViewById(R.id.userTxtRating);
+        editPrice = (EditText) findViewById(R.id.userTxtPrice);
+        editNotes = (EditText) findViewById(R.id.userTxtNotes);
+        editTags = (EditText) findViewById(R.id.userTextTags);
+        btnSubmit = (Button) findViewById(R.id.uiBtnAdd);
 
-        //Cast variables
-        editTitle = (EditText) findViewById(R.id.editText_Title);
-        editRating = (EditText) findViewById(R.id.editText_Rating);
-
-        editPrice = (EditText) findViewById(R.id.editText_Price);
-        editNotes = (EditText) findViewById(R.id.editText_Notes);
-        editTags = (EditText) findViewById(R.id.editText_Tags);
-        btnAdd = (Button) findViewById(R.id.btnAdd);
-        AddData();
-
+        SubmitData();
     }
 
-    public void AddData() {
-        btnAdd.setOnClickListener(
+    //onClick listener for submit button
+    public void SubmitData() {
+        btnSubmit.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isInserted = myDb.insertData(editTitle.getText().toString(),
+                        boolean isInserted = databaseHelper.insertData(editTitle.getText().toString(),
                                 editRating.getText().toString(),
                                 editPrice.getText().toString(),
                                 editNotes.getText().toString(),
@@ -64,9 +63,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
 
     public void clickSubmit (View view) {
         Intent submitIntent = new Intent(this, MainActivity.class);
-
         setResult(RESULT_OK, submitIntent);
-
         finish();
     }
 

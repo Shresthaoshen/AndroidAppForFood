@@ -34,7 +34,7 @@ public class ExperienceRVA_Test3 {
     @Test
     public void experienceRVA_Test3() {
         ViewInteraction floatingActionButton = onView(
-                allOf(withId(R.id.addRecentButton),
+                allOf(withId(R.id.uiBtnAdd),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -44,7 +44,7 @@ public class ExperienceRVA_Test3 {
         floatingActionButton.perform(click());
 
         ViewInteraction linearLayout = onView(
-                allOf(withId(R.id.txtTitle),
+                allOf(withId(R.id.uiTxtTitleLabel),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),

@@ -22,18 +22,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TAGS = "Tags";
 
 
-
     //database version
     static final int DB_VERSION = 1;
-
 
     public static final String CREATE_TABLE = "CREATE TABLE "+TABLE_NAME+ " ("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+ NAME+" TEXT,"+ PRICE+" TEXT ,"+ RATING+" TEXT ,"+ NOTES+" TEXT ,"+ TAGS+" TEXT);";
 
 
     public DatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
-
-
     }
 
     //create table
@@ -49,6 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(database);
     }
 
+    //add entry to SQLite database
     public boolean insertData(String restaurantName, String price, String rating, String notes, String tags) {
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
@@ -72,15 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    //retrieve all from sql
-
-    public Cursor getAllData() {
-        SQLiteDatabase database = this.getWritableDatabase();
-        Cursor data = database.rawQuery("select * from " +TABLE_NAME,null);
-        return data;
-
-    }
-
+    //update an SQLite entry
     public boolean updateData(String id, String restaurantName, String price,String rating, String notes, String tags) {
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -96,4 +85,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
 
     }
+
+    //retrieve all from sql
+    public Cursor getAllData() {
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor data = database.rawQuery("select * from " +TABLE_NAME,null);
+        return data;
+
+    }
+
+
 }

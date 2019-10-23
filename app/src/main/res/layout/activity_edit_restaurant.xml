@@ -7,7 +7,7 @@
     tools:context=".EditRestaurantActivity">
 
     <Button
-        android:id="@+id/btnBack"
+        android:id="@+id/uiBtnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -19,17 +19,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtTitle"
+        android:id="@+id/uiTxtTitleLabel"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBack">
+        app:layout_constraintTop_toBottomOf="@+id/uiBtnBack">
 
         <EditText
-            android:id="@+id/editText_Title"
+            android:id="@+id/userTxtTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -39,17 +39,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtRating"
+        android:id="@+id/uiTxtRatingLabel"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitle">
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtTitleLabel">
 
         <EditText
-            android:id="@+id/editText_Rating"
+            android:id="@+id/userTxtRating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -60,17 +60,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtPrice"
+        android:id="@+id/uiTxtPriceLabel"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtRating">
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtRatingLabel">
 
         <EditText
-            android:id="@+id/editText_Price"
+            android:id="@+id/userTxtPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -81,17 +81,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtNotes"
+        android:id="@+id/uiTxtNotesLabel"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPrice">
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtPriceLabel">
 
         <EditText
-            android:id="@+id/editText_Notes"
+            android:id="@+id/userTxtNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -101,7 +101,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnUpdate"
+        android:id="@+id/uiBtnUpdate"
         android:layout_width="156sp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="80dp"
@@ -112,7 +112,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/btnDelete"
+        android:id="@+id/uiBtnDelete"
         android:layout_width="413dp"
         android:layout_height="21dp"
         android:gravity="center_horizontal"
@@ -121,20 +121,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/uiBtnUpdate"
         app:layout_constraintVertical_bias="0.491" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/uiTxtTags"
         android:layout_width="360sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNotes">
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtNotesLabel">
 
         <EditText
-            android:id="@+id/editText_Tags"
+            android:id="@+id/userTextTags"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -38,7 +38,7 @@ public class OrganizedNotes_Test1 {
     @Test
     public void organizedNotes_Test1() {
         ViewInteraction floatingActionButton = onView(
-                allOf(withId(R.id.addRecentButton),
+                allOf(withId(R.id.uiBtnAdd),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
@@ -48,40 +48,40 @@ public class OrganizedNotes_Test1 {
         floatingActionButton.perform(click());
 
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.editText_Title),
+                allOf(withId(R.id.userTxtTitle),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.txtTitle),
+                                        withId(R.id.uiTxtTitleLabel),
                                         0),
                                 0),
                         isDisplayed()));
         appCompatEditText.perform(replaceText("Roots"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.editText_Notes),
+                allOf(withId(R.id.userTxtNotes),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.txtNotes),
+                                        withId(R.id.uiTxtNotesLabel),
                                         0),
                                 0),
                         isDisplayed()));
         appCompatEditText2.perform(replaceText("Yummy"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.editText_Notes), withText("Yummy"),
+                allOf(withId(R.id.userTxtNotes), withText("Yummy"),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.txtNotes),
+                                        withId(R.id.uiTxtNotesLabel),
                                         0),
                                 0),
                         isDisplayed()));
         appCompatEditText3.perform(pressImeActionButton());
 
         ViewInteraction editText = onView(
-                allOf(withId(R.id.editText_Notes), withText("Yummy"),
+                allOf(withId(R.id.userTxtNotes), withText("Yummy"),
                         childAtPosition(
                                 childAtPosition(
-                                        withId(R.id.txtNotes),
+                                        withId(R.id.uiTxtNotesLabel),
                                         0),
                                 0),
                         isDisplayed()));
