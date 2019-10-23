@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="@string/title_activity_restaurant_view"
+            android:hint="Restaurant Title"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 

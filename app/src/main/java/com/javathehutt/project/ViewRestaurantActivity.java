@@ -16,13 +16,15 @@ public class ViewRestaurantActivity extends AppCompatActivity {
     DatabaseHelper myDb;
     Cursor data;
 
+    int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_restaurant);
 
         Intent thisIntent = getIntent();
-        int id = thisIntent.getExtras().getInt("id");
+        id = thisIntent.getExtras().getInt("id");
 
         TextView rsrtTitle = (TextView) findViewById(R.id.viewRestaurantLabel);
 
@@ -43,6 +45,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
     public void clickItem_Edit (View view){
         Intent modifyIntent = new Intent(this, EditRestaurantActivity.class);
+        modifyIntent.putExtra("id", id);
         startActivityForResult(modifyIntent, editUpdate_CONFIG_REQUEST);
     }
 
