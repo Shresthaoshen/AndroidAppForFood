@@ -2,23 +2,31 @@ package com.javathehutt.project;
 
 public class Restaurant {
 
+    private int ID;
     private String name;
     private String price;
     private String rating;
     private String notes;
     private String tags;
 
-    public Restaurant (String name) {
+    public Restaurant (int ID, String name) {
+
+        setID(ID);
         setName(name);
     }
 
-    public Restaurant(String name, String price, String rating, String notes, String tags) {
+    public Restaurant(int ID, String name, String price, String rating, String notes, String tags) {
+        this.ID = ID;
         this.name = name;
         this.price = price;
         this.rating = rating;
         this.notes = notes;
         this.tags = tags;
     }
+
+    public int getID() { return ID; }
+
+    public void setID(int ID) { this.ID = ID;}
 
     public String getName() {
         return name;

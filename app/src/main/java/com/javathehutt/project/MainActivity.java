@@ -9,7 +9,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -45,38 +44,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myDb = new DatabaseHelper(this);
 
         thisContext = this;
 
-        rsrtListView = findViewById(R.id.lstRsrt);
-
-        rsrtList = new ArrayList<Restaurant>();
-
-        data = myDb.getAllData();
-
-        TextView txtEmpty = findViewById(R.id.txtEmptyList);
-
-        if (data.getCount() == 0) {
-            Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
-        }else {
-            txtEmpty.setVisibility(View.INVISIBLE);
-            while(data.moveToNext()){
-                String title = (data.getString(1));
-                String rating = (data.getString(2));
-                String price = (data.getString(3));
-                String notes = (data.getString(4));
-                String tags = (data.getString(5));
-
-                Restaurant rsrt = new Restaurant(title,price,rating,notes,tags);
-
-                rsrtList.add(rsrt);
-
-            }
-        }
-
-        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget2, rsrtList);
-        rsrtListView.setAdapter(adapter);
+        updateRecentList();
 
 
         //short click to get into view state
@@ -106,20 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
 
-                        //TextView txtEmpty = findViewById(R.id.txtEmptyList);
-                        //txtEmpty.setVisibility(View.INVISIBLE);
-
-                        data = myDb.getAllData();
-                        data.moveToPosition(data.getCount()-1);
-                            String title = (data.getString(1));
-                            String rating = (data.getString(2));
-                            String price = (data.getString(3));
-                            String notes = (data.getString(4));
-                            String tags = (data.getString(5));
-
-                        Restaurant rsrt = new Restaurant(title,price,rating,notes,tags);
-                        rsrtList.add(rsrt);
-
+                        updateRecentList();
 
                     }
 
@@ -128,6 +86,40 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
+    }
+
+    protected void updateRecentList(){
+        myDb = new DatabaseHelper(thisContext);
+
+        rsrtListView = findViewById(R.id.lstRsrt);
+
+        rsrtList = new ArrayList<Restaurant>();
+
+        data = myDb.getAllData();
+
+        TextView txtEmpty = findViewById(R.id.txtEmptyList);
+
+        if (data.getCount() == 0) {
+            Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
+        }else {
+            txtEmpty.setVisibility(View.INVISIBLE);
+            while(data.moveToNext()){
+                int ID = (data.getInt(0));
+                String title = (data.getString(1));
+                String rating = (data.getString(2));
+                String price = (data.getString(3));
+                String notes = (data.getString(4));
+                String tags = (data.getString(5));
+
+                Restaurant rsrt = new Restaurant(ID, title,price,rating,notes,tags);
+
+                rsrtList.add(rsrt);
+
+            }
+        }
+
+        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget2, rsrtList);
+        rsrtListView.setAdapter(adapter);
     }
 
 }
