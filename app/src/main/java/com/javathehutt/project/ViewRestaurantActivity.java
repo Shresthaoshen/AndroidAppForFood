@@ -17,7 +17,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_restaurant);
 
-    //    TextView viewRestaurantLable = (TextView)findViewById(R.id.viewRestaurantLable);
+
 
     }
 
