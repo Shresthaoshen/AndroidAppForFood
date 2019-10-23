@@ -24,8 +24,6 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         Intent thisIntent = getIntent();
         int id = thisIntent.getExtras().getInt("id");
 
-        TextView rsrtTitle = (TextView) findViewById(R.id.viewRestaurantLabel);
-
         myDb = new DatabaseHelper(this);
         data = myDb.getAllData();
 
@@ -37,7 +35,6 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         String notes = (data.getString(4));
         String tags = (data.getString(5));
 
-        rsrtTitle.setText(title);
 
     }
 
