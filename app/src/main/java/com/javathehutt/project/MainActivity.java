@@ -23,8 +23,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    //to-do - change rating to be /100 always to allow for smaller increments (just multiplying the decimals)
     //to-do - get price formatting correctly when adding
+    //to-do - rating bar ui in most (if not all) restaurant views
+    //to-do - tree system for tags - figure out how to do them as autofill/bubbles
 
     //database managers
     private DatabaseHelper databaseHelper;
