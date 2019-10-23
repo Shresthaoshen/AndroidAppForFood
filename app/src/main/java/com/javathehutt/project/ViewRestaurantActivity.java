@@ -26,6 +26,11 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         Intent thisIntent = getIntent();
         id = thisIntent.getExtras().getInt("id");
 
+        TextView rsrtTitle = (TextView) findViewById(R.id.restaurantLabel);
+        TextView rsrtRating = (TextView) findViewById(R.id.ratingDisplay);
+        TextView rsrtPrice = (TextView) findViewById(R.id.priceDisplay);
+        TextView rsrtNotes = (TextView) findViewById(R.id.noteDisplay);
+
         myDb = new DatabaseHelper(this);
         data = myDb.getAllData();
 
@@ -37,6 +42,11 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         String notes = (data.getString(4));
         String tags = (data.getString(5));
 
+
+        rsrtTitle.setText(title);
+        rsrtRating.setText(rating);
+        rsrtPrice.setText(price);
+        rsrtNotes.setText(notes);
 
     }
 
