@@ -14,6 +14,8 @@ public class EditRestaurantActivity extends AppCompatActivity {
     DatabaseHelper myDb;
     Cursor data;
 
+    EditText rsrtTitle, rsrtNotes, rsrtTags, rsrtRating, rsrtPrice;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,24 +24,23 @@ public class EditRestaurantActivity extends AppCompatActivity {
         Intent thisIntent = getIntent();
         int position = thisIntent.getExtras().getInt("id");
 
-        EditText rsrtTitle = findViewById(R.id.editText_Title);
-        //EditText rsrtRating = (EditText) findViewById(R.id.txtRating);
-        //EditText rsrtPrice = (EditText) findViewById(R.id.txtPrice);
-        //EditText rsrtNotes = (EditText) findViewById(R.id.txtRating);
+        rsrtTitle = findViewById(R.id.editText_Title);
+        rsrtRating = (EditText) findViewById(R.id.editText_Rating);
+        rsrtPrice = (EditText) findViewById(R.id.editText_Price);
+        rsrtNotes = (EditText) findViewById(R.id.editText_Notes);
 
         myDb = new DatabaseHelper(this);
         data = myDb.getAllData();
 
         data.moveToPosition(position);
         int ID = (data.getInt(0));
-        String title = (data.getString(1));
-        String rating = (data.getString(2));
-        String price = (data.getString(3));
-        String notes = (data.getString(4));
+
         String tags = (data.getString(5));
 
-        //rsrtTitle.setText(title);
-        //rsrtRating.setText();
+        rsrtTitle.setText(data.getString(1));
+        rsrtRating.setText(data.getString(2));
+        rsrtPrice.setText(data.getString(3));
+        rsrtNotes.setText(data.getString(4));
     }
 
     public void clickBack (View view){
@@ -49,6 +50,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     }
 
     public void clickUpdate (View view){
+        updateDataEntry();
         Intent backIntent = new Intent(this, ViewRestaurantActivity.class);
         setResult(RESULT_OK, backIntent);
         finish();
@@ -59,6 +61,16 @@ public class EditRestaurantActivity extends AppCompatActivity {
         Intent backIntent = new Intent(this, ViewRestaurantActivity.class);
         setResult(RESULT_OK, backIntent);
         finish();
+    }
+
+    protected void updateDataEntry(){
+        /*
+        myDb.insertData(rsrtTitle.getText().toString(),
+                                rsrtRating.getText().toString(),
+                                rsrtPrice.getText().toString(),
+                                rsrtNotes.getText().toString(),
+                                editTags.getText().toString());
+       */
     }
 
 

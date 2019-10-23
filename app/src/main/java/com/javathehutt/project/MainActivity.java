@@ -17,111 +17,125 @@ import java.util.ArrayList;
 
 
 
-//from now own, fuck spelling - restaurant is going to be shortened to rsrt
+//restaurant is going to be shortened to rsrt
 //if the user interacts with it - user(Type)(Name)  example userTxtName
 //if it's for the ui - ui(Type)(Name) example uiTxtName
 
-
-
 public class MainActivity extends AppCompatActivity {
-    DatabaseHelper myDb;
-    RsrtListAdapter adapter;
 
+    //database managers
+    private DatabaseHelper databaseHelper;
+    private Cursor databaseCursor;
 
     //activity requests
     private final int addSubmit_CONFIG_REQUEST = 1;
     private final int viewBack_CONFIG_REQUEST = 2;
 
-    private ListView rsrtListView;
+    //list managers
+    private ListView uiListView;
+    private RsrtListAdapter adapter;
+    public ArrayList<Restaurant> rsrtArrayList;
 
-    public ArrayList<Restaurant> rsrtList;
-
+    //self-reference context
     private Context thisContext;
 
-    Cursor data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //self-references context for onItemClick
         thisContext = this;
 
         updateRecentList();
 
-
-        //short click to get into view state
-        rsrtListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        //onClick listeners for list objects to get into viewRestaurant activity
+        uiListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                //Restaurant rsrt = adapter.getItemAtPosition(position);
                 Intent viewIntent = new Intent(thisContext, ViewRestaurantActivity.class);
-                viewIntent.putExtra("id", id);
-                viewIntent.putExtra("id", position);
+                    viewIntent.putExtra("id", id);
+                    viewIntent.putExtra("id", position);
                 startActivityForResult(viewIntent, viewBack_CONFIG_REQUEST);
             }
         });
     }
 
+    //onClick for add button - just starts addRestaurant activity
     public void clickAdd (View view){
-
         Intent addIntent = new Intent(this, AddRestaurantActivity.class);
         startActivityForResult(addIntent, addSubmit_CONFIG_REQUEST);
 
     }
 
+    //result
     protected void onActivityResult(int requestCode, int resultCode, Intent submitData){
             super.onActivityResult(requestCode, resultCode, submitData);
 
-                //on add -> click Submit
+                //on add activity -> click Submit
                 if (requestCode == addSubmit_CONFIG_REQUEST) {
                     if (resultCode == Activity.RESULT_OK) {
-
                         Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
 
+                        //updates ListView
                         updateRecentList();
 
                     }
 
+                    //on add activity -> clicked Back
                     if (resultCode == RESULT_CANCELED) {
                         Toast.makeText(this, "switched over from back", Toast.LENGTH_LONG).show();
                     }
                 }
 
+                if (requestCode == viewBack_CONFIG_REQUEST){
+                    if (resultCode == Activity.RESULT_OK) {
+                        Toast.makeText(this, "switched over from view", Toast.LENGTH_LONG).show();
+                    }
+                }
+
     }
 
+    //list manager - handles populating the list and updating it
     protected void updateRecentList(){
-        myDb = new DatabaseHelper(thisContext);
+        //initializes database managers
+        databaseHelper = new DatabaseHelper(thisContext);
+        databaseCursor = databaseHelper.getAllData();
 
-        rsrtListView = findViewById(R.id.lstRsrt);
+        //initialized ui elements
+        uiListView = findViewById(R.id.lstRsrt);
+        TextView uiTxtEmpty = findViewById(R.id.txtEmptyList);
 
-        rsrtList = new ArrayList<Restaurant>();
+        //creates a new ArrayList of type Restaurant
+        rsrtArrayList = new ArrayList<>();
 
-        data = myDb.getAllData();
-
-        TextView txtEmpty = findViewById(R.id.txtEmptyList);
-
-        if (data.getCount() == 0) {
+        //notifies of an empty restaurant list
+        if (databaseCursor.getCount() == 0) {
             Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
-        }else {
-            txtEmpty.setVisibility(View.INVISIBLE);
-            while(data.moveToNext()){
-                int ID = (data.getInt(0));
-                String title = (data.getString(1));
-                String rating = (data.getString(2));
-                String price = (data.getString(3));
-                String notes = (data.getString(4));
-                String tags = (data.getString(5));
+        }
 
-                Restaurant rsrt = new Restaurant(ID, title,price,rating,notes,tags);
+        else {
+            //hides empty restaurant message
+            uiTxtEmpty.setVisibility(View.INVISIBLE);
 
-                rsrtList.add(rsrt);
+            //populates restaurant object to be displayed on list view
+            while(databaseCursor.moveToNext()){
+                int ID = (databaseCursor.getInt(0));
+                String title = (databaseCursor.getString(1));
+                String rating = (databaseCursor.getString(2));
+                String price = (databaseCursor.getString(3));
+                String notes = (databaseCursor.getString(4));
+                String tags = (databaseCursor.getString(5));
+
+                rsrtArrayList.add(new Restaurant(ID, title,price,rating,notes,tags));
 
             }
         }
 
-        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget2, rsrtList);
-        rsrtListView.setAdapter(adapter);
+        //populates listView from rsrtArrayList
+        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget2, rsrtArrayList);
+        uiListView.setAdapter(adapter);
     }
 
 }

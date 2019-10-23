@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.76" />
 
     <TextView
-        android:id="@+id/viewRestaurantLabel"
+        android:id="@+id/restaurantLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
@@ -54,7 +54,7 @@
         android:layout_marginTop="57dp"
         android:text="Rating: "
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewRestaurantLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/restaurantLabel" />
 
     <TextView
         android:id="@+id/viewRestaurantPrice"
@@ -88,7 +88,7 @@
         android:layout_marginRight="16dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewRestaurantLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/restaurantLabel" />
 
     <TextView
         android:id="@+id/priceDisplay"
