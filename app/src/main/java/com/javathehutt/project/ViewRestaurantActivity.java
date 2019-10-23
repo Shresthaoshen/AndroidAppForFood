@@ -14,9 +14,10 @@ public class ViewRestaurantActivity extends AppCompatActivity {
     private final int editUpdate_CONFIG_REQUEST = 2;
 
     //database managers
-    DatabaseHelper myDb;
-    Cursor data;
+    DatabaseHelper databaseHelper;
+    Cursor databaseCursor;
 
+    //position information
     int id;
 
     //watches for updated data
@@ -28,38 +29,38 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_restaurant);
 
         Intent thisIntent = getIntent();
+
+        //pull ID from restaurant clicked
         id = thisIntent.getExtras().getInt("id");
 
         buildInformation();
     }
 
     protected void buildInformation() {
-        TextView rsrtTitle = (TextView) findViewById(R.id.uiTxtTitleLabel);
-        TextView rsrtRating = (TextView) findViewById(R.id.uiTxtRating);
-        TextView rsrtPrice = (TextView) findViewById(R.id.uiTxtPrice);
-        TextView rsrtNotes = (TextView) findViewById(R.id.uiTxtNotes);
+        //set up database information
+        databaseHelper = new DatabaseHelper(this);
+        databaseCursor = databaseHelper.getAllData();
 
-        myDb = new DatabaseHelper(this);
-        data = myDb.getAllData();
+        //cast variables
+        TextView editTitle = (TextView) findViewById(R.id.uiTxtTitleLabel);
+        TextView editRating = (TextView) findViewById(R.id.uiTxtRating);
+        TextView editPrice = (TextView) findViewById(R.id.uiTxtPrice);
+        TextView editNotes = (TextView) findViewById(R.id.uiTxtNotes);
 
-        data.moveToPosition(id);
-        int ID = (data.getInt(0));
-        String title = (data.getString(1));
-        String rating = (data.getString(2));
-        String price = (data.getString(3));
-        String notes = (data.getString(4));
-        String tags = (data.getString(5));
+        databaseCursor.moveToPosition(id);
+        int ID = (databaseCursor.getInt(0));
 
-
-        rsrtTitle.setText(title);
-        rsrtRating.setText(rating);
-        rsrtPrice.setText(price);
-        rsrtNotes.setText(notes);
+        //populate text information
+        editTitle.setText(databaseCursor.getString(1));
+        editRating.setText(databaseCursor.getString(2));
+        editPrice.setText("$" + databaseCursor.getString(3));
+        editNotes.setText(databaseCursor.getString(4));
+        String tags = (databaseCursor.getString(5));
     }
 
     public void clickItem_Edit (View view){
         Intent modifyIntent = new Intent(this, EditRestaurantActivity.class);
-        modifyIntent.putExtra("id", id);
+            modifyIntent.putExtra("id", id);
         startActivityForResult(modifyIntent, editUpdate_CONFIG_REQUEST);
     }
 
