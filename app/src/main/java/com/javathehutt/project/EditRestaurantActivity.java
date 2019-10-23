@@ -40,17 +40,18 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
         data.moveToPosition(position);
         int ID = (data.getInt(0));
-        String title = (data.getString(1));
-        String rating = (data.getString(2));
-        String price = (data.getString(3));
-        String notes = (data.getString(4));
+
         String tags = (data.getString(5));
 
+        rsrtTitle.setText(data.getString(1));
+        rsrtRating.setText(data.getString(2));
+        rsrtPrice.setText(data.getString(3));
+        rsrtNotes.setText(data.getString(4));
 
         holder = (String.valueOf(data.getInt(0)));
 
-        //rsrtTitle.setText(title);
-        //rsrtRating.setText();
+        updateData();
+
     }
 
     public void clickBack (View view){
@@ -72,8 +73,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
                 clickUpdate(view);
             }
-
-
         });
     }
 
