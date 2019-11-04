@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
 
     //spinner manager - handled populating the spinner of sort by choices
     protected void populateSpinner(){
-        String[] sortTypes = new String[]{"Recents", "Name", "Price", "Rating", "Oldest"};
+        String[] sortTypes = new String[]{"Recents", "Price - Low to High", "Price - High to Low", "Rating - Low to High", "Rating - High to Low", "Oldest"};
 
         ArrayAdapter<String> spinAdapter = new ArrayAdapter<>(this, R.layout.spinner_widget, sortTypes);
         spinAdapter.setDropDownViewResource(R.layout.spinner_dropdown_widget);
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity {
                         updateRecentList();
                         break;
                     case 1:
-                        dataSortType = "NAME";
+                        dataSortType = "PRICE";
                         dataSortOrder = "ASC";
                         Toast.makeText(thisContext, "selected 1", Toast.LENGTH_SHORT).show();
                         updateRecentList();
@@ -201,11 +201,17 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         dataSortOrder = "RATING";
-                        dataSortOrder = "DESC";
+                        dataSortOrder = "ASC";
                         Toast.makeText(thisContext, "selected 3", Toast.LENGTH_SHORT).show();
                         updateRecentList();
                         break;
                     case 4:
+                        dataSortType = "RATING";
+                        dataSortOrder = "DESC";
+                        Toast.makeText(thisContext, "selected 4", Toast.LENGTH_SHORT).show();
+                        updateRecentList();
+                        break;
+                    case 5:
                         dataSortType = "ID";
                         dataSortOrder = "ASC";
                         Toast.makeText(thisContext, "selected 4", Toast.LENGTH_SHORT).show();

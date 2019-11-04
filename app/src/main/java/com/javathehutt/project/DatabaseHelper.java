@@ -95,8 +95,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getAllData(String dataSortType, String dataSortOrder) {
         SQLiteDatabase database = this.getWritableDatabase();
         //Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY ID DESC",null);
-        //Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY " + dataSortType + " " + dataSortOrder,null);
-        Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY PRICE DESC", null); //ok - the issue? order by breaks SOMETHING. we get this far but something, somewhere, gets broken. I don't know what, but it is.
+        Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY " + dataSortType + " " + dataSortOrder,null); //ok - the issue? order by name/alphabet doesn't work. don't know why, it just doesn't
 
         return data;
 
