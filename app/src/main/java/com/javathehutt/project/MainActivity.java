@@ -155,8 +155,8 @@ public class MainActivity extends AppCompatActivity {
             while(databaseCursor.moveToNext()){
                 int ID = (databaseCursor.getInt(0));
                 String title = (databaseCursor.getString(1));
-                String rating = (databaseCursor.getString(2));
-                String price = (databaseCursor.getString(3));
+                String price = (databaseCursor.getString(2));
+                String rating = (databaseCursor.getString(3));
                 String notes = (databaseCursor.getString(4));
                 String tags = (databaseCursor.getString(5));
 

@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //database version
     static final int DB_VERSION = 1;
 
-    public static final String CREATE_TABLE = "CREATE TABLE "+TABLE_NAME+ " ("+ID+" INTEGER PRIMARY KEY AUTOINCREMENT, "+ NAME+" TEXT,"+ PRICE+" TEXT ,"+ RATING+" TEXT ,"+ NOTES+" TEXT ,"+ TAGS+" TEXT);";
+    public static final String CREATE_TABLE = "CREATE TABLE "+TABLE_NAME+ " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT,"+ PRICE + " TEXT ," + RATING + " TEXT ," + NOTES + " TEXT ," + TAGS + " TEXT);";
 
 
     public DatabaseHelper(Context context){
@@ -96,7 +96,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
         //Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY ID DESC",null);
         //Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY " + dataSortType + " " + dataSortOrder,null);
-        Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY NAME DESC",null);
+        Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY PRICE DESC", null); //ok - the issue? order by breaks SOMETHING. we get this far but something, somewhere, gets broken. I don't know what, but it is.
 
         return data;
 

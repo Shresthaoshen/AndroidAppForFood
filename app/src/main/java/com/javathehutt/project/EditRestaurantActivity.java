@@ -18,7 +18,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     Cursor databaseCursor;
 
     //UI Managers
-    EditText editTitle, editRating, editPrice, editNotes, editTags;
+    EditText editTitle, editPrice, editRating, editNotes, editTags;
     Button btnUpdate;
     TextView btnDelete;
 
@@ -49,8 +49,8 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
         //cast variables
         editTitle = (EditText) findViewById(R.id.userTxtTitle);
-        editRating = (EditText) findViewById(R.id.userTxtRating);
         editPrice = (EditText) findViewById(R.id.userTxtPrice);
+        editRating = (EditText) findViewById(R.id.userTxtRating);
         editNotes = (EditText) findViewById(R.id.userTxtNotes);
         editTags = (EditText) findViewById(R.id.userTextTags);
 
@@ -66,8 +66,8 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
         //prepopulate edit fields with current info
         editTitle.setText(databaseCursor.getString(1));
-        editRating.setText(databaseCursor.getString(2));
         editPrice.setText(databaseCursor.getString(3));
+        editRating.setText(databaseCursor.getString(2));
         editNotes.setText(databaseCursor.getString(4));
         String tags = (databaseCursor.getString(5));
 
@@ -87,8 +87,8 @@ public class EditRestaurantActivity extends AppCompatActivity {
                 if (checkedCompletion()) {
                     boolean isUpdate = databaseHelper.updateData(positionString,
                             editTitle.getText().toString(),
-                            editRating.getText().toString(),
                             editPrice.getText().toString(),
+                            editRating.getText().toString(),
                             editNotes.getText().toString(),
                             editTags.getText().toString());
 
@@ -156,13 +156,13 @@ public class EditRestaurantActivity extends AppCompatActivity {
             return false;
         }
 
-        if (editRating.getText().toString().trim().length() == 0){
-            Toast.makeText(this, "You did not enter a rating", Toast.LENGTH_SHORT).show();
+        if (editPrice.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a price", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (editPrice.getText().toString().trim().length() == 0){
-            Toast.makeText(this, "You did not enter a price", Toast.LENGTH_SHORT).show();
+        if (editRating.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a rating", Toast.LENGTH_SHORT).show();
             return false;
         }
 

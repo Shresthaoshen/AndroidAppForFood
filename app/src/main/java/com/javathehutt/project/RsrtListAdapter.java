@@ -37,8 +37,9 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
 
         //get restaurant information that's displayed on the widget
         String uiName = getItem(cPosition).getName();
-        String uiRating = getItem(cPosition).getRating() + "";
         String uiPrice = getItem(cPosition).getPrice();
+        String uiRating = getItem(cPosition).getRating() + "";
+
 
         //casting numbers to numbers
         double decimalPrice = Double.parseDouble(uiPrice);
@@ -54,14 +55,14 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
 
         //assign information to widget
         TextView editName = (TextView) cConvertView.findViewById(R.id.uiTxtTitleLabel);
-        TextView editRating = (TextView) cConvertView.findViewById(R.id.uiTxtRatingLabel);
         TextView editPrice = (TextView) cConvertView.findViewById(R.id.uiTxtPriceLabel);
+        TextView editRating = (TextView) cConvertView.findViewById(R.id.uiTxtRatingLabel);
 
         ProgressBar barRating = (ProgressBar) cConvertView.findViewById(R.id.uiBarRating);
 
         editName.setText(uiName);
-        editRating.setText(uiRating);
         editPrice.setText("$" + formatPrice);
+        editRating.setText(uiRating);
 
         //set rating bar amount
         barRating.setProgress(intRating);

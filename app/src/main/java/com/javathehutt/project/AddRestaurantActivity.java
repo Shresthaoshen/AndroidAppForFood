@@ -16,7 +16,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
 
     //ui managers
-    EditText editTitle, editNotes, editTags, editRating, editPrice;
+    EditText editTitle, editPrice, editRating, editNotes, editTags;
     Button btnSubmit;
 
 
@@ -30,8 +30,8 @@ public class AddRestaurantActivity extends AppCompatActivity {
 
         //cast variables
         editTitle = (EditText) findViewById(R.id.userTxtTitle);
-        editRating = (EditText) findViewById(R.id.userTxtRating);
         editPrice = (EditText) findViewById(R.id.userTxtPrice);
+        editRating = (EditText) findViewById(R.id.userTxtRating);
         editNotes = (EditText) findViewById(R.id.userTxtNotes);
         editTags = (EditText) findViewById(R.id.userTextTags);
         btnSubmit = (Button) findViewById(R.id.uiBtnAdd);
@@ -48,8 +48,8 @@ public class AddRestaurantActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if (checkedCompletion()) {
                             boolean isInserted = databaseHelper.insertData(editTitle.getText().toString(),
-                                    editRating.getText().toString(),
                                     editPrice.getText().toString(),
+                                    editRating.getText().toString(),
                                     editNotes.getText().toString(),
                                     editTags.getText().toString());
                             if (isInserted == true) {
@@ -84,13 +84,13 @@ public class AddRestaurantActivity extends AppCompatActivity {
             return false;
         }
 
-        if (editRating.getText().toString().trim().length() == 0){
-            Toast.makeText(this, "You did not enter a rating", Toast.LENGTH_SHORT).show();
+        if (editPrice.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a price", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-        if (editPrice.getText().toString().trim().length() == 0){
-            Toast.makeText(this, "You did not enter a price", Toast.LENGTH_SHORT).show();
+        if (editRating.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a rating", Toast.LENGTH_SHORT).show();
             return false;
         }
 
