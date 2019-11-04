@@ -185,26 +185,31 @@ public class MainActivity extends AppCompatActivity {
                         dataSortType = "ID";
                         dataSortOrder = "DESC";
                         Toast.makeText(thisContext, "selected 0", Toast.LENGTH_SHORT).show();
+                        updateRecentList();
                         break;
                     case 1:
                         dataSortType = "NAME";
                         dataSortOrder = "ASC";
                         Toast.makeText(thisContext, "selected 1", Toast.LENGTH_SHORT).show();
+                        updateRecentList();
                         break;
                     case 2:
                         dataSortType = "PRICE";
                         dataSortOrder = "DESC";
                         Toast.makeText(thisContext, "selected 2", Toast.LENGTH_SHORT).show();
+                        updateRecentList();
                         break;
                     case 3:
                         dataSortOrder = "RATING";
                         dataSortOrder = "DESC";
                         Toast.makeText(thisContext, "selected 3", Toast.LENGTH_SHORT).show();
+                        updateRecentList();
                         break;
                     case 4:
                         dataSortType = "ID";
                         dataSortOrder = "ASC";
                         Toast.makeText(thisContext, "selected 4", Toast.LENGTH_SHORT).show();
+                        updateRecentList();
                         break;
                 }
             }

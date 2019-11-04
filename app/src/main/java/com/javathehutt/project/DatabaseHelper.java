@@ -95,7 +95,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getAllData(String dataSortType, String dataSortOrder) {
         SQLiteDatabase database = this.getWritableDatabase();
         //Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY ID DESC",null);
-        Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY " + dataSortType + " " + dataSortOrder,null);
+        //Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY " + dataSortType + " " + dataSortOrder,null);
+        Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY NAME DESC",null);
 
         return data;
 
