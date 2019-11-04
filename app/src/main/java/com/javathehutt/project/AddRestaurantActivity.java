@@ -3,6 +3,7 @@ package com.javathehutt.project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,22 +41,25 @@ public class AddRestaurantActivity extends AppCompatActivity {
 
     //onClick listener for submit button
     public void SubmitData() {
+
         btnSubmit.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        boolean isInserted = databaseHelper.insertData(editTitle.getText().toString(),
-                                editRating.getText().toString(),
-                                editPrice.getText().toString(),
-                                editNotes.getText().toString(),
-                                editTags.getText().toString());
-                        if (isInserted == true) {
-                            Toast.makeText(AddRestaurantActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
-                        } else {
-                            Toast.makeText(AddRestaurantActivity.this, "Data not Inserted", Toast.LENGTH_LONG).show();
-                        }
+                        if (checkedCompletion()) {
+                            boolean isInserted = databaseHelper.insertData(editTitle.getText().toString(),
+                                    editRating.getText().toString(),
+                                    editPrice.getText().toString(),
+                                    editNotes.getText().toString(),
+                                    editTags.getText().toString());
+                            if (isInserted == true) {
+                                Toast.makeText(AddRestaurantActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(AddRestaurantActivity.this, "Data not Inserted", Toast.LENGTH_LONG).show();
+                            }
 
-                        clickSubmit(view);
+                            clickSubmit(view);
+                        }
                     }
                 }
         );
@@ -71,6 +75,26 @@ public class AddRestaurantActivity extends AppCompatActivity {
         Intent backIntent = new Intent(this, MainActivity.class);
         setResult(RESULT_CANCELED, backIntent);
         finish();
+    }
+
+    private boolean checkedCompletion (){
+
+        if (editTitle.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a title", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (editRating.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a rating", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (editPrice.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a price", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 
 }

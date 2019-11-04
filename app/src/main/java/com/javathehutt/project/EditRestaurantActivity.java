@@ -72,21 +72,23 @@ public class EditRestaurantActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                boolean isUpdate = databaseHelper.updateData(positionString,
-                        editTitle.getText().toString(),
-                        editRating.getText().toString(),
-                        editPrice.getText().toString(),
-                        editNotes.getText().toString(),
-                        editTags.getText().toString());
+                if (checkedCompletion()) {
+                    boolean isUpdate = databaseHelper.updateData(positionString,
+                            editTitle.getText().toString(),
+                            editRating.getText().toString(),
+                            editPrice.getText().toString(),
+                            editNotes.getText().toString(),
+                            editTags.getText().toString());
 
-                if (isUpdate == true) {
-                    Toast.makeText(EditRestaurantActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
-                    dataUpdated = true;
-                } else {
-                    Toast.makeText(EditRestaurantActivity.this, "Data Not Updated", Toast.LENGTH_LONG).show();
+                    if (isUpdate == true) {
+                        Toast.makeText(EditRestaurantActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
+                        dataUpdated = true;
+                    } else {
+                        Toast.makeText(EditRestaurantActivity.this, "Data Not Updated", Toast.LENGTH_LONG).show();
+                    }
+
+                    clickUpdate(view);
                 }
-
-                clickUpdate(view);
             }
         });
     }
@@ -111,6 +113,26 @@ public class EditRestaurantActivity extends AppCompatActivity {
         Intent backIntent = new Intent(this, ViewRestaurantActivity.class);
         setResult(RESULT_OK, backIntent);
         finish();
+    }
+
+    private boolean checkedCompletion (){
+
+        if (editTitle.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a title", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (editRating.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a rating", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (editPrice.getText().toString().trim().length() == 0){
+            Toast.makeText(this, "You did not enter a price", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
     }
 
 
