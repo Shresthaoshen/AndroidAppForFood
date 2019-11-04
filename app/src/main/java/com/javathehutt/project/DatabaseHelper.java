@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.media.session.PlaybackState;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -50,6 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+
         //First value in brackets is column name, second is value of data
         //Dont need one for ID because it's auto-incremented and generated
         contentValues.put(NAME, restaurantName);
@@ -70,10 +72,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //update an SQLite entry
-    public boolean updateData(String id, String restaurantName, String price,String rating, String notes, String tags) {
+    public boolean updateData(String id, String restaurantName, String price, String rating, String notes, String tags) {
+        //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
+        //First value in brackets is column name, second is value of data
         contentValues.put(ID, id);
         contentValues.put(NAME, restaurantName);
         contentValues.put(PRICE, price);
@@ -81,7 +85,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(NOTES, notes);
         contentValues.put(TAGS, tags);
 
-        database.update(TABLE_NAME, contentValues, "ID = ?" ,new String[]{ id });
+        //first argument is table name, second is content values (data), third is whereclause, fourth is where
+        database.update(TABLE_NAME, contentValues, "ID = ?", new String[]{ id });
         return true;
 
     }
@@ -94,5 +99,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    //delete data from sql
+    public boolean deleteData(String id){
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        return database.delete(TABLE_NAME, "ID = ?", new String[] { id }) != 0;
+
+    }
 
 }

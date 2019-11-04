@@ -22,6 +22,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
     //watches for updated data
     boolean dataUpdated = false;
+    boolean dataDeleted = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,12 +80,21 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
             if (resultCode == RESULT_OK) {
                 dataUpdated = submitData.getExtras().getBoolean("dataUpdated");
+                dataDeleted = submitData.getExtras().getBoolean("dataDeleted");
 
                 if (dataUpdated){
                     buildInformation();
+                    Toast.makeText(this, "switched over from edit", Toast.LENGTH_LONG).show();
                 }
 
-                Toast.makeText(this, "switched over from edit", Toast.LENGTH_LONG).show();
+                if (dataDeleted){
+                    Toast.makeText(this, "switched from delete", Toast.LENGTH_LONG).show();
+                    Intent deleteIntent = new Intent(this, MainActivity.class);
+                        deleteIntent.putExtra("dataDeleted", dataDeleted);
+                        setResult(RESULT_CANCELED, deleteIntent);
+                    finish();
+                }
+
             }
 
             if (resultCode == RESULT_CANCELED) {

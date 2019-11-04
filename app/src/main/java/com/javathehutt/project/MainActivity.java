@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
     //self-reference context
     private Context thisContext;
 
+    //data trackers
+    private boolean dataDeleted = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,16 +97,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
+                //on view activity -> click Back
                 if (requestCode == viewBack_CONFIG_REQUEST){
                     if (resultCode == Activity.RESULT_CANCELED) {
 
                         //checks to see if any data was modified while in the activity
                         dataUpdated = submitData.getExtras().getBoolean("dataUpdated");
+                        dataDeleted = submitData.getExtras().getBoolean("dataDeleted");
 
-                        if (dataUpdated){
+                        if (dataUpdated || dataDeleted){
                             updateRecentList();
                         }
+
                         Toast.makeText(this, "switched over from view", Toast.LENGTH_LONG).show();
+
                     }
                 }
 

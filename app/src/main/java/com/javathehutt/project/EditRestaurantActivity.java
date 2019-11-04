@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditRestaurantActivity extends AppCompatActivity {
@@ -19,6 +20,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     //UI Managers
     EditText editTitle, editRating, editPrice, editNotes, editTags;
     Button btnUpdate;
+    TextView btnDelete;
 
     //position records
     int position;
@@ -26,6 +28,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
     //update tracker
     boolean dataUpdated = false;
+    boolean dataDeleted = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,9 @@ public class EditRestaurantActivity extends AppCompatActivity {
         editPrice = (EditText) findViewById(R.id.userTxtPrice);
         editNotes = (EditText) findViewById(R.id.userTxtNotes);
         editTags = (EditText) findViewById(R.id.userTextTags);
+
         btnUpdate = (Button) findViewById(R.id.uiBtnUpdate);
+        btnDelete = (TextView) findViewById(R.id.uiBtnDelete);
 
         //move cursor to position
         databaseCursor.moveToPosition(position);
@@ -64,6 +69,9 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
         //updateData when called
         updateData();
+
+        //deleteData when called
+        deleteData();
 
     }
 
@@ -93,6 +101,26 @@ public class EditRestaurantActivity extends AppCompatActivity {
         });
     }
 
+    public void deleteData() {
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(EditRestaurantActivity.this, "Deleted Clicked", Toast.LENGTH_SHORT).show();
+                boolean isDelete = databaseHelper.deleteData(positionString);
+
+                if (isDelete == true) {
+                    Toast.makeText(EditRestaurantActivity.this, "Data Deleted", Toast.LENGTH_LONG).show();
+                    dataDeleted = true;
+                } else {
+                    Toast.makeText(EditRestaurantActivity.this, "Data Not Deleted", Toast.LENGTH_LONG).show();
+                }
+
+                clickDelete(view);
+            }
+        });
+    }
+
+
     public void clickUpdate (View view){
         Intent updateIntent = new Intent(this, ViewRestaurantActivity.class);
             updateIntent.putExtra("dataUpdated", dataUpdated);
@@ -110,7 +138,9 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
     //TODO
     public void clickDelete (View view){
-        Intent backIntent = new Intent(this, ViewRestaurantActivity.class);
+        Intent backIntent = new Intent(this, MainActivity.class);
+            dataDeleted = true;
+            backIntent.putExtra("dataDeleted", dataDeleted);
         setResult(RESULT_OK, backIntent);
         finish();
     }
