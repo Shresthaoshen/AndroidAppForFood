@@ -9,7 +9,9 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
     //data trackers
     private boolean dataDeleted = false;
+    public String dataSortType = "ID";
+    public String dataSortOrder = "DESC";
+
+    //ui elements
+    private Spinner uiSpinner;
 
 
     @Override
@@ -55,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
 
         //self-references context for onItemClick
         thisContext = this;
+
+        //populated spinner list
+        uiSpinner = findViewById(R.id.uiDropSort);
+        populateSpinner();
+
 
         updateRecentList();
 
@@ -120,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     protected void updateRecentList(){
         //initializes database managers
         databaseHelper = new DatabaseHelper(thisContext);
-        databaseCursor = databaseHelper.getAllData();
+        databaseCursor = databaseHelper.getAllData(); //i was going to pass this stuff into here for the sort but it's fighting me
 
         //initialized ui elements
         uiListView = findViewById(R.id.uiListRsrt);
@@ -132,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
         //notifies of an empty restaurant list
         if (databaseCursor.getCount() == 0) {
             Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
+            uiTxtEmpty.setVisibility(View.VISIBLE);
         }
 
         else {
@@ -156,5 +169,48 @@ public class MainActivity extends AppCompatActivity {
         adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtArrayList);
         uiListView.setAdapter(adapter);
     }
+
+    //spinner manager - handled populating the spinner of sort by choices
+    protected void populateSpinner(){
+        String[] sortTypes = new String[]{"Recents", "Name", "Price", "Rating", "Oldest"};
+
+        ArrayAdapter<String> spinAdapter = new ArrayAdapter<>(this, R.layout.spinner_widget, sortTypes);
+        spinAdapter.setDropDownViewResource(R.layout.spinner_dropdown_widget);
+        uiSpinner.setAdapter(spinAdapter);
+        uiSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                switch (i) {
+                    case 0:
+                        dataSortType = "ID";
+                        dataSortOrder = "DESC";
+                        break;
+                    case 1:
+                        dataSortType = "NAME";
+                        dataSortOrder = "ASC";
+                        break;
+                    case 2:
+                        dataSortType = "PRICE";
+                        dataSortOrder = "DESC";
+                        break;
+                    case 3:
+                        dataSortOrder = "RATING";
+                        dataSortOrder = "DESC";
+                        break;
+                    case 4:
+                        dataSortType = "ID";
+                        dataSortOrder = "ASC";
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+    }
+
+
 
 }
