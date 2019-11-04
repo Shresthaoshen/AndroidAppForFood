@@ -24,6 +24,10 @@ public class ViewRestaurantActivity extends AppCompatActivity {
     boolean dataUpdated = false;
     boolean dataDeleted = false;
 
+    //data sort types
+    public String dataSortType = "ID";
+    public String dataSortOrder = "DESC";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +44,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
     protected void buildInformation() {
         //set up database information
         databaseHelper = new DatabaseHelper(this);
-        databaseCursor = databaseHelper.getAllData();
+        databaseCursor = databaseHelper.getAllData(dataSortType, dataSortOrder);
 
         //cast variables
         TextView editTitle = (TextView) findViewById(R.id.uiTxtTitleLabel);

@@ -30,6 +30,10 @@ public class EditRestaurantActivity extends AppCompatActivity {
     boolean dataUpdated = false;
     boolean dataDeleted = true;
 
+    //data sort types
+    public String dataSortType = "ID";
+    public String dataSortOrder = "DESC";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +41,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
         //set up database managers
         databaseHelper = new DatabaseHelper(this);
-        databaseCursor = databaseHelper.getAllData();
+        databaseCursor = databaseHelper.getAllData(dataSortType, dataSortOrder);
 
         //get ID information from viewIntent
         Intent thisIntent = getIntent();

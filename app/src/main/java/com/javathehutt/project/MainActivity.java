@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     protected void updateRecentList(){
         //initializes database managers
         databaseHelper = new DatabaseHelper(thisContext);
-        databaseCursor = databaseHelper.getAllData(); //i was going to pass this stuff into here for the sort but it's fighting me
+        databaseCursor = databaseHelper.getAllData(dataSortType, dataSortOrder); //i was going to pass this stuff into here for the sort but it's fighting me
 
         //initialized ui elements
         uiListView = findViewById(R.id.uiListRsrt);
