@@ -4,4 +4,4 @@
         android:id="@+id/uiSpinnerText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="36sp" />
+        android:textSize="28sp" />

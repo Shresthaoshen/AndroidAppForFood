@@ -177,15 +177,17 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> spinAdapter = new ArrayAdapter<>(this, R.layout.spinner_widget, sortTypes);
         spinAdapter.setDropDownViewResource(R.layout.spinner_dropdown_widget);
         uiSpinner.setAdapter(spinAdapter);
+
+        //sets up a listener and changes the sort keywords based on the case - case aligns with index of spinAdapter array
         uiSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i) {
                     case 0:
-                        dataSortType = "ID";
-                        dataSortOrder = "DESC";
+                        dataSortType = "ID"; //sort type
+                        dataSortOrder = "DESC"; //sort order
                         Toast.makeText(thisContext, "selected 0", Toast.LENGTH_SHORT).show();
-                        updateRecentList();
+                        updateRecentList(); //updates list
                         break;
                     case 1:
                         dataSortType = "PRICE";
