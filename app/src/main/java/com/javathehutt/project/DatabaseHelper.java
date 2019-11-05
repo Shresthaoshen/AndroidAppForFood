@@ -22,12 +22,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String NOTES = "Notes";
     public static final String TAGS = "Tags";
 
-
     //database version
     static final int DB_VERSION = 1;
 
-    public static final String CREATE_TABLE = "CREATE TABLE "+TABLE_NAME+ " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT,"+ PRICE + " TEXT ," + RATING + " TEXT ," + NOTES + " TEXT ," + TAGS + " TEXT);";
-
+    public static final String CREATE_TABLE = "CREATE TABLE "+ TABLE_NAME + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT,"+ PRICE + " TEXT," + RATING + " TEXT," + NOTES + " TEXT," + TAGS + " TEXT);";
 
     public DatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);

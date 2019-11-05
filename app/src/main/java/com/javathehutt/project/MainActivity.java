@@ -89,6 +89,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //onClick for settings button - opens setting drawer
+    public void clickSettings (View view){
+        Intent settingsIntent = new Intent(this, SettingsActivity.class);
+        startActivityForResult(settingsIntent, addSubmit_CONFIG_REQUEST);
+    }
+
     //result
     protected void onActivityResult(int requestCode, int resultCode, Intent submitData){
             super.onActivityResult(requestCode, resultCode, submitData);

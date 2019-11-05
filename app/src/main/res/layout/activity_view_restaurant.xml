@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ViewRestaurantActivity">
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/uiBtnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -14,9 +14,14 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="32dp"
         android:onClick="clickBack"
-        android:text="\u2190"
+        android:clickable="true"
+        android:src="@drawable/arrow_back"
+        app:backgroundTint="#DCDCDC"
+        app:elevation="0dp"
+        app:hoveredFocusedTranslationZ="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <Button
         android:id="@+id/uiBtnEdit"
@@ -47,9 +52,7 @@
         android:id="@+id/uiTxtRatingLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-
-
+        android:layout_marginStart="26dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="57dp"
         android:text="Rating: "
@@ -60,7 +63,7 @@
         android:id="@+id/uiTxtPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="26dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="56dp"
         android:text="Price: "
@@ -71,7 +74,7 @@
         android:id="@+id/uiTxtNotesLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="26dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="56dp"
         android:text="Notes: "

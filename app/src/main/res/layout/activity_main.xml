@@ -6,21 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/uiBtnSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="56sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="clickSettings"
+        android:src="@drawable/dehaze"
+        app:backgroundTint="#ffffff"
+        app:elevation="-1dp"
+        app:hoveredFocusedTranslationZ="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pressedTranslationZ="3dp" />
+
     <SearchView
         android:id="@+id/uiSearch"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="308dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
         android:background="#ECECEC"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="27dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toEndOf="@+id/uiBtnSettings"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </SearchView>
 
     <Spinner
         android:id="@+id/uiDropSort"
         android:layout_width="310dp"
         android:layout_height="57dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:spinnerMode="dropdown"
         android:textSize="36sp"
@@ -32,18 +54,18 @@
         android:layout_width="wrap_content"
         android:layout_height="56sp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:clickable="true"
         android:focusable="true"
         android:onClick="clickAdd"
+        android:src="@drawable/create"
         app:backgroundTint="#CECECE"
         app:elevation="3dp"
         app:hoveredFocusedTranslationZ="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uiSearch"
-        app:pressedTranslationZ="3dp"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:pressedTranslationZ="3dp" />
 
     <include
         android:id="@+id/uiInclude"
@@ -54,5 +76,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uiDropSort" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
