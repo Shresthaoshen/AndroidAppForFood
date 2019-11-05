@@ -40,7 +40,6 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         String uiPrice = getItem(cPosition).getPrice();
         String uiRating = getItem(cPosition).getRating() + "";
 
-
         //casting numbers to numbers
         double decimalPrice = Double.parseDouble(uiPrice);
         double decimalRating = Double.parseDouble(uiRating) * 10;

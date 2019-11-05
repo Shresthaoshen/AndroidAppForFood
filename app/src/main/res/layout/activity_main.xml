@@ -41,13 +41,14 @@
         android:id="@+id/uiDropSort"
         android:layout_width="310dp"
         android:layout_height="57dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uiSearch"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:spinnerMode="dropdown"
         android:textSize="36sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uiSearch" />
+        android:overlapAnchor="false"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/uiBtnAdd"

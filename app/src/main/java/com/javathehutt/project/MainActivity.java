@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
+import java.util.Collections;
 
 
 //restaurant is going to be shortened to rsrt
@@ -43,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
     private RsrtListAdapter adapter;
     public ArrayList<Restaurant> rsrtArrayList;
 
+    //price trackers
+        //array lines up with min/max prices - [0] is $, [5] is $$$$$
+    public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
+    public ArrayList<Double> priceList = new ArrayList<Double>();
+    public double priceAverage = 0;
+
     //self-reference context
     private Context thisContext;
 
@@ -67,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         uiSpinner = findViewById(R.id.uiDropSort);
         populateSpinner();
 
-
+        //update list of restaurants displayed
         updateRecentList();
 
         //onClick listeners for list objects to get into viewRestaurant activity
@@ -166,10 +172,32 @@ public class MainActivity extends AppCompatActivity {
                 String notes = (databaseCursor.getString(4));
                 String tags = (databaseCursor.getString(5));
 
-                rsrtArrayList.add(new Restaurant(ID, title,price,rating,notes,tags));
+                //finds the average
+                priceList.add(Double.parseDouble(price));
 
+                rsrtArrayList.add(new Restaurant(ID, title,price,rating,notes,tags));
             }
+
         }
+
+        Collections.sort(priceList);
+
+        for (int i = 0; i < priceList.size(); i++){
+            priceAverage += priceList.get(i);
+        }
+
+        priceAverage = priceAverage/(priceList.size());
+
+        //min ($)
+        priceScale[0] = priceList.get(0);
+        //max ($$$$$)
+        priceScale[4] = priceList.get(priceList.size()-1);
+        //average ($$$)
+        priceScale[2] = priceAverage;
+        //min average ($$)
+        priceScale[1] = (priceAverage+priceScale[0])/2;
+        //max average ($$$$)
+        priceScale[3] = (priceAverage+priceScale[4])/2;
 
         //populates listView from rsrtArrayList
         adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtArrayList);
