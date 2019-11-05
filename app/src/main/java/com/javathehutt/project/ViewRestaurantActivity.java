@@ -48,8 +48,8 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
         //cast variables
         TextView editTitle = (TextView) findViewById(R.id.uiTxtTitleLabel);
-        TextView editPrice = (TextView) findViewById(R.id.uiTxtRating);
-        TextView editRating = (TextView) findViewById(R.id.uiTxtPrice);
+        TextView editPrice = (TextView) findViewById(R.id.uiTxtPrice);
+        TextView editRating = (TextView) findViewById(R.id.uiTxtRating);
         TextView editNotes = (TextView) findViewById(R.id.uiTxtNotes);
 
         databaseCursor.moveToPosition(id);
@@ -57,8 +57,8 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
         //populate text information
         editTitle.setText(databaseCursor.getString(1));
-        editPrice.setText(databaseCursor.getString(2));
-        editRating.setText("$" + databaseCursor.getString(3));
+        editPrice.setText("$" + databaseCursor.getString(2));
+        editRating.setText(databaseCursor.getString(3));
         editNotes.setText(databaseCursor.getString(4));
         String tags = (databaseCursor.getString(5));
     }

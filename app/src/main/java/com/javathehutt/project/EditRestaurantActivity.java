@@ -66,8 +66,8 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
         //prepopulate edit fields with current info
         editTitle.setText(databaseCursor.getString(1));
-        editPrice.setText(databaseCursor.getString(3));
-        editRating.setText(databaseCursor.getString(2));
+        editPrice.setText(databaseCursor.getString(2));
+        editRating.setText(databaseCursor.getString(3));
         editNotes.setText(databaseCursor.getString(4));
         String tags = (databaseCursor.getString(5));
 

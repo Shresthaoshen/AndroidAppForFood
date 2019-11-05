@@ -79,10 +79,11 @@
             android:textColor="#101010"/>
 
         <Switch
-            android:id="@+id/uiSwitchPriceNumbers"
+            android:id="@+id/userSwitchPriceNumbers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="10" />
+            android:layout_weight="10"
+            tools:checked="true" />
 
 
     </LinearLayout>

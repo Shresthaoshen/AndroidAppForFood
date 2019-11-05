@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +25,17 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
     private Context context;
     int resource;
 
-    public RsrtListAdapter(@NonNull Context cContext, int cResource, @NonNull ArrayList<Restaurant> cObjects) {
+    //settings manager
+        //false = display as $$s, true = display as $0.00
+    private boolean settingsPriceNumber;
+    private double[] priceScale;
+
+    public RsrtListAdapter(@NonNull Context cContext, int cResource, @NonNull ArrayList<Restaurant> cObjects, double[] cPriceScale, boolean cSettingPriceNumber) {
         super(cContext, cResource, cObjects);
         context = cContext;
         resource = cResource;
+        settingsPriceNumber = cSettingPriceNumber;
+        priceScale = cPriceScale;
     }
 
     @NonNull
@@ -60,7 +68,29 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         ProgressBar barRating = (ProgressBar) cConvertView.findViewById(R.id.uiBarRating);
 
         editName.setText(uiName);
-        editPrice.setText("$" + formatPrice);
+
+        //PRICE SETTINGS
+        if (settingsPriceNumber) {
+            editPrice.setText("$" + formatPrice);
+        }
+
+        if (!settingsPriceNumber) {
+            int scale = 0;
+            String priceText = "";
+            for (int i = 0; i < priceScale.length; i++ ){
+                if (decimalPrice >= priceScale[i]){
+                    priceText += "<b>$</b>";
+                }
+                /*else {
+                    priceText += "$";
+                }*/
+            }
+            editPrice.setText(Html.fromHtml(priceText));
+
+        }
+
+
+        //RATING SETTINGS
         editRating.setText(uiRating);
 
         //set rating bar amount

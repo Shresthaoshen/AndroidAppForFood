@@ -20,8 +20,8 @@ import java.util.Collections;
 
 
 //restaurant is going to be shortened to rsrt
-//if the user interacts with it - user(Type)(Name)  example userTxtName
-//if it's for the ui - ui(Type)(Name) example uiTxtName
+//if the user interacts with it for data reasons - user(Type)(Name)  example userTxtName
+//if it's for the ui - ui(Type)(Name) example uiTxtName (this includes activity changers like buttons - it only effects the UI, data is not stored)
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     //activity managers
     private final int addSubmit_CONFIG_REQUEST = 1;
     private final int viewBack_CONFIG_REQUEST = 2;
-    private boolean dataUpdated = false;
+    private final int settingsBack_CONFIG_REQUEST = 3;
 
     //list managers
     private ListView uiListView;
@@ -46,16 +46,20 @@ public class MainActivity extends AppCompatActivity {
     //price trackers
         //array lines up with min/max prices - [0] is $, [5] is $$$$$
     public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
-    public ArrayList<Double> priceList = new ArrayList<Double>();
+    public ArrayList<Double> priceList;
     public double priceAverage = 0;
 
     //self-reference context
     private Context thisContext;
 
     //data trackers
+    private boolean dataUpdated = false;
     private boolean dataDeleted = false;
     public String dataSortType = "ID";
     public String dataSortOrder = "DESC";
+
+    //settings trackers
+    private boolean settingPriceNumber = true;
 
     //ui elements
     private Spinner uiSpinner;
@@ -98,7 +102,8 @@ public class MainActivity extends AppCompatActivity {
     //onClick for settings button - opens setting drawer
     public void clickSettings (View view){
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
-        startActivityForResult(settingsIntent, addSubmit_CONFIG_REQUEST);
+        settingsIntent.putExtra("priceScale", priceScale);
+        startActivityForResult(settingsIntent, settingsBack_CONFIG_REQUEST);
     }
 
     //result
@@ -138,6 +143,20 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
+                //on settings activity -> click Back
+                if (requestCode == settingsBack_CONFIG_REQUEST){
+            if (resultCode == Activity.RESULT_CANCELED) {
+
+                //checks to see if any data was modified while in the activity
+                settingPriceNumber = submitData.getExtras().getBoolean("settingsPriceNumber");
+
+                updateRecentList();
+
+                Toast.makeText(this, "switched over from settings and setting is now" + settingPriceNumber, Toast.LENGTH_LONG).show();
+
+            }
+        }
+
     }
 
     //list manager - handles populating the list and updating it
@@ -152,6 +171,9 @@ public class MainActivity extends AppCompatActivity {
 
         //creates a new ArrayList of type Restaurant
         rsrtArrayList = new ArrayList<>();
+
+        //creates empty price list
+        priceList = new ArrayList<Double>();
 
         //notifies of an empty restaurant list
         if (databaseCursor.getCount() == 0) {
@@ -180,27 +202,29 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        Collections.sort(priceList);
+        if (priceList.size() > 0){
+            Collections.sort(priceList);
 
-        for (int i = 0; i < priceList.size(); i++){
-            priceAverage += priceList.get(i);
+            for (int i = 0; i < priceList.size(); i++){
+                priceAverage += priceList.get(i);
+            }
+
+            priceAverage = priceAverage/(priceList.size());
+
+            //min ($)
+            priceScale[0] = priceList.get(0);
+            //max ($$$$$)
+            priceScale[4] = priceList.get(priceList.size()-1);
+            //average ($$$)
+            priceScale[2] = priceAverage;
+            //min average ($$)
+            priceScale[1] = (priceAverage+priceScale[0])/2;
+            //max average ($$$$)
+            priceScale[3] = (priceAverage+priceScale[4])/2;
         }
 
-        priceAverage = priceAverage/(priceList.size());
-
-        //min ($)
-        priceScale[0] = priceList.get(0);
-        //max ($$$$$)
-        priceScale[4] = priceList.get(priceList.size()-1);
-        //average ($$$)
-        priceScale[2] = priceAverage;
-        //min average ($$)
-        priceScale[1] = (priceAverage+priceScale[0])/2;
-        //max average ($$$$)
-        priceScale[3] = (priceAverage+priceScale[4])/2;
-
         //populates listView from rsrtArrayList
-        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtArrayList);
+        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtArrayList, priceScale, settingPriceNumber);
         uiListView.setAdapter(adapter);
     }
 
@@ -262,7 +286,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
 }
