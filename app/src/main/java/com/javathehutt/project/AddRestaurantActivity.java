@@ -65,18 +65,21 @@ public class AddRestaurantActivity extends AppCompatActivity {
         );
     }
 
+    //onClick submit - ends activity, submits data
     public void clickSubmit (View view) {
         Intent submitIntent = new Intent(this, MainActivity.class);
         setResult(RESULT_OK, submitIntent);
         finish();
     }
 
+    //onClick back - ends activity, does not submit data
     public void clickBack (View view){
         Intent backIntent = new Intent(this, MainActivity.class);
         setResult(RESULT_CANCELED, backIntent);
         finish();
     }
 
+    //checks to make sure all fields are filled out - avoid null errors
     private boolean checkedCompletion (){
 
         if (editTitle.getText().toString().trim().length() == 0){
