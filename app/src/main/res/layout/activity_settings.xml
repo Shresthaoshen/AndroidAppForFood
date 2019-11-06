@@ -51,204 +51,217 @@
         android:layout_height="2dp"
         android:background="#c0c0c0" />
 
-    <TextView
-        android:id="@+id/uiTextHeader_ListDisplay"
+
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="16dp"
-        android:gravity="bottom"
-        android:text="LIST DISPLAY"
-        android:textSize="12dp"
-        android:textStyle="bold"/>
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/uiSetPriceNumbers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="12dp">
-
-        <TextView
-            android:id="@+id/uiTxtPriceNumbers"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Display price as numerical values"
-            android:textSize="16dp"
-            android:textColor="#101010"/>
-
-        <Switch
-            android:id="@+id/userSwitchPriceNumbers"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="10"
-            tools:checked="true" />
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/uiTextHeader_ListDisplay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="16dp"
+                android:gravity="bottom"
+                android:text="LIST DISPLAY"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/uiSetPriceNumbers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="12dp">
+
+                <TextView
+                    android:id="@+id/uiTxtPriceNumbers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Display price as numerical values"
+                    android:textColor="#101010"
+                    android:textSize="16dp" />
+
+                <Switch
+                    android:id="@+id/userSwitchPriceNumbers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    tools:checked="true" />
 
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/uiTxtDescPriceNumbers"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:text="Display price as $0.00 vs a scale of $$$$$"
-        android:textSize="12dp" />
-    <TextView
-        android:id="@+id/uiTxtDescPriceHint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:text=""
-        android:textSize="12dp" />
+            <TextView
+                android:id="@+id/uiTxtDescPriceNumbers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:text="Display price as $0.00 vs a scale of $$$$$"
+                android:textSize="12dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_height="1dp"
-        android:background="#c0c0c0"/>
+            <TextView
+                android:id="@+id/uiTxtDescPriceHint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:text=""
+                android:textSize="12dp" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="36dp"
-        android:gravity="bottom"
-        android:text="FOOD PREFERENCES"
-        android:textSize="12dp"
-        android:textStyle="bold"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_height="1dp"
+                android:background="#c0c0c0"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp">
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="36dp"
+                android:gravity="bottom"
+                android:text="FOOD PREFERENCES"
+                android:textSize="12dp"
+                android:textStyle="bold"/>
 
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="16dp"
-            android:text="Vegetarian Mode"
-            android:textColor="#101010"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
 
-        <Switch
-            android:id="@+id/switch2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            />
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="16dp"
+                    android:text="Vegetarian Mode"
+                    android:textColor="#101010"/>
 
-    </LinearLayout>
+                <Switch
+                    android:id="@+id/switch2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    />
 
+            </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="16dp"
-            android:textColor="#101010"
-            android:text="Healthy Foods" />
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="16dp"
+                    android:textColor="#101010"
+                    android:text="Healthy Foods" />
 
-        <Switch
-            android:id="@+id/switch3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            />
+                <Switch
+                    android:id="@+id/switch3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_height="1dp"
-        android:background="#c0c0c0"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_height="1dp"
+                android:background="#c0c0c0"/>
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="36dp"
-        android:gravity="bottom"
-        android:text="SETTINGS GROUPS 3"
-        android:textSize="12dp"
-        android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="36dp"
+                android:gravity="bottom"
+                android:text="SETTINGS GROUPS 3"
+                android:textSize="12dp"
+                android:textStyle="bold"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Settings 1"
-            android:textColor="#101010"
-            android:textSize="16dp" />
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Settings 1"
+                    android:textColor="#101010"
+                    android:textSize="16dp" />
 
-        <Switch
-            android:id="@+id/switch4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            />
+                <Switch
+                    android:id="@+id/switch4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    />
 
-    </LinearLayout>
-    <TextView
-        android:id="@+id/uiTxtDescSet1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:textSize="12dp"
-        android:text="Small description of the setting" />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/uiTxtDescSet1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:textSize="12dp"
+                android:text="Small description of the setting" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp">
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:textSize="16dp"
-            android:textColor="#101010"
-            android:text="Settings 2" />
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="16dp"
+                    android:textColor="#101010"
+                    android:text="Settings 2" />
 
-        <Switch
-            android:id="@+id/switch10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="10"
-            />
+                <Switch
+                    android:id="@+id/switch10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    />
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
-        android:layout_height="1dp"
-        android:background="#c0c0c0"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_height="1dp"
+                android:background="#c0c0c0"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

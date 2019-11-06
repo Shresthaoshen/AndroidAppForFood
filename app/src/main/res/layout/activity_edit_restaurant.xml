@@ -24,11 +24,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/uiTxtTitleLabel"
-        android:layout_width="360sp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="64dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uiBtnBack">
 
@@ -44,11 +47,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/uiTxtRatingLabel"
-        android:layout_width="360sp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uiTxtTitleLabel">
 
@@ -65,11 +71,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/uiTxtPriceLabel"
-        android:layout_width="360sp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uiTxtRatingLabel">
 
@@ -86,11 +95,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/uiTxtNotesLabel"
-        android:layout_width="360sp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uiTxtPriceLabel">
 
@@ -108,12 +120,16 @@
         android:id="@+id/uiBtnUpdate"
         android:layout_width="156sp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="80dp"
         android:onClick="clickUpdate"
         android:text="Update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtTags"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/uiBtnDelete"
@@ -130,11 +146,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/uiTxtTags"
-        android:layout_width="360sp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uiTxtNotesLabel">
 

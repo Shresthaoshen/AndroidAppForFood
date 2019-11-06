@@ -26,9 +26,13 @@
 
     <SearchView
         android:id="@+id/uiSearch"
-        android:layout_width="308dp"
+        android:layout_width="0dp"
         android:layout_height="56dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:background="#ECECEC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
@@ -39,16 +43,19 @@
 
     <Spinner
         android:id="@+id/uiDropSort"
-        android:layout_width="310dp"
+        android:layout_width="0dp"
         android:layout_height="57dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uiSearch"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:overlapAnchor="false"
         android:spinnerMode="dropdown"
         android:textSize="36sp"
-        android:overlapAnchor="false"/>
+        app:layout_constraintEnd_toStartOf="@+id/uiBtnAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uiSearch" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/uiBtnAdd"
@@ -65,18 +72,27 @@
         app:elevation="3dp"
         app:hoveredFocusedTranslationZ="3dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/uiDropSort"
         app:layout_constraintTop_toBottomOf="@+id/uiSearch"
         app:pressedTranslationZ="3dp" />
 
     <include
         android:id="@+id/uiInclude"
         layout="@layout/restaurant_list"
-        android:layout_width="381dp"
-        android:layout_height="501dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uiDropSort" />
+        app:layout_constraintTop_toBottomOf="@+id/uiDropSort"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

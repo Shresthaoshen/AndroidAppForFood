@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SettingsActivity"></activity>
-        <activity android:name=".EditRestaurantActivity" />
+        <activity android:name=".EditRestaurantActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ViewRestaurantActivity" />
-        <activity android:name=".AddRestaurantActivity" />
+        <activity android:name=".AddRestaurantActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
