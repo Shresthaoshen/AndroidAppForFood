@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         //array lines up with min/max prices - [0] is $, [5] is $$$$$
     public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
     public ArrayList<Double> priceList;
-    public double priceAverage = 0;
+    public double priceAverage;
 
     //self-reference context
     private Context thisContext;
@@ -204,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (priceList.size() > 0){
             Collections.sort(priceList);
+            priceAverage = 0;
 
             for (int i = 0; i < priceList.size(); i++){
                 priceAverage += priceList.get(i);

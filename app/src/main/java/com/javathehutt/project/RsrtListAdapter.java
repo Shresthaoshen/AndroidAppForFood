@@ -6,6 +6,7 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         //PRICE SETTINGS
         if (settingsPriceNumber) {
             editPrice.setText("$" + formatPrice);
+            editPrice.setTextSize(16);
         }
 
         if (!settingsPriceNumber) {
@@ -81,14 +83,14 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
                 if (decimalPrice >= priceScale[i]){
                     priceText += "<b>$</b>";
                 }
-                /*else {
+                if (decimalPrice < priceScale[i]) {
                     priceText += "$";
-                }*/
+                }
             }
             editPrice.setText(Html.fromHtml(priceText));
+            editPrice.setTextSize(18);
 
         }
-
 
         //RATING SETTINGS
         editRating.setText(uiRating);
