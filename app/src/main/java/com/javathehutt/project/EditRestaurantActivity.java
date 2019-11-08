@@ -11,6 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+
+import static java.lang.Double.parseDouble;
+
 public class EditRestaurantActivity extends AppCompatActivity {
 
     //database managers
@@ -66,8 +70,8 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
         //prepopulate edit fields with current info
         editTitle.setText(databaseCursor.getString(1));
-        editPrice.setText(databaseCursor.getString(2));
-        editRating.setText(databaseCursor.getString(3));
+        editPrice.setText(databaseCursor.getDouble(2) + "");
+        editRating.setText(databaseCursor.getDouble(3) + "");
         editNotes.setText(databaseCursor.getString(4));
         String tags = (databaseCursor.getString(5));
 
@@ -84,11 +88,16 @@ public class EditRestaurantActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                String priceText = editPrice.getText().toString();
+                double decimalPrice = parseDouble(priceText);
+
+                DecimalFormat priceFormat = new DecimalFormat("######.##");
+
                 if (checkedCompletion()) {
                     boolean isUpdate = databaseHelper.updateData(positionString,
                             editTitle.getText().toString(),
-                            editPrice.getText().toString(),
-                            editRating.getText().toString(),
+                            (Double) parseDouble(editPrice.getText().toString()),
+                            (Double) parseDouble(editRating.getText().toString()),
                             editNotes.getText().toString(),
                             editTags.getText().toString());
 
@@ -140,7 +149,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
         finish();
     }
 
-    //TODO
     public void clickDelete (View view){
         Intent backIntent = new Intent(this, MainActivity.class);
             dataDeleted = true;

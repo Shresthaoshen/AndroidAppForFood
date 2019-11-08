@@ -189,13 +189,14 @@ public class MainActivity extends AppCompatActivity {
             while(databaseCursor.moveToNext()){
                 int ID = (databaseCursor.getInt(0));
                 String title = (databaseCursor.getString(1));
-                String price = (databaseCursor.getString(2));
-                String rating = (databaseCursor.getString(3));
+                Double price = (databaseCursor.getDouble(2));
+                Double rating = (databaseCursor.getDouble(3));
                 String notes = (databaseCursor.getString(4));
                 String tags = (databaseCursor.getString(5));
 
                 //finds the average
-                priceList.add(Double.parseDouble(price));
+                //priceList.add(Double.parseDouble(price));
+                priceList.add(price);
 
                 rsrtArrayList.add(new Restaurant(ID, title,price,rating,notes,tags));
             }

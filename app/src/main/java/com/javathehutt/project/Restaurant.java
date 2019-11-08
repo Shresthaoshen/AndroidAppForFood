@@ -4,8 +4,8 @@ public class Restaurant {
 
     private int ID;
     private String name;
-    private String price;
-    private String rating;
+    private Double price;
+    private Double rating;
     private String notes;
     private String tags;
 
@@ -15,7 +15,7 @@ public class Restaurant {
         setName(name);
     }
 
-    public Restaurant(int ID, String name, String price, String rating, String notes, String tags) {
+    public Restaurant(int ID, String name, Double price, Double rating, String notes, String tags) {
         this.ID = ID;
         this.name = name;
         this.price = price;
@@ -36,19 +36,19 @@ public class Restaurant {
         this.name = name;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public String getRating() {
+    public Double getRating() {
         return rating;
     }
 
-    public void setRating(String rating) {
+    public void setRating(Double rating) {
         this.rating = rating;
     }
 

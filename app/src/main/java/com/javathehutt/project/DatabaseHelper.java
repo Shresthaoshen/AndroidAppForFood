@@ -25,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //database version
     static final int DB_VERSION = 1;
 
-    public static final String CREATE_TABLE = "CREATE TABLE "+ TABLE_NAME + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT,"+ PRICE + " TEXT," + RATING + " TEXT," + NOTES + " TEXT," + TAGS + " TEXT);";
+    public static final String CREATE_TABLE = "CREATE TABLE "+ TABLE_NAME + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT,"+ PRICE + " DECIMAL," + RATING + " DECIMAL," + NOTES + " TEXT," + TAGS + " TEXT);";
 
     public DatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
@@ -45,7 +45,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //add entry to SQLite database
-    public boolean insertData(String restaurantName, String price, String rating, String notes, String tags) {
+    public boolean insertData(String restaurantName, Double price, Double rating, String notes, String tags) {
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -70,7 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //update an SQLite entry
-    public boolean updateData(String id, String restaurantName, String price, String rating, String notes, String tags) {
+    public boolean updateData(String id, String restaurantName, Double price, Double rating, String notes, String tags) {
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

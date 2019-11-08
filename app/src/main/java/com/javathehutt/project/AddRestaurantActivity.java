@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import static java.lang.Double.parseDouble;
+
 
 public class AddRestaurantActivity extends AppCompatActivity {
     //database managers
@@ -48,8 +50,8 @@ public class AddRestaurantActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         if (checkedCompletion()) {
                             boolean isInserted = databaseHelper.insertData(editTitle.getText().toString(),
-                                    editPrice.getText().toString(),
-                                    editRating.getText().toString(),
+                                    (Double) parseDouble(editPrice.getText().toString()),
+                                    (Double) parseDouble(editRating.getText().toString()),
                                     editNotes.getText().toString(),
                                     editTags.getText().toString());
                             if (isInserted == true) {
