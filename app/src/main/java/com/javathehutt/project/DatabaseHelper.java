@@ -9,23 +9,48 @@ import android.media.session.PlaybackState;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    //database information (JTH = JavaTheHutt)
-    public static final String DB_NAME = "JTH_RESTAURANT.DB";
-    //data Table Name
-    public static final String TABLE_NAME = "RESTAURANT_TABLE";
+    //database version
+    static final int DB_VERSION = 1;
 
-    //data table columns
+    //database name (JTH = JavaTheHutt)
+    public static final String DB_NAME = "JTH_RESTAURANT.DB";
+
+
+    //Table names
+    public static final String TABLE_RESTAURANT = "RESTAURANT_TABLE";
+    public static final String TABLE_TAG = "TAG_TABLE";
+    public static final String TABLE_RESTAURANT_TAG = "RESTAURANT_TAG_TABLE";
+
+
+
+    //Common Columns
     public static final String ID = "ID";
+
+    //Restaurant Table Columns
     public static final String NAME = "RestaurantName";
     public static final String PRICE = "Price";
     public static final String RATING = "Rating";
     public static final String NOTES = "Notes";
-    public static final String TAGS = "Tags";
 
-    //database version
-    static final int DB_VERSION = 1;
+    //Tag Table Columns
+    public static final String TAG_NAME = "TagName";
 
-    public static final String CREATE_TABLE = "CREATE TABLE "+ TABLE_NAME + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT,"+ PRICE + " DECIMAL," + RATING + " DECIMAL," + NOTES + " TEXT," + TAGS + " TEXT);";
+    //Restaurant_Tag Table Columns
+    public static final String RESTAURANT_ID = "RestaurantID";
+    public static final String TAG_ID = "TagID";
+
+
+
+    //Create Restaurant Table
+    public static final String CREATE_RESTAURANT_TABLE = "CREATE TABLE "+ TABLE_RESTAURANT + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT,"+ PRICE + " DECIMAL," + RATING + " DECIMAL," + NOTES + " TEXT);";
+
+    //Create Tag Table
+    public static final String CREATE_TAG_TABLE = "CREATE TABLE "+ TABLE_TAG + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TAG_NAME + " TEXT);";
+
+    //Create Restaurant_Tag Table
+    public static final String CREATE_RESTAURANT_TAG_TABLE = "CREATE TABLE "+ TABLE_RESTAURANT_TAG + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RESTAURANT_ID + " INTEGER,"+ TAG_ID + " INTEGER);";
+
+
 
     public DatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
@@ -34,18 +59,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //create table
     @Override
     public void onCreate(SQLiteDatabase database) {
-        database.execSQL(CREATE_TABLE);
+        database.execSQL(CREATE_RESTAURANT_TABLE);
+        database.execSQL(CREATE_TAG_TABLE);
+        database.execSQL(CREATE_RESTAURANT_TAG_TABLE);
     }
 
     //called when scheme version we need != our current one
     @Override
     public void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
-        database.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANT);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_TAG);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANT_TAG);
+
+
+        //create new tables
         onCreate(database);
     }
 
-    //add entry to SQLite database
-    public boolean insertData(String restaurantName, Double price, Double rating, String notes, String tags) {
+    //add Restaurant entry to SQLite database
+    public boolean insertData(String restaurantName, Double price, Double rating, String notes) {
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -56,10 +88,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(PRICE, price);
         contentValues.put(RATING, rating);
         contentValues.put(NOTES, notes);
-        contentValues.put(TAGS, tags);
 
         //First argument table name, second is null, third is content values
-        long result = database.insert(TABLE_NAME, null, contentValues);
+        long result = database.insert(TABLE_RESTAURANT, null, contentValues);
 
         if (result == -1) {
             return false;
@@ -81,10 +112,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(PRICE, price);
         contentValues.put(RATING, rating);
         contentValues.put(NOTES, notes);
-        contentValues.put(TAGS, tags);
 
         //first argument is table name, second is content values (data), third is whereclause, fourth is where
-        database.update(TABLE_NAME, contentValues, "ID = ?", new String[]{ id });
+        database.update(TABLE_RESTAURANT, contentValues, "ID = ?", new String[]{ id });
         return true;
 
     }
@@ -93,7 +123,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getAllData(String dataSortType, String dataSortOrder) {
         SQLiteDatabase database = this.getWritableDatabase();
         //Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY ID DESC",null);
-        Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY " + dataSortType + " " + dataSortOrder,null); //ok - the issue? order by name/alphabet doesn't work. don't know why, it just doesn't
+        Cursor data = database.rawQuery("select * from " + TABLE_RESTAURANT + " ORDER BY " + dataSortType + " " + dataSortOrder,null); //ok - the issue? order by name/alphabet doesn't work. don't know why, it just doesn't
 
         return data;
 
@@ -103,7 +133,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean deleteData(String id){
         SQLiteDatabase database = this.getWritableDatabase();
 
-        return database.delete(TABLE_NAME, "ID = ?", new String[] { id }) != 0;
+        return database.delete(TABLE_RESTAURANT, "ID = ?", new String[] { id }) != 0;
 
     }
 

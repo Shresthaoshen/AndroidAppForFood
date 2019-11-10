@@ -52,8 +52,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
                             boolean isInserted = databaseHelper.insertData(editTitle.getText().toString(),
                                     (Double) parseDouble(editPrice.getText().toString()),
                                     (Double) parseDouble(editRating.getText().toString()),
-                                    editNotes.getText().toString(),
-                                    editTags.getText().toString());
+                                    editNotes.getText().toString());
                             if (isInserted == true) {
                                 Toast.makeText(AddRestaurantActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                             } else {
