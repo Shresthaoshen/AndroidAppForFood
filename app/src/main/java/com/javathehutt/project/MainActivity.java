@@ -18,6 +18,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static java.lang.Integer.parseInt;
+
 
 //restaurant is going to be shortened to rsrt
 //if the user interacts with it for data reasons - user(Type)(Name)  example userTxtName
@@ -85,11 +87,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Intent viewIntent = new Intent(thisContext, ViewRestaurantActivity.class);
-                    viewIntent.putExtra("id", id);
-                    viewIntent.putExtra("id", position);
+
+                //int ID = adapter.getItem(position).getID();
+
+                viewIntent.putExtra("ID", position);
+                //viewIntent.putExtra("position", position);
+
                 startActivityForResult(viewIntent, viewBack_CONFIG_REQUEST);
             }
         });
+
     }
 
     //onClick for add button - just starts addRestaurant activity
@@ -228,6 +235,7 @@ public class MainActivity extends AppCompatActivity {
         //populates listView from rsrtArrayList
         adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtArrayList, priceScale, settingPriceNumber);
         uiListView.setAdapter(adapter);
+
     }
 
     //spinner manager - handled populating the spinner of sort by choices

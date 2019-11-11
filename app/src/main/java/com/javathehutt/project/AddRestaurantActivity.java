@@ -11,6 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import static java.lang.Double.parseDouble;
 
 
@@ -21,6 +23,10 @@ public class AddRestaurantActivity extends AppCompatActivity {
     //ui managers
     EditText editTitle, editPrice, editRating, editNotes, editTags;
     Button btnSubmit;
+
+    //tag manager
+    long[] tagArray;
+    ArrayList<Long> tagList;
 
 
     @Override
@@ -39,11 +45,23 @@ public class AddRestaurantActivity extends AppCompatActivity {
         editTags = (EditText) findViewById(R.id.userTextTags);
         btnSubmit = (Button) findViewById(R.id.uiBtnAdd);
 
+        //init tagList
+        tagList = new ArrayList<>();
+
         SubmitData();
     }
 
     //onClick listener for submit button
     public void SubmitData() {
+
+        if (editTags.getText().toString().trim().length() == 0){
+            tagList.add( (long) 0); //how are we going to add the long numbers from a string list?
+            //adds to flexible list rn and then....
+        }
+
+        //initalize tag array
+        tagArray = new long[tagList.size()];
+        tagArray[0] = tagList.get(0); //....casts it to an array (b/c size has to be predetermined?
 
         btnSubmit.setOnClickListener(
                 new View.OnClickListener() {
@@ -54,7 +72,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
                                     (Double) parseDouble(editPrice.getText().toString()),
                                     (Double) parseDouble(editRating.getText().toString()),
                                     editNotes.getText().toString(),
-                                    editTags.getText().toString());
+                                    tagArray);
                             if (isInserted == true) {
                                 Toast.makeText(AddRestaurantActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                             } else {

@@ -176,7 +176,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Tags"
-                android:inputType="textPersonName" />
+                android:inputType="textAutoCorrect" />
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

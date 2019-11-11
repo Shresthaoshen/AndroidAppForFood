@@ -29,6 +29,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     //position records
     int position;
     String positionString;
+    long ID;
 
     //update tracker
     boolean dataUpdated = false;
@@ -65,7 +66,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         databaseCursor.moveToPosition(position);
 
         //get ID of current and cast to String
-        int ID = (databaseCursor.getInt(0));
+        ID = (databaseCursor.getInt(0));
         positionString = (String.valueOf(databaseCursor.getInt(0)));
 
         //prepopulate edit fields with current info
@@ -89,9 +90,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String priceText = editPrice.getText().toString();
-                double decimalPrice = parseDouble(priceText);
-
-                DecimalFormat priceFormat = new DecimalFormat("######.##");
 
                 if (checkedCompletion()) {
                     boolean isUpdate = databaseHelper.updateData(positionString,

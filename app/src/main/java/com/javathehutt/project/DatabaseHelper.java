@@ -96,7 +96,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(RATING, rating);
         contentValues.put(NOTES, notes);
 
-
         //insert entry
         //First argument table name, second is null, third is content values
         long restaurant_id = database.insert(TABLE_RESTAURANT, null, contentValues);
@@ -143,8 +142,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
     //get all restaurants in a list
 
     public List<Restaurant> getAllRestaurants() {
@@ -173,7 +170,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return restaurants;
     }
-
 
     //get all restaurants belonging to a tag
 
@@ -209,8 +205,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return restaurants;
     }
 
-
-
     //update Restaurant entry
     public boolean updateData(String id, String restaurantName, Double price, Double rating, String notes, String tags) {
         //Database constructor
@@ -232,7 +226,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    //OLD METHOD TO GET ALL DATA AT ONCE- MAYBE WE SHOULDN'T USE??
+    //OLD METHOD TO GET ALL DATA AT ONCE- MAYBE WE SHOULDN'T USE?? this is like this to allow the sort to work
     //retrieve all from sql
     public Cursor getAllData(String dataSortType, String dataSortOrder) {
         SQLiteDatabase database = this.getWritableDatabase();
@@ -244,7 +238,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //delete Restaurant from sql
-    public boolean deleteData(long id){
+    public boolean deleteData(String id){
         SQLiteDatabase database = this.getWritableDatabase();
 
         return database.delete(TABLE_RESTAURANT, "ID = ?", new String[] { id }) != 0;
@@ -320,7 +314,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             // delete all todos
             for (Restaurant restaurant : allTagRestaurants) {
                 // delete todo
-                deleteData(restaurant.getID());
+                //needs to be a string for the delete method - not my choice
+                deleteData(restaurant.getID() + "");
             }
         }
 

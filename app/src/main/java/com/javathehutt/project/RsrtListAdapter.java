@@ -49,14 +49,11 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         Double uiPrice = getItem(cPosition).getPrice();
         Double uiRating = getItem(cPosition).getRating();
 
-        //casting numbers to numbers
-        //double decimalPrice = Double.parseDouble(uiPrice);
-        double decimalPrice = uiPrice;
-        //double decimalRating = Double.parseDouble(uiRating) * 10;
+        //number formatting
         double decimalRating = uiRating * 10;
 
         //format numbers
-        String formatPrice  = String.format("%.02f", decimalPrice);
+        String formatPrice  = String.format("%.02f", uiPrice);
         int intRating = (int) Math.round(decimalRating);
 
         //place information on the widget layout
@@ -79,13 +76,12 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         }
 
         if (!settingsPriceNumber) {
-            int scale = 0;
             String priceText = "";
             for (int i = 0; i < priceScale.length; i++ ){
-                if (decimalPrice >= priceScale[i]){
+                if (uiPrice >= priceScale[i]){
                     priceText += "<b>$</b>";
                 }
-                if (decimalPrice < priceScale[i]) {
+                if (uiPrice < priceScale[i]) {
                     priceText += "$";
                 }
             }
@@ -104,6 +100,7 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         LayerDrawable layerDrawable = (LayerDrawable) barRating.getProgressDrawable();
         Drawable progressDrawable = layerDrawable.findDrawableByLayerId(android.R.id.progress);
         progressDrawable.setColorFilter(Color.parseColor(getColor(intRating)), PorterDuff.Mode.SRC_IN);
+
 
         return cConvertView;
     }

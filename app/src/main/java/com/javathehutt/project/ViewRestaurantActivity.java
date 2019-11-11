@@ -41,7 +41,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         Intent thisIntent = getIntent();
 
         //pull ID from restaurant clicked
-        id = thisIntent.getExtras().getInt("id");
+        id = thisIntent.getExtras().getInt("ID");
 
         buildInformation();
     }
@@ -60,7 +60,6 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         ProgressBar barRating = (ProgressBar) findViewById(R.id.uiBarRating);
 
         databaseCursor.moveToPosition(id);
-        int ID = (databaseCursor.getInt(0));
 
         //casting numbers to numbers
         double decimalPrice = Double.parseDouble(databaseCursor.getString(2));
