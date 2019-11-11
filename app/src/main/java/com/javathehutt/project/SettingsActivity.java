@@ -47,7 +47,7 @@ public class SettingsActivity extends AppCompatActivity {
         checkListeners();
     }
 
-    //onClick back - ends settings activity, saves data
+    //onClick back - ends settings activity, todo saves data
     public void clickBack (View view){
         Intent backIntent = new Intent(this, MainActivity.class);
         backIntent.putExtra("settingPriceNumber", settingPriceNumber);
@@ -56,6 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     //updates switches with stored data
+    //todo figure out a way to check this - settings database?
     public void updateSwitches() {
         userSwitchPriceNumber.setChecked(settingPriceNumber);
         Toast.makeText(this, "$$$", Toast.LENGTH_LONG).show();
@@ -65,7 +66,7 @@ public class SettingsActivity extends AppCompatActivity {
         //price vs. $$$s
         userSwitchPriceNumber.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //this is where we'd store the information if i knew how to do that
+                //todo this is where we'd store the information if i knew how to do that
                 settingPriceNumber = isChecked;
             }
         });

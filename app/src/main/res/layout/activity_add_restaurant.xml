@@ -140,13 +140,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/uiTxtNotesLabel">
 
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1" >
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/exampleChip"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    android:text="example tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    />
+            </com.google.android.material.chip.ChipGroup>
+
             <EditText
                 android:id="@+id/userTextTags"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Tags" />
+                android:hint="Tags"
+                android:visibility="invisible"/>
+
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

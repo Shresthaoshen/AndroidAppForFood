@@ -29,7 +29,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_RESTAURANT_TAG = "RESTAURANT_TAG_TABLE";
 
 
-
     //Common Columns
     public static final String ID = "ID";
 
@@ -47,7 +46,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TAG_ID = "TagID";
 
 
-
     //Create Restaurant Table
     public static final String CREATE_RESTAURANT_TABLE = "CREATE TABLE "+ TABLE_RESTAURANT + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT,"+ PRICE + " DECIMAL," + RATING + " DECIMAL," + NOTES + " TEXT);";
 
@@ -56,7 +54,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Create Restaurant_Tag Table
     public static final String CREATE_RESTAURANT_TAG_TABLE = "CREATE TABLE "+ TABLE_RESTAURANT_TAG + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RESTAURANT_ID + " INTEGER,"+ TAG_ID + " INTEGER);";
-
 
 
     public DatabaseHelper(Context context){
@@ -77,7 +74,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANT);
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_TAG);
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANT_TAG);
-
 
         //create new tables
         onCreate(database);
@@ -106,66 +102,61 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         //MAYBE CHANGE THIS??
-        if (restaurant_id == -1) {
-            return false;
-        } else {
-            return true;
-        }
-
+        return (restaurant_id != -1);
     }
 
 
     //get single restaurant
 
     public Restaurant getRestaurant(long restaurant_id) {
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase database = this.getReadableDatabase();
 
         String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT + " WHERE "
                 + RESTAURANT_ID + " = " + restaurant_id;
 
         Log.e(LOG, selectQuery);
 
-        Cursor c = db.rawQuery(selectQuery, null);
+        Cursor data = database.rawQuery(selectQuery, null);
 
-        if (c != null)
-            c.moveToFirst();
+        if (data != null)
+            data.moveToFirst();
 
         Restaurant restaurant = new Restaurant();
-        restaurant.setID(c.getInt(c.getColumnIndex(ID)));
-        restaurant.setName(c.getString(c.getColumnIndex(NAME)));
-        restaurant.setPrice(c.getDouble(c.getColumnIndex(PRICE)));
-        restaurant.setRating(c.getDouble(c.getColumnIndex(RATING)));
-        restaurant.setNotes((c.getString(c.getColumnIndex(NOTES))));
-
+        restaurant.setID(data.getInt(data.getColumnIndex(ID)));
+        restaurant.setName(data.getString(data.getColumnIndex(NAME)));
+        restaurant.setPrice(data.getDouble(data.getColumnIndex(PRICE)));
+        restaurant.setRating(data.getDouble(data.getColumnIndex(RATING)));
+        restaurant.setNotes((data.getString(data.getColumnIndex(NOTES))));
 
         return restaurant;
     }
 
 
     //get all restaurants in a list
-
-    public List<Restaurant> getAllRestaurants() {
+    public List<Restaurant> getAllRestaurants(String dataSortType, String dataSortOrder) {
         List<Restaurant> restaurants = new ArrayList<Restaurant>();
-        String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT;
+        //String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT;
+        String selectQuery = "select * from " + TABLE_RESTAURANT + " ORDER BY " + dataSortType + " " + dataSortOrder; //ok - the issue? order by name/alphabet doesn't work. don't know why, it just doesn't todo figure out why
 
         Log.e(LOG, selectQuery);
 
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery(selectQuery, null);
+        SQLiteDatabase database = this.getReadableDatabase();
+        //Cursor c = db.rawQuery(selectQuery, null);
+        Cursor data = database.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
-        if (c.moveToFirst()) {
+        if (data.moveToFirst()) {
             do {
                 Restaurant restaurant = new Restaurant();
-                restaurant.setID(c.getInt(c.getColumnIndex(ID)));
-                restaurant.setName(c.getString(c.getColumnIndex(NAME)));
-                restaurant.setPrice(c.getDouble(c.getColumnIndex(PRICE)));
-                restaurant.setRating(c.getDouble(c.getColumnIndex(RATING)));
-                restaurant.setNotes((c.getString(c.getColumnIndex(NOTES))));
+                restaurant.setID(data.getInt(data.getColumnIndex(ID)));
+                restaurant.setName(data.getString(data.getColumnIndex(NAME)));
+                restaurant.setPrice(data.getDouble(data.getColumnIndex(PRICE)));
+                restaurant.setRating(data.getDouble(data.getColumnIndex(RATING)));
+                restaurant.setNotes((data.getString(data.getColumnIndex(NOTES))));
 
                 // adding to todo list
                 restaurants.add(restaurant);
-            } while (c.moveToNext());
+            } while (data.moveToNext());
         }
 
         return restaurants;
@@ -226,7 +217,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    //OLD METHOD TO GET ALL DATA AT ONCE- MAYBE WE SHOULDN'T USE?? this is like this to allow the sort to work
+    //OLD METHOD TO GET ALL DATA AT ONCE- MAYBE WE SHOULDN'T USE??
     //retrieve all from sql
     public Cursor getAllData(String dataSortType, String dataSortOrder) {
         SQLiteDatabase database = this.getWritableDatabase();
