@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.util.Log;
 
 import static java.lang.Double.parseDouble;
 
@@ -49,10 +50,11 @@ public class AddRestaurantActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         if (checkedCompletion()) {
-                            boolean isInserted = databaseHelper.insertData(editTitle.getText().toString(),
+                            boolean isInserted = databaseHelper.createRestaurant(editTitle.getText().toString(),
                                     (Double) parseDouble(editPrice.getText().toString()),
                                     (Double) parseDouble(editRating.getText().toString()),
-                                    editNotes.getText().toString());
+                                    editNotes.getText().toString(),
+                                    editTags.getText().toString());
                             if (isInserted == true) {
                                 Toast.makeText(AddRestaurantActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                             } else {

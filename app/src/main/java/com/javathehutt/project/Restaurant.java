@@ -9,6 +9,9 @@ public class Restaurant {
     private String notes;
     private String tags;
 
+    public Restaurant() {
+
+    }
     public Restaurant (int ID, String name) {
 
         setID(ID);
