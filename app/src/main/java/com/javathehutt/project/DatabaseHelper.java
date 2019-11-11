@@ -81,7 +81,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //insert data read from AddRestaurantActivity to SQLite database
-    public void createRestaurant(String restaurantName, Double price, Double rating, String notes, long[] tag_ids) {
+    public void createRestaurant(String restaurantName, Double price, Double rating, String notes, String[] tag_names) {
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -98,12 +98,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long restaurant_id = database.insert(TABLE_RESTAURANT, null, contentValues);
 
 
-        //assign tags to restaurant
-        for (long tag_id : tag_ids) {
-            createRestaurantTag(restaurant_id, tag_id);
+        //assign restaurant-tag pairings
+        //if tag already exists, use existing tag-id for pair calling createRestaurantTag
+        //if tag doesn't exist, createTag then createRestaurantTag
+
+        for (String tag_name : tag_names) {
+
+            boolean tagExists = checkTagAlreadyExists(tag_name);
+
+            if (tagExists == true) {
+                createRestaurantTag(restaurant_id, getTagIDFromName(tag_name));
+            } else {
+
+                long tag_id = createTag(tag_name);
+                createRestaurantTag(restaurant_id, tag_id);
+            }
+        }
+    }
+
+    //create a tag in tag database
+
+    public long createTag(String tagName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(TAG_NAME, tagName);
+
+        // insert row
+        long tag_id = db.insert(TABLE_TAG, null, values);
+
+        return tag_id;
+    }
+
+
+    public boolean checkTagAlreadyExists(String tag_name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_TAG +" WHERE " + TAG_NAME + " =?";
+
+        Cursor c = db.rawQuery(selectQuery, new String[]{tag_name});
+
+        boolean tagExists = false;
+
+        if (c.moveToFirst()){
+            tagExists= true;
+
         }
 
+        c.close();
+        db.close();
+        return tagExists;
+
     }
+
+
+
 
 
     //get single restaurant
@@ -161,6 +209,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return restaurants;
     }
+
+    //get Tag ID from Tag Name
+
+    public long getTagIDFromName(String tag_name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_TAG +" WHERE " + TAG_NAME + " =?";
+
+        Cursor c = db.rawQuery(selectQuery, new String[]{tag_name});
+
+        long result = -1;
+
+        int idRow = c.getColumnIndex(ID);
+
+        for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            result = c.getLong(idRow);
+        }
+
+        c.close();
+        db.close();
+        return result;
+
+    }
+
 
     //get all restaurants belonging to a tag
 
@@ -236,19 +307,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    //create a tag in tag database
-
-    public long createTag(Tag tag) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(TAG_NAME, tag.getTagName());
-
-        // insert row
-        long tag_id = db.insert(TABLE_TAG, null, values);
-
-        return tag_id;
-    }
 
 
     //get all tags in tag database
@@ -276,24 +334,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return tags;
     }
 
-    public boolean checkTagAlreadyExists(String tag_name) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery = "SELECT * FROM " + TABLE_TAG +" WHERE " + TAG_NAME + " =?";
 
-        Cursor c = db.rawQuery(selectQuery, new String[]{tag_name});
-
-        boolean tagExists = false;
-
-        if (c.moveToFirst()){
-            tagExists= true;
-
-        }
-
-        c.close();
-        db.close();
-        return tagExists;
-
-    }
 
     //update a tag
 
