@@ -32,16 +32,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Common Columns
     public static final String ID = "ID";
 
-    //Restaurant Table Columns
+    //Restaurant Table Column Names
     public static final String NAME = "RestaurantName";
     public static final String PRICE = "Price";
     public static final String RATING = "Rating";
     public static final String NOTES = "Notes";
 
-    //Tag Table Columns
+    //Tag Table Column Names
     public static final String TAG_NAME = "TagName";
 
-    //Restaurant_Tag Table Columns
+    //Restaurant_Tag Table Column Names
+  //both integers
     public static final String RESTAURANT_ID = "RestaurantID";
     public static final String TAG_ID = "TagID";
 
@@ -80,7 +81,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //insert data read from AddRestaurantActivity to SQLite database
-    public boolean createRestaurant(String restaurantName, Double price, Double rating, String notes, long[] tag_ids) {
+    public void createRestaurant(String restaurantName, Double price, Double rating, String notes, long[] tag_ids) {
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -96,13 +97,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //First argument table name, second is null, third is content values
         long restaurant_id = database.insert(TABLE_RESTAURANT, null, contentValues);
 
+
         //assign tags to restaurant
         for (long tag_id : tag_ids) {
             createRestaurantTag(restaurant_id, tag_id);
         }
 
-        //MAYBE CHANGE THIS??
-        return (restaurant_id != -1);
     }
 
 
@@ -274,6 +274,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             } while (c.moveToNext());
         }
         return tags;
+    }
+
+    public boolean checkTagAlreadyExists(String tag_name) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_TAG +" WHERE " + TAG_NAME + " =?";
+
+        Cursor c = db.rawQuery(selectQuery, new String[]{tag_name});
+
+        boolean tagExists = false;
+
+        if (c.moveToFirst()){
+            tagExists= true;
+
+        }
+
+        c.close();
+        db.close();
+        return tagExists;
+
     }
 
     //update a tag
