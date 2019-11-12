@@ -117,8 +117,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //if tag already exists, use existing tag-id for pair calling createRestaurantTag
         //if tag doesn't exist, createTag then createRestaurantTag
 
-        for (String tag_name : tag_names) {
-            long tag_id = createTag(tag_name);
+        for (int i = 0; i< tag_names.length;i++) {
+            long tag_id = createTag(tag_names[i]);
             createRestaurantTag(restaurant_id, tag_id);
         }
 

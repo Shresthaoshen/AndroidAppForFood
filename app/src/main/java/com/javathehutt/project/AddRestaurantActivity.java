@@ -61,14 +61,16 @@ public class AddRestaurantActivity extends AppCompatActivity {
 //        tagArray = new String[tagList.size()];
 //        tagArray[0] = tagList.get(0); //....casts it to an array (b/c size has to be predetermined?
 
-        String tags = editTags.getText().toString();
-        tagArray = tags.split(" ");
+
 
         btnSubmit.setOnClickListener(
             new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (checkedCompletion()) {
+                        String tags = editTags.getText().toString();
+                        tagArray = tags.split(" ");
+
                         boolean isInserted = databaseHelper.createRestaurant(editTitle.getText().toString(),
                                 (Double) parseDouble(editPrice.getText().toString()),
                                 (Double) parseDouble(editRating.getText().toString()),
