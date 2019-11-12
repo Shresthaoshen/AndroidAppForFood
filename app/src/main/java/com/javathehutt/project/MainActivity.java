@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
@@ -43,12 +45,11 @@ public class MainActivity extends AppCompatActivity {
     //list managers
     private ListView uiListView;
     private RsrtListAdapter adapter;
-    public ArrayList<Restaurant> rsrtArrayList;
 
     //price trackers
         //array lines up with min/max prices - [0] is $, [5] is $$$$$
     public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
-    public ArrayList<Double> priceList;
+    public ArrayList<Double> priceList= databaseHelper.getPriceList;
     public double priceAverage;
 
     //self-reference context
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     public String dataSortOrder = "DESC";
 
     //settings trackers
+    //update w databasehelper
     private boolean settingPriceNumber = true;
 
     //ui elements
@@ -80,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         populateSpinner();
 
         //update list of restaurants displayed
-        updateRecentList();
+        updateList();
 
         //onClick listeners for list objects to get into viewRestaurant activity
         uiListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -123,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
 
                         //updates ListView
-                        updateRecentList();
+                        updateList();
 
                     }
 
@@ -142,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                         dataDeleted = submitData.getExtras().getBoolean("dataDeleted");
 
                         if (dataUpdated || dataDeleted){
-                            updateRecentList();
+                            updateList();
                         }
 
                         Toast.makeText(this, "switched over from view", Toast.LENGTH_LONG).show();
@@ -157,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 //checks to see if any data was modified while in the activity
                 settingPriceNumber = submitData.getExtras().getBoolean("settingsPriceNumber");
 
-                updateRecentList();
+                updateList();
 
                 Toast.makeText(this, "switched over from settings and setting is now" + settingPriceNumber, Toast.LENGTH_LONG).show();
 
@@ -166,79 +168,102 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //list manager - handles populating the list and updating it
-    protected void updateRecentList(){
-        //initializes database managers
-        databaseHelper = new DatabaseHelper(thisContext);
-        databaseCursor = databaseHelper.getAllData(dataSortType, dataSortOrder); //i was going to pass this stuff into here for the sort but it's fighting me
 
-        //initialized ui elements
+    //new updates Field below Spinner, depending on pa
+    protected void updateList(){
+        databaseHelper = new DatabaseHelper(thisContext);
+        List<Restaurant> restaurantList = databaseHelper.getAllRestaurants(dataSortType, dataSortOrder);
+
         uiListView = findViewById(R.id.uiListRsrt);
         TextView uiTxtEmpty = findViewById(R.id.uiTxtEmpty);
-
-        //creates a new ArrayList of type Restaurant
-        rsrtArrayList = new ArrayList<>();
-
-        //creates empty price list
         priceList = new ArrayList<Double>();
 
-        //notifies of an empty restaurant list
-        if (databaseCursor.getCount() == 0) {
+
+        //checks if list is empty
+        if (restaurantList.isEmpty()) {
             Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
             uiTxtEmpty.setVisibility(View.VISIBLE);
-        }
-
-        else {
-            //hides empty restaurant message
-            uiTxtEmpty.setVisibility(View.INVISIBLE);
-
-            //populates restaurant object to be displayed on list view
-            while(databaseCursor.moveToNext()){
-                int ID = (databaseCursor.getInt(0));
-                String title = (databaseCursor.getString(1));
-                Double price = (databaseCursor.getDouble(2));
-                Double rating = (databaseCursor.getDouble(3));
-                String notes = (databaseCursor.getString(4));
-//                String tags = (databaseCursor.getString(5));
-
-
-
-                //finds the average
-                //priceList.add(Double.parseDouble(price));
-                priceList.add(price);
-
-                rsrtArrayList.add(new Restaurant(ID, title,price,rating,notes,tags));
-            }
+        } else {
+            //populates listView from rsrtArrayList
+            adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, restaurantList, priceScale, settingPriceNumber);
+            uiListView.setAdapter(adapter);
 
         }
-
-        if (priceList.size() > 0){
-            Collections.sort(priceList);
-            priceAverage = 0;
-
-            for (int i = 0; i < priceList.size(); i++){
-                priceAverage += priceList.get(i);
-            }
-
-            priceAverage = priceAverage/(priceList.size());
-
-            //min ($)
-            priceScale[0] = priceList.get(0);
-            //max ($$$$$)
-            priceScale[4] = priceList.get(priceList.size()-1);
-            //average ($$$)
-            priceScale[2] = priceAverage;
-            //min average ($$)
-            priceScale[1] = (priceAverage+priceScale[0])/2;
-            //max average ($$$$)
-            priceScale[3] = (priceAverage+priceScale[4])/2;
-        }
-
-        //populates listView from rsrtArrayList
-        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtArrayList, priceScale, settingPriceNumber);
-        uiListView.setAdapter(adapter);
-
     }
+
+//    //list manager - handles populating the list and updating it
+//    protected void updateRecentList(){
+//        //initializes database managers
+//        databaseHelper = new DatabaseHelper(thisContext);
+//        databaseCursor = databaseHelper.getAllData(dataSortType, dataSortOrder); //i was going to pass this stuff into here for the sort but it's fighting me
+//
+//        //initialized ui elements
+//        uiListView = findViewById(R.id.uiListRsrt);
+//        TextView uiTxtEmpty = findViewById(R.id.uiTxtEmpty);
+//
+//        //creates a new ArrayList of type Restaurant
+//        rsrtArrayList = new ArrayList<>();
+//
+//        //creates empty price list
+//        priceList = new ArrayList<Double>();
+//
+//        //notifies of an empty restaurant list
+//        if (databaseCursor.getCount() == 0) {
+//            Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
+//            uiTxtEmpty.setVisibility(View.VISIBLE);
+//        }
+//
+//        else {
+//            //hides empty restaurant message
+//            uiTxtEmpty.setVisibility(View.INVISIBLE);
+//
+//            //populates restaurant object to be displayed on list view
+//            while(databaseCursor.moveToNext()){
+//                int ID = (databaseCursor.getInt(0));
+//                String title = (databaseCursor.getString(1));
+//                Double price = (databaseCursor.getDouble(2));
+//                Double rating = (databaseCursor.getDouble(3));
+//                String notes = (databaseCursor.getString(4));
+//                String tags = (databaseCursor.getString(5));
+//
+//
+//
+//                //finds the average
+//                //priceList.add(Double.parseDouble(price));
+//                priceList.add(price);
+//
+//                rsrtArrayList.add(new Restaurant(ID, title,price,rating,notes,tags));
+//            }
+//
+//        }
+//
+//        if (priceList.size() > 0){
+//            Collections.sort(priceList);
+//            priceAverage = 0;
+//
+//            for (int i = 0; i < priceList.size(); i++){
+//                priceAverage += priceList.get(i);
+//            }
+//
+//            priceAverage = priceAverage/(priceList.size());
+//
+//            //min ($)
+//            priceScale[0] = priceList.get(0);
+//            //max ($$$$$)
+//            priceScale[4] = priceList.get(priceList.size()-1);
+//            //average ($$$)
+//            priceScale[2] = priceAverage;
+//            //min average ($$)
+//            priceScale[1] = (priceAverage+priceScale[0])/2;
+//            //max average ($$$$)
+//            priceScale[3] = (priceAverage+priceScale[4])/2;
+//        }
+//
+//        //populates listView from rsrtArrayList
+//        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtArrayList, priceScale, settingPriceNumber);
+//        uiListView.setAdapter(adapter);
+//
+//    }
 
     //spinner manager - handled populating the spinner of sort by choices
     protected void populateSpinner(){
@@ -257,37 +282,37 @@ public class MainActivity extends AppCompatActivity {
                         dataSortType = "ID"; //sort type
                         dataSortOrder = "DESC"; //sort order
                         Toast.makeText(thisContext, "selected 0", Toast.LENGTH_SHORT).show();
-                        updateRecentList(); //updates list
+                        updateList(); //updates list
                         break;
                     case 1:
                         dataSortType = "PRICE";
                         dataSortOrder = "ASC";
                         Toast.makeText(thisContext, "selected 1", Toast.LENGTH_SHORT).show();
-                        updateRecentList();
+                        updateList(); //updates list
                         break;
                     case 2:
                         dataSortType = "PRICE";
                         dataSortOrder = "DESC";
                         Toast.makeText(thisContext, "selected 2", Toast.LENGTH_SHORT).show();
-                        updateRecentList();
+                        updateList(); //updates list
                         break;
                     case 3:
                         dataSortOrder = "RATING";
                         dataSortOrder = "ASC";
                         Toast.makeText(thisContext, "selected 3", Toast.LENGTH_SHORT).show();
-                        updateRecentList();
+                        updateList(); //updates list
                         break;
                     case 4:
                         dataSortType = "RATING";
                         dataSortOrder = "DESC";
                         Toast.makeText(thisContext, "selected 4", Toast.LENGTH_SHORT).show();
-                        updateRecentList();
+                        updateList(); //updates list
                         break;
                     case 5:
                         dataSortType = "ID";
                         dataSortOrder = "ASC";
                         Toast.makeText(thisContext, "selected 4", Toast.LENGTH_SHORT).show();
-                        updateRecentList();
+                        updateList(); //updates list
                         break;
                 }
             }

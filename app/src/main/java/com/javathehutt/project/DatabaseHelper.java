@@ -216,6 +216,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return restaurants;
     }
 
+
     //get Tag ID from Tag Name
 
     public long getTagIDFromName(String tag_name) {

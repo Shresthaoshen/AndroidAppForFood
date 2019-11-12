@@ -19,6 +19,7 @@ import androidx.annotation.Nullable;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 //cName = constructorThingy
 public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
@@ -31,7 +32,7 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
     private boolean settingsPriceNumber;
     private double[] priceScale;
 
-    public RsrtListAdapter(@NonNull Context cContext, int cResource, @NonNull ArrayList<Restaurant> cObjects, double[] cPriceScale, boolean cSettingPriceNumber) {
+    public RsrtListAdapter(@NonNull Context cContext, int cResource, @NonNull List<Restaurant> cObjects, double[] cPriceScale, boolean cSettingPriceNumber) {
         super(cContext, cResource, cObjects);
         context = cContext;
         resource = cResource;
