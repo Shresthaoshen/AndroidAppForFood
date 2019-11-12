@@ -74,9 +74,10 @@ public class SettingsActivity extends AppCompatActivity {
         userSwitchPriceNumber.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 storedSettings.get(0).setValue(isChecked);
+                databaseHelper.updateSettings(storedSettings);
             }
         });
 
-        databaseHelper.updateSettings(storedSettings);
+
     }
 }

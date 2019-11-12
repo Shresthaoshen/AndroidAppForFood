@@ -3,6 +3,7 @@ package com.javathehutt.project;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.media.session.PlaybackState;
@@ -460,7 +461,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             values.put(settingsData.get(i).getKey(), convertBoolToInt(settingsData.get(i).getValue()));
         }
 
-        database.insert(TABLE_SETTINGS, null, values);
+        database.insert(TABLE_SETTINGS, null, values); //todo keeps inserting - where? find aout (i shouldnt have 13 rows, just one)
     }
 
     //updates settings values
@@ -475,15 +476,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             data.moveToLast();
         }
 
-        //String id = settingsData.get(data.getPosition()).toString();
-        String id = "1";
+        String id = data.getPosition()+ "";
 
         ContentValues values = new ContentValues();
         for (int i = 0; i < settingsData.size(); i++) {
             values.put(settingsData.get(i).getKey(), convertBoolToInt(settingsData.get(i).getValue()));
         }
 
-        // updating first row
+        // updating
         return database.update(TABLE_SETTINGS, values, ID + " = ?",
                 new String[] { ( id )});
 
@@ -494,7 +494,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getReadableDatabase();
 
         String selectQuery = "SELECT * FROM " + TABLE_SETTINGS;
-        //todo - how to get the last one in the list?
 
         Log.e(LOG, selectQuery);
 
@@ -514,6 +513,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             settingsData.add(priceSetting);
 
         return settingsData;
+    }
+
+    //returns if setting row has been created or not
+    public boolean settingsExist(){
+        SQLiteDatabase database = this.getWritableDatabase();
+        long count = DatabaseUtils.queryNumEntries(database, TABLE_SETTINGS);
+        database.close();
+
+        return (1 > count);
     }
 
     private int convertBoolToInt (Boolean convert){

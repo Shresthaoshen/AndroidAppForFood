@@ -55,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean dataDeleted = false;
     public String dataSortType = "ID";
     public String dataSortOrder = "DESC";
-    private boolean settingsExist = false;
 
     //ui elements
     private Spinner uiSpinner;
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         updateList();
 
         //first init of settings
-        if (!settingsExist) {
+        if (databaseHelper.settingsExist()) {
             createSettings();
         }
 
@@ -244,15 +243,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void createSettings(){
-        Settings switchPriceNumber = new Settings("PriceView", false);
+        Settings switchPriceNumber = new Settings("PriceView", true);
 
         //0 is price/$$ switch
-        ArrayList<Settings> storedSettings = new ArrayList<Settings>();
+        ArrayList<Settings> storedSettings = new ArrayList<>();
         storedSettings.add(switchPriceNumber);
 
-        databaseHelper.createSettings(storedSettings);
-
-        settingsExist = true;
+        databaseHelper.createSettings(storedSettings); //todo - settings keeps adding
     }
 
 }
