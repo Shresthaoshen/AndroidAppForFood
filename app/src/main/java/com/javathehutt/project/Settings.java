@@ -2,12 +2,12 @@ package com.javathehutt.project;
 
 public class Settings {
     private String key;
-    private Boolean value;
+    private int value;
 
     public Settings() {
     }
 
-    public Settings(String key, Boolean value) {
+    public Settings(String key, int value) {
         this.key = key;
         this.value = value;
     }
@@ -20,11 +20,11 @@ public class Settings {
         this.key = key;
     }
 
-    public Boolean getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(Boolean value) {
+    public void setValue(int value) {
         this.value = value;
     }
 

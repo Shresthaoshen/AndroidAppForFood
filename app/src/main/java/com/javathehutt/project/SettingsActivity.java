@@ -65,7 +65,7 @@ public class SettingsActivity extends AppCompatActivity {
     //updates switches with stored data
     public void updateSwitches() {
         storedSettings = databaseHelper.getSettings();
-        userSwitchPriceNumber.setChecked(storedSettings.get(0).getValue());
+        userSwitchPriceNumber.setChecked(1 <= storedSettings.get(0).getValue());
     }
 
     //saves data when switched
@@ -73,11 +73,9 @@ public class SettingsActivity extends AppCompatActivity {
         //price vs. $$$s
         userSwitchPriceNumber.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                storedSettings.get(0).setValue(isChecked);
+                storedSettings.get(0).setValue(isChecked? 1 : 0);
                 databaseHelper.updateSettings(storedSettings);
             }
         });
-
-
     }
 }

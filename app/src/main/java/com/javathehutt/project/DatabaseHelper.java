@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.media.session.PlaybackState;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -458,7 +459,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         for (int i = 0; i < settingsData.size(); i++) {
-            values.put(settingsData.get(i).getKey(), convertBoolToInt(settingsData.get(i).getValue()));
+            values.put(settingsData.get(i).getKey(), settingsData.get(i).getValue());
         }
 
         database.insert(TABLE_SETTINGS, null, values); //todo keeps inserting - where? find aout (i shouldnt have 13 rows, just one)
@@ -476,17 +477,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             data.moveToLast();
         }
 
-        String id = data.getPosition()+ "";
+        int id = (data.getPosition()) + 1;
 
         ContentValues values = new ContentValues();
         for (int i = 0; i < settingsData.size(); i++) {
-            values.put(settingsData.get(i).getKey(), convertBoolToInt(settingsData.get(i).getValue()));
+            values.put(settingsData.get(i).getKey(), settingsData.get(i).getValue());
         }
 
         // updating
         return database.update(TABLE_SETTINGS, values, ID + " = ?",
-                new String[] { ( id )});
-
+                new String[] {String.valueOf(id)});
     }
 
     //returns settings values
@@ -506,7 +506,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //build setting object
         Settings priceSetting = new Settings();
         priceSetting.setKey(PRICE_VIEWS);
-        priceSetting.setValue(1 == data.getInt(data.getColumnIndex(PRICE_VIEWS)));
+        priceSetting.setValue(data.getInt(data.getColumnIndex(PRICE_VIEWS)));
 
         //add setting objects to settings list
         ArrayList<Settings> settingsData = new ArrayList<>();

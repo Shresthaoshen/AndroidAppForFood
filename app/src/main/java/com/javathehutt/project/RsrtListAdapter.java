@@ -80,14 +80,14 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         priceScale = databaseHelper.getPriceList();
 
         //PRICE VIEW SETTINGS
-        boolean settingsPriceNumber = databaseHelper.getSettings().get(0).getValue();
+        int settingsPriceNumber = databaseHelper.getSettings().get(0).getValue();
 
-        if (settingsPriceNumber) {
+        if (settingsPriceNumber >= 1) {
             editPrice.setText("$" + formatPrice);
             editPrice.setTextSize(16);
         }
 
-        if (!settingsPriceNumber) {
+        if (settingsPriceNumber <= 0) {
             String priceText = "";
             for (int i = 0; i < priceScale.length; i++ ){
                 if (uiPrice >= priceScale[i]){

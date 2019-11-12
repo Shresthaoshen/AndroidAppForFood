@@ -29,9 +29,7 @@ import static java.lang.Integer.parseInt;
 
 public class MainActivity extends AppCompatActivity {
 
-    //to-do - get price formatting correctly when adding
-    //to-do - rating bar ui in most (if not all) restaurant views
-    //to-do - tree system for tags - figure out how to do them as autofill/bubbles
+    //todo - tree system for tags - figure out how to do them as autofill/bubbles
 
     //database managers
     private DatabaseHelper databaseHelper;
@@ -243,13 +241,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void createSettings(){
-        Settings switchPriceNumber = new Settings("PriceView", true);
+        Settings switchPriceNumber = new Settings("PriceView", 0);
 
         //0 is price/$$ switch
         ArrayList<Settings> storedSettings = new ArrayList<>();
         storedSettings.add(switchPriceNumber);
 
-        databaseHelper.createSettings(storedSettings); //todo - settings keeps adding
+        databaseHelper.createSettings(storedSettings);
     }
 
 }
