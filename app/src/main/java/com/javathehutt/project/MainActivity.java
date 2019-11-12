@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
 
                 //int ID = adapter.getItem(position).getID();
 
-                viewIntent.putExtra("ID", position);
-                //viewIntent.putExtra("position", position);
+                int ID = adapter.getItem(position).getID();
+                viewIntent.putExtra("ID", ID);
 
                 startActivityForResult(viewIntent, viewBack_CONFIG_REQUEST);
             }

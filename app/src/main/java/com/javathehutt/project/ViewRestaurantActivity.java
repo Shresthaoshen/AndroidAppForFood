@@ -22,8 +22,9 @@ public class ViewRestaurantActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
     Cursor databaseCursor;
 
-    //position information
+    //restaurant information
     int id;
+    Restaurant restaurant;
 
     //watches for updated data
     boolean dataUpdated = false;
@@ -49,7 +50,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
     protected void buildInformation() {
         //set up database information
         databaseHelper = new DatabaseHelper(this);
-        databaseCursor = databaseHelper.getAllData(dataSortType, dataSortOrder);
+        restaurant = databaseHelper.getRestaurant(id);
 
         //cast variables
         TextView editTitle = (TextView) findViewById(R.id.uiTxtTitleLabel);
@@ -59,22 +60,20 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
         ProgressBar barRating = (ProgressBar) findViewById(R.id.uiBarRating);
 
-        databaseCursor.moveToPosition(id);
-
         //casting numbers to numbers
-        double decimalPrice = Double.parseDouble(databaseCursor.getString(2));
+        double decimalPrice = restaurant.getPrice();
 
         //format numbers
         String formatPrice  = String.format("%.02f", decimalPrice);
 
         //populate text information
-        editTitle.setText(databaseCursor.getString(1));
+        editTitle.setText(restaurant.getName());
         editPrice.setText("$" + formatPrice);
-        editRating.setText(databaseCursor.getString(3) + "/10");
-        editNotes.setText(databaseCursor.getString(4));
-        String tags = (databaseCursor.getString(5));
+        editRating.setText(restaurant.getRating() + "/10");
+        editNotes.setText(restaurant.getNotes());
+        //String tags = (databaseCursor.getString(5)); //todo figure this out ryan please save us
 
-        double decimalRating = Double.parseDouble(databaseCursor.getString(3)) * 10;
+        double decimalRating = restaurant.getRating() * 10;
         int intRating = (int) Math.round(decimalRating);
 
         //set rating bar amount

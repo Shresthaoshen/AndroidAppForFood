@@ -130,7 +130,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //create a tag in tag database
-
     public long createTag(String tagName) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -142,7 +141,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return tag_id;
     }
-
 
     public boolean checkTagAlreadyExists(String tag_name) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -164,16 +162,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
-
     //get single restaurant
-
     public Restaurant getRestaurant(long restaurant_id) {
         SQLiteDatabase database = this.getReadableDatabase();
 
+        /*String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT + " WHERE "
+                + RESTAURANT_ID + " = " + restaurant_id;*/
+
         String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT + " WHERE "
-                + RESTAURANT_ID + " = " + restaurant_id;
+                + ID + " = " + restaurant_id;
 
         Log.e(LOG, selectQuery);
 
@@ -183,15 +180,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             data.moveToFirst();
 
         Restaurant restaurant = new Restaurant();
-        restaurant.setID(data.getInt(data.getColumnIndex(ID)));
-        restaurant.setName(data.getString(data.getColumnIndex(NAME)));
-        restaurant.setPrice(data.getDouble(data.getColumnIndex(PRICE)));
-        restaurant.setRating(data.getDouble(data.getColumnIndex(RATING)));
-        restaurant.setNotes((data.getString(data.getColumnIndex(NOTES))));
+            restaurant.setID(data.getInt(data.getColumnIndex(ID)));
+            restaurant.setName(data.getString(data.getColumnIndex(NAME)));
+            restaurant.setPrice(data.getDouble(data.getColumnIndex(PRICE)));
+            restaurant.setRating(data.getDouble(data.getColumnIndex(RATING)));
+            restaurant.setNotes((data.getString(data.getColumnIndex(NOTES))));
 
         return restaurant;
     }
-
 
     //get all restaurants in a list
     public List<Restaurant> getAllRestaurants(String dataSortType, String dataSortOrder) {
