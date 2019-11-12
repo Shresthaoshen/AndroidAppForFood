@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_RESTAURANT = "RESTAURANT_TABLE";
     public static final String TABLE_TAG = "TAG_TABLE";
     public static final String TABLE_RESTAURANT_TAG = "RESTAURANT_TAG_TABLE";
+    public static final String TABLE_SETTINGS = "SETTINGS_TABLE";
 
 
     //Common Columns
@@ -42,8 +43,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Tag Table Column Names
     public static final String TAG_NAME = "TagName";
 
+    //Settings Columns
+    public static final String PRICE_VIEWS = "PriceView";
+
     //Restaurant_Tag Table Column Names
-  //both integers
+    //both integers
     public static final String RESTAURANT_ID = "RestaurantID";
     public static final String TAG_ID = "TagID";
 
@@ -57,6 +61,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Create Restaurant_Tag Table
     public static final String CREATE_RESTAURANT_TAG_TABLE = "CREATE TABLE "+ TABLE_RESTAURANT_TAG + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RESTAURANT_ID + " INTEGER,"+ TAG_ID + " INTEGER);";
 
+    //Create a Settings Table
+    public static final String CREATE_SETTINGS_TABLE = "CREATE TABLE "+ TABLE_SETTINGS + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + PRICE_VIEWS + " BOOLEAN);";
 
     public DatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);

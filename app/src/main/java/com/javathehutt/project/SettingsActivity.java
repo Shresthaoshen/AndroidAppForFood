@@ -24,6 +24,9 @@ public class SettingsActivity extends AppCompatActivity {
     //UI elements
     TextView uiPriceHint;
 
+    //database managers
+    DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,10 +38,13 @@ public class SettingsActivity extends AppCompatActivity {
         //initialize UI elements
         uiPriceHint = findViewById(R.id.uiTxtDescPriceHint);
 
+        //get database
+        databaseHelper = new DatabaseHelper(this);
+
         updateSwitches();
 
         //set price information so people know the scale
-        priceScale = getIntent().getDoubleArrayExtra("priceScale");
+        priceScale = databaseHelper.getPriceList();
         uiPriceHint.setText("$ = $" + (int) Math.round(priceScale[0]) + ".00 || $$ = $" + (int) Math.round(priceScale[1])
                 + ".00 || $$$ = $" + (int) Math.round(priceScale[2]) + ".00 || $$$$ = $" + (int) Math.round(priceScale[3])
                 + ".00 || $$$$$ = $" + (int) Math.round(priceScale[4]) + ".00");
