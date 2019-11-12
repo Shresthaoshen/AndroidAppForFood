@@ -94,8 +94,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         });
 
-        testRestaurant();
-
     }
 
     //onClick for add button - just starts addRestaurant activity
@@ -257,17 +255,24 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     protected void testRestaurant(){
 
-        String restaurantName = "yo";
-        Double price = 6.9;
-        Double rating = 420.0;
-        String notes = "test";
-        String[] tag_names = {"test", "test1"};
+        String restaurantName = "TEST RESTAURANT -- ADDED IN CODE";
+        Double price = 10.10;
+        Double rating = 20.20;
+        String notes = "TEST NOTES -- ADDED IN CODE";
+        String[] tag_names = {"CodeTag1", "CodeTag2"};
 
         databaseHelper.createRestaurant(restaurantName, price, rating, notes, tag_names);
     }
 
     @Override
-    public boolean onQueryTextSubmit(String query) {
+    public boolean onQueryTextSubmit(String searchText) {
+        if (searchText.length() >= 1) {
+            searchQuery = " WHERE RestaurantName LIKE \"%" + searchText + "%\"";
+        }
+
+        else { searchQuery = ""; }
+
+        updateList(searchQuery);
         return false;
     }
 
