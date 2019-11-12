@@ -199,7 +199,9 @@ public class MainActivity extends AppCompatActivity {
                 Double price = (databaseCursor.getDouble(2));
                 Double rating = (databaseCursor.getDouble(3));
                 String notes = (databaseCursor.getString(4));
-                String tags = (databaseCursor.getString(5));
+//                String tags = (databaseCursor.getString(5));
+
+
 
                 //finds the average
                 //priceList.add(Double.parseDouble(price));

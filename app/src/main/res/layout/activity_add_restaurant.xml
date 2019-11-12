@@ -128,32 +128,55 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/uiTxtTags"
+            android:id="@+id/uiTxtTagsLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/uiTxtNotesLabel">
 
+            <EditText
+                android:id="@+id/userTxtTags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="Tags"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/uiTxtTags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uiTxtTagsLabel">
+
             <com.google.android.material.chip.ChipGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_weight="1" >
+                android:layout_weight="1">
 
                 <com.google.android.material.chip.Chip
                     android:id="@+id/exampleChip"
                     style="@style/Widget.MaterialComponents.Chip.Action"
-                    android:text="example tag"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:textAppearanceSmall"
-                    />
+                    android:text="example tag"
+                    android:textAppearance="?android:textAppearanceSmall" />
             </com.google.android.material.chip.ChipGroup>
 
             <EditText
@@ -163,7 +186,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:hint="Tags"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -171,15 +194,13 @@
             android:id="@+id/uiBtnAdd"
             android:layout_width="156sp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="380dp"
+            android:layout_marginTop="40dp"
             android:onClick="clickSubmit"
             android:text="Add"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/uiTxtTags"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/uiTxtTags" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

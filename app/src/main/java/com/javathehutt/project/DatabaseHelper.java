@@ -81,7 +81,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //insert data read from AddRestaurantActivity to SQLite database
-    public void createRestaurant(String restaurantName, Double price, Double rating, String notes, String[] tag_names) {
+    public boolean createRestaurant(String restaurantName, Double price, Double rating, String notes, String[] tag_names) {
+
+        boolean added=false;
+
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -96,6 +99,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //insert entry
         //First argument table name, second is null, third is content values
         long restaurant_id = database.insert(TABLE_RESTAURANT, null, contentValues);
+
+        added=true;
 
 
         //assign restaurant-tag pairings
@@ -114,6 +119,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 createRestaurantTag(restaurant_id, tag_id);
             }
         }
+        return added;
     }
 
     //create a tag in tag database

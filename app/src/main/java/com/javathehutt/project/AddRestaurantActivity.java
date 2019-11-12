@@ -24,9 +24,9 @@ public class AddRestaurantActivity extends AppCompatActivity {
     EditText editTitle, editPrice, editRating, editNotes, editTags;
     Button btnSubmit;
 
-    //tag manager
-    long[] tagArray;
-    ArrayList<Long> tagList;
+    //tag array
+    String[] tagArray;
+//    ArrayList<Long> tagList;
 
 
     @Override
@@ -42,11 +42,11 @@ public class AddRestaurantActivity extends AppCompatActivity {
         editPrice = (EditText) findViewById(R.id.userTxtPrice);
         editRating = (EditText) findViewById(R.id.userTxtRating);
         editNotes = (EditText) findViewById(R.id.userTxtNotes);
-        editTags = (EditText) findViewById(R.id.userTextTags);
+        editTags = (EditText) findViewById(R.id.userTxtTags);
         btnSubmit = (Button) findViewById(R.id.uiBtnAdd);
 
         //init tagList
-        tagList = new ArrayList<>();
+//        tagList = new ArrayList<>();
 
         SubmitData();
     }
@@ -54,14 +54,17 @@ public class AddRestaurantActivity extends AppCompatActivity {
     //onClick listener for submit button
     public void SubmitData() {
 
-        if (editTags.getText().toString().trim().length() == 0){
-            tagList.add( (long) 0); //how are we going to add the long numbers from a string list?
-            //adds to flexible list rn and then....
-        }
+//        if (editTags.getText().toString().trim().length() == 0){
+//            tagList.add( (long) 0); //how are we going to add the long numbers from a string list?
+//            //adds to flexible list rn and then....
+//        }
+//
+//        //initalize tag array
+//        tagArray = new String[tagList.size()];
+//        tagArray[0] = tagList.get(0); //....casts it to an array (b/c size has to be predetermined?
 
-        //initalize tag array
-        tagArray = new long[tagList.size()];
-        tagArray[0] = tagList.get(0); //....casts it to an array (b/c size has to be predetermined?
+        String tags= editTags.getText().toString();
+        tagArray = tags.split(" ");
 
         btnSubmit.setOnClickListener(
                 new View.OnClickListener() {
