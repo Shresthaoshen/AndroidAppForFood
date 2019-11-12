@@ -14,6 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Iterator;
+import java.util.List;
+
 public class ViewRestaurantActivity extends AppCompatActivity {
 
     private final int editUpdate_CONFIG_REQUEST = 2;
@@ -57,6 +60,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         TextView editPrice = (TextView) findViewById(R.id.uiTxtPrice);
         TextView editRating = (TextView) findViewById(R.id.uiTxtRating);
         TextView editNotes = (TextView) findViewById(R.id.uiTxtNotes);
+        TextView editTags = (TextView) findViewById(R.id.uiTxtTags);
 
         ProgressBar barRating = (ProgressBar) findViewById(R.id.uiBarRating);
 
@@ -71,6 +75,18 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         editPrice.setText("$" + formatPrice);
         editRating.setText(restaurant.getRating() + "/10");
         editNotes.setText(restaurant.getNotes());
+
+        //restaurant is restaurant object
+        //can use id
+        List<Tag> tags = databaseHelper.getRestaurantsTags(id);
+        String tagString = "";
+        for (Tag t: tags) {
+            tagString += t.getTagName();
+        }
+
+        editTags.setText(tagString);
+
+        //get tags associated with restaurant id
         //String tags = (databaseCursor.getString(5)); //todo figure this out ryan please save us
 
         double decimalRating = restaurant.getRating() * 10;

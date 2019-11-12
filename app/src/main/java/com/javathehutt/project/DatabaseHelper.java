@@ -118,17 +118,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //if tag doesn't exist, createTag then createRestaurantTag
 
         for (String tag_name : tag_names) {
-
-            boolean tagExists = checkTagAlreadyExists(tag_name);
-
-            if (tagExists == true) {
-                createRestaurantTag(restaurant_id, getTagIDFromName(tag_name));
-            } else {
-
-                long tag_id = createTag(tag_name);
-                createRestaurantTag(restaurant_id, tag_id);
-            }
+            long tag_id = createTag(tag_name);
+            createRestaurantTag(restaurant_id, tag_id);
         }
+
+//        for (String tag_name : tag_names) {
+//
+//            boolean tagExists = checkTagAlreadyExists(tag_name);
+//
+//            if (tagExists == true) {
+//                createRestaurantTag(restaurant_id, getTagIDFromName(tag_name));
+//            } else {
+//
+//                long tag_id = createTag(tag_name);
+//                createRestaurantTag(restaurant_id, tag_id);
+//            }
+//        }
         return added;
     }
 
@@ -316,6 +321,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    //get tags belonging to restaurant
+    public List<Tag> getRestaurantsTags(int restaurant_id) {
+        List<Tag> tags = new ArrayList<Tag>();
+
+        SQLiteDatabase database = this.getReadableDatabase();
+        String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT_TAG+" WHERE " + RESTAURANT_ID + " =?";
+
+        Cursor data = database.rawQuery(selectQuery, new String[] { String.valueOf(restaurant_id) });
+
+        int tagIdRow = data.getColumnIndex(TAG_ID);
+
+        //moves through pairings matching restaurant id
+        for (data.moveToFirst(); !data.isAfterLast(); data.moveToNext()){
+
+            //retrieve tagid of each data
+            int tag_id = (data.getInt((data.getColumnIndex(TAG_ID))));
+            //new
+            String newQuery = "SELECT  * FROM " + TABLE_TAG+" WHERE " + ID + " =?";
+
+            Cursor tagData = database.rawQuery(newQuery, new String[] { String.valueOf(tag_id) });
+            int tagNameRow = data.getColumnIndex(TAG_NAME);
+
+            for (tagData.moveToFirst(); !tagData.isAfterLast(); tagData.moveToNext()){
+                Tag t = new Tag();
+                t.setID(tagData.getInt(tagData.getColumnIndex(ID)));
+                t.setTagName(tagData.getString(tagData.getColumnIndex(TAG_NAME)));
+
+                tags.add(t);
+
+
+            }
+
+        }
+        return tags;
+    }
+
+
     //get all tags in tag database
     public List<Tag> getAllTags() {
         List<Tag> tags = new ArrayList<Tag>();
@@ -339,6 +381,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return tags;
     }
+
 
     //update a tag
     public int updateTag(Tag tag) {
