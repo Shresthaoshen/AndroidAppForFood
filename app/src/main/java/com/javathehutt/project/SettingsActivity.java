@@ -10,10 +10,12 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class SettingsActivity extends AppCompatActivity {
 
-    //false = display as $$s, true = display as $0.00
-    private boolean settingPriceNumber = true;
+    //0 is price/$$ switch
+    private ArrayList<Settings> storedSettings;
 
     //price handlers
     double[] priceScale;
@@ -53,29 +55,28 @@ public class SettingsActivity extends AppCompatActivity {
         checkListeners();
     }
 
-    //onClick back - ends settings activity, todo saves data
+    //onClick back - ends settings activity,
     public void clickBack (View view){
         Intent backIntent = new Intent(this, MainActivity.class);
-        backIntent.putExtra("settingPriceNumber", settingPriceNumber);
         setResult(RESULT_CANCELED, backIntent);
         finish();
     }
 
     //updates switches with stored data
-    //todo figure out a way to check this - settings database?
     public void updateSwitches() {
-        userSwitchPriceNumber.setChecked(settingPriceNumber);
-        Toast.makeText(this, "$$$", Toast.LENGTH_LONG).show();
+        storedSettings = databaseHelper.getSettings();
+        userSwitchPriceNumber.setChecked(storedSettings.get(0).getValue());
     }
 
+    //saves data when switched
     public void checkListeners (){
         //price vs. $$$s
         userSwitchPriceNumber.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //todo this is where we'd store the information if i knew how to do that
-                settingPriceNumber = isChecked;
+                storedSettings.get(0).setValue(isChecked);
             }
         });
 
+        databaseHelper.updateSettings(storedSettings);
     }
 }

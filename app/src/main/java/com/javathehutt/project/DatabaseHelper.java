@@ -23,13 +23,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //database name (JTH = JavaTheHutt)
     public static final String DB_NAME = "JTH_RESTAURANT.DB";
 
-
     //Table names
     public static final String TABLE_RESTAURANT = "RESTAURANT_TABLE";
     public static final String TABLE_TAG = "TAG_TABLE";
     public static final String TABLE_RESTAURANT_TAG = "RESTAURANT_TAG_TABLE";
     public static final String TABLE_SETTINGS = "SETTINGS_TABLE";
-
 
     //Common Columns
     public static final String ID = "ID";
@@ -51,7 +49,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String RESTAURANT_ID = "RestaurantID";
     public static final String TAG_ID = "TagID";
 
-
     //Create Restaurant Table
     public static final String CREATE_RESTAURANT_TABLE = "CREATE TABLE "+ TABLE_RESTAURANT + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + NAME + " TEXT,"+ PRICE + " DECIMAL," + RATING + " DECIMAL," + NOTES + " TEXT);";
 
@@ -59,10 +56,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String CREATE_TAG_TABLE = "CREATE TABLE "+ TABLE_TAG + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + TAG_NAME + " TEXT);";
 
     //Create Restaurant_Tag Table
-    public static final String CREATE_RESTAURANT_TAG_TABLE = "CREATE TABLE "+ TABLE_RESTAURANT_TAG + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RESTAURANT_ID + " INTEGER,"+ TAG_ID + " INTEGER);";
+    public static final String CREATE_RESTAURANT_TAG_TABLE = "CREATE TABLE " + TABLE_RESTAURANT_TAG + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + RESTAURANT_ID + " INTEGER,"+ TAG_ID + " INTEGER);";
 
     //Create a Settings Table
-    public static final String CREATE_SETTINGS_TABLE = "CREATE TABLE "+ TABLE_SETTINGS + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + PRICE_VIEWS + " BOOLEAN);";
+    public static final String CREATE_SETTINGS_TABLE = "CREATE TABLE " + TABLE_SETTINGS + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + PRICE_VIEWS + " INTEGER);";
 
     public DatabaseHelper(Context context){
         super(context, DB_NAME, null, DB_VERSION);
@@ -74,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.execSQL(CREATE_RESTAURANT_TABLE);
         database.execSQL(CREATE_TAG_TABLE);
         database.execSQL(CREATE_RESTAURANT_TAG_TABLE);
+        database.execSQL(CREATE_SETTINGS_TABLE);
     }
 
     //called when scheme version we need != our current one
@@ -82,15 +80,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANT);
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_TAG);
         database.execSQL("DROP TABLE IF EXISTS " + TABLE_RESTAURANT_TAG);
+        database.execSQL("DROP TABLE IF EXISTS " + TABLE_SETTINGS);
 
         //create new tables
         onCreate(database);
     }
 
+    // -------------- RESTAURANTS -------------- //
+
     //insert data read from AddRestaurantActivity to SQLite database
     public boolean createRestaurant(String restaurantName, Double price, Double rating, String notes, String[] tag_names) {
 
-        boolean added=false;
+        boolean added = false;
 
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
@@ -129,45 +130,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return added;
     }
 
-    //create a tag in tag database
-    public long createTag(String tagName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(TAG_NAME, tagName);
-
-        // insert row
-        long tag_id = db.insert(TABLE_TAG, null, values);
-
-        return tag_id;
-    }
-
-    public boolean checkTagAlreadyExists(String tag_name) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery = "SELECT * FROM " + TABLE_TAG +" WHERE " + TAG_NAME + " =?";
-
-        Cursor c = db.rawQuery(selectQuery, new String[]{tag_name});
-
-        boolean tagExists = false;
-
-        if (c.moveToFirst()){
-            tagExists= true;
-
-        }
-
-        c.close();
-        db.close();
-        return tagExists;
-
-    }
-
-
     //get single restaurant
     public Restaurant getRestaurant(long restaurant_id) {
         SQLiteDatabase database = this.getReadableDatabase();
-
-        /*String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT + " WHERE "
-                + RESTAURANT_ID + " = " + restaurant_id;*/
 
         String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT + " WHERE "
                 + ID + " = " + restaurant_id;
@@ -193,12 +158,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public List<Restaurant> getAllRestaurants(String dataSortType, String dataSortOrder) {
         List<Restaurant> restaurants = new ArrayList<Restaurant>();
         //String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT;
-        String selectQuery = "select * from " + TABLE_RESTAURANT + " ORDER BY " + dataSortType + " " + dataSortOrder; //ok - the issue? order by name/alphabet doesn't work. don't know why, it just doesn't todo figure out why
+        String selectQuery = "SELECT * FROM " + TABLE_RESTAURANT + " ORDER BY " + dataSortType + " " + dataSortOrder; //ok - the issue? order by name/alphabet doesn't work. don't know why, it just doesn't todo figure out why
 
         Log.e(LOG, selectQuery);
 
         SQLiteDatabase database = this.getReadableDatabase();
-        //Cursor c = db.rawQuery(selectQuery, null);
         Cursor data = database.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
@@ -219,32 +183,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return restaurants;
     }
 
-
-    //get Tag ID from Tag Name
-
-    public long getTagIDFromName(String tag_name) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String selectQuery = "SELECT * FROM " + TABLE_TAG +" WHERE " + TAG_NAME + " =?";
-
-        Cursor c = db.rawQuery(selectQuery, new String[]{tag_name});
-
-        long result = -1;
-
-        int idRow = c.getColumnIndex(ID);
-
-        for (c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
-            result = c.getLong(idRow);
-        }
-
-        c.close();
-        db.close();
-        return result;
-
-    }
-
-
     //get all restaurants belonging to a tag
-
     public List<Restaurant> getAllRestaurantsByTag(String tag_name) {
         List<Restaurant> restaurants = new ArrayList<Restaurant>();
 
@@ -256,25 +195,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Log.e(LOG, selectQuery);
 
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery(selectQuery, null);
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor data = database.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
-        if (c.moveToFirst()) {
+        if (data.moveToFirst()) {
             do {
                 Restaurant restaurant = new Restaurant();
-                restaurant.setID(c.getInt(c.getColumnIndex(ID)));
-                restaurant.setName(c.getString(c.getColumnIndex(NAME)));
-                restaurant.setPrice(c.getDouble(c.getColumnIndex(PRICE)));
-                restaurant.setRating(c.getDouble(c.getColumnIndex(RATING)));
-                restaurant.setNotes((c.getString(c.getColumnIndex(NOTES))));
+                restaurant.setID(data.getInt(data.getColumnIndex(ID)));
+                restaurant.setName(data.getString(data.getColumnIndex(NAME)));
+                restaurant.setPrice(data.getDouble(data.getColumnIndex(PRICE)));
+                restaurant.setRating(data.getDouble(data.getColumnIndex(RATING)));
+                restaurant.setNotes((data.getString(data.getColumnIndex(NOTES))));
 
                 // adding to todo list
                 restaurants.add(restaurant);
-            } while (c.moveToNext());
+            } while (data.moveToNext());
         }
 
         return restaurants;
+    }
+
+    //Assigns a restaurant under a tag name by ids. 11
+    public long createRestaurantTag(long todo_id, long tag_id) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(RESTAURANT_ID, todo_id);
+        values.put(TAG_ID, tag_id);
+
+        long id = database.insert(TABLE_RESTAURANT_TAG, null, values);
+
+        return id;
     }
 
     //update Restaurant entry
@@ -298,17 +250,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    //OLD METHOD TO GET ALL DATA AT ONCE- MAYBE WE SHOULDN'T USE??
-    //retrieve all from sql
-    public Cursor getAllData(String dataSortType, String dataSortOrder) {
-        SQLiteDatabase database = this.getWritableDatabase();
-        //Cursor data = database.rawQuery("select * from " + TABLE_NAME + " ORDER BY ID DESC",null);
-        Cursor data = database.rawQuery("select * from " + TABLE_RESTAURANT + " ORDER BY " + dataSortType + " " + dataSortOrder,null); //ok - the issue? order by name/alphabet doesn't work. don't know why, it just doesn't
-
-        return data;
-
-    }
-
     //delete Restaurant from sql
     public boolean deleteData(String id){
         SQLiteDatabase database = this.getWritableDatabase();
@@ -317,7 +258,61 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    // -------------- TAGS -------------- //
 
+    //create a tag in tag database
+    public long createTag(String tagName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(TAG_NAME, tagName);
+
+        // insert row
+        long tag_id = db.insert(TABLE_TAG, null, values);
+
+        return tag_id;
+    }
+
+    public boolean checkTagAlreadyExists(String tag_name) {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_TAG +" WHERE " + TAG_NAME + " =?";
+
+        Cursor data = database.rawQuery(selectQuery, new String[]{tag_name});
+
+        boolean tagExists = false;
+
+        if (data.moveToFirst()){
+            tagExists= true;
+
+        }
+
+        data.close();
+        database.close();
+        return tagExists;
+
+    }
+
+    //get Tag ID from Tag Name
+    public long getTagIDFromName(String tag_name) {
+        SQLiteDatabase database = this.getReadableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_TAG +" WHERE " + TAG_NAME + " =?";
+
+        Cursor data = database.rawQuery(selectQuery, new String[]{tag_name});
+
+        long result = -1;
+
+        int idRow = data.getColumnIndex(ID);
+
+        for (data.moveToFirst(); !data.isAfterLast(); data.moveToNext()){
+            result = data.getLong(idRow);
+        }
+
+        data.close();
+        database.close();
+
+        return result;
+
+    }
 
     //get all tags in tag database
     public List<Tag> getAllTags() {
@@ -326,46 +321,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         Log.e(LOG, selectQuery);
 
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery(selectQuery, null);
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor data = database.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
-        if (c.moveToFirst()) {
+        if (data.moveToFirst()) {
             do {
                 Tag t = new Tag();
-                t.setID(c.getInt((c.getColumnIndex(ID))));
-                t.setTagName(c.getString(c.getColumnIndex(TAG_NAME)));
+                t.setID(data.getInt((data.getColumnIndex(ID))));
+                t.setTagName(data.getString(data.getColumnIndex(TAG_NAME)));
 
                 // adding to tags list
                 tags.add(t);
-            } while (c.moveToNext());
+            } while (data.moveToNext());
         }
         return tags;
     }
 
     //update a tag
     public int updateTag(Tag tag) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(TAG_NAME, tag.getTagName());
 
         // updating row
-        return db.update(TABLE_TAG, values, ID + " = ?",
+        return database.update(TABLE_TAG, values, ID + " = ?",
                 new String[] { String.valueOf(tag.getId()) });
     }
 
-
     //Delete a tag from the database
     // Will delete all restaurants under the tag name if boolean is true
-
     public void deleteTag(Tag tag, boolean should_delete_all_tag_restaurants) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase database = this.getWritableDatabase();
 
         // before deleting tag
         // check if todos under this tag should also be deleted
         if (should_delete_all_tag_restaurants) {
-            // get all todos under this tag
+            // get all todo under this tag
             List<Restaurant> allTagRestaurants = getAllRestaurantsByTag(tag.getTagName());
 
             // delete all todos
@@ -377,30 +370,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         // now delete the tag
-        db.delete(TABLE_TAG, ID+ " = ?",
+        database.delete(TABLE_TAG, ID+ " = ?",
                 new String[] { String.valueOf(tag.getId()) });
     }
 
-
-
-    //Assigns a restaurant under a tag name by ids. 11
-
-    public long createRestaurantTag(long todo_id, long tag_id) {
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(RESTAURANT_ID, todo_id);
-        values.put(TAG_ID, tag_id);
-
-        long id = db.insert(TABLE_RESTAURANT_TAG, null, values);
-
-        return id;
-    }
-
-
-
-    //remove tag assigned to a restaurant. NOT FINISHED
-
+    //remove tag assigned to a restaurant. NOT FINISHED todo
 //    public void deleteRestaurantTag(long id, long tag_id) {
 //        SQLiteDatabase db = this.getWritableDatabase();
 //
@@ -409,23 +383,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //
 //    }
 
-
-    //update tag of a restaurant. 13
+    //update tag of a restaurant.
     public int updateRestaurantTag(long id, long tag_id) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(TAG_ID, tag_id);
 
         // updating row
-        return db.update(TABLE_RESTAURANT, values, ID + " = ?",
+        return database.update(TABLE_RESTAURANT, values, ID + " = ?",
                 new String[] { String.valueOf(id) });
     }
 
 
+    // -------------- SETTINGS -------------- //
 
-    //build price list
-    private double[] buildPriceList(){
+    //build price scale
+    private double[] buildPriceScale(){
 
         List<Double> priceList = new ArrayList<Double>();
         String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT;
@@ -450,9 +424,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         double priceAverage = 0;
         if (priceList.size() > 0){
 
-                for (int i = 0; i < priceList.size(); i++) {
-                    priceAverage += priceList.get(i);
-                }
+            for (int i = 0; i < priceList.size(); i++) {
+                priceAverage += priceList.get(i);
+            }
             priceAverage = priceAverage/(priceList.size());
 
 
@@ -471,9 +445,80 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return priceScale;
     }
 
-    //returns prices list
+    //returns prices scale
     public double[] getPriceList(){
-        return buildPriceList();
+        return buildPriceScale();
+    }
+
+    //sets settings values (only should be called if there is no setting row - there should be only one row)
+    public void createSettings(ArrayList<Settings> settingsData){
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        for (int i = 0; i < settingsData.size(); i++) {
+            values.put(settingsData.get(i).getKey(), convertBoolToInt(settingsData.get(i).getValue()));
+        }
+
+        database.insert(TABLE_SETTINGS, null, values);
+    }
+
+    //updates settings values
+    public int updateSettings(ArrayList<Settings> settingsData){
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        String selectQuery = "SELECT * FROM " + TABLE_SETTINGS;
+
+        Cursor data = database.rawQuery(selectQuery, null);
+
+        if (data != null){
+            data.moveToLast();
+        }
+
+        //String id = settingsData.get(data.getPosition()).toString();
+        String id = "1";
+
+        ContentValues values = new ContentValues();
+        for (int i = 0; i < settingsData.size(); i++) {
+            values.put(settingsData.get(i).getKey(), convertBoolToInt(settingsData.get(i).getValue()));
+        }
+
+        // updating first row
+        return database.update(TABLE_SETTINGS, values, ID + " = ?",
+                new String[] { ( id )});
+
+    }
+
+    //returns settings values
+    public ArrayList<Settings> getSettings(){
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String selectQuery = "SELECT * FROM " + TABLE_SETTINGS;
+        //todo - how to get the last one in the list?
+
+        Log.e(LOG, selectQuery);
+
+        Cursor data = database.rawQuery(selectQuery, null);
+
+        if (data != null){
+            data.moveToLast();
+        }
+
+        //build setting object
+        Settings priceSetting = new Settings();
+        priceSetting.setKey(PRICE_VIEWS);
+        priceSetting.setValue(1 == data.getInt(data.getColumnIndex(PRICE_VIEWS)));
+
+        //add setting objects to settings list
+        ArrayList<Settings> settingsData = new ArrayList<>();
+            settingsData.add(priceSetting);
+
+        return settingsData;
+    }
+
+    private int convertBoolToInt (Boolean convert){
+        if (convert){ return 1;}
+        return 0;
     }
 
     public void closeDataBase() {

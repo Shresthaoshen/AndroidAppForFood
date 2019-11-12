@@ -27,19 +27,19 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
     private Context context;
     int resource;
 
-    //settings manager
-        //false = display as $$s, true = display as $0.00
-    private boolean settingsPriceNumber;
+    //price scale manager
     private double[] priceScale;
+
+    //database managers
+    DatabaseHelper databaseHelper;
 
     public List<Restaurant> restaurantList;
 
-    public RsrtListAdapter(@NonNull Context context, int resource, @NonNull List<Restaurant> restaurantList, double[] priceScale, boolean settingPriceNumber) {
+    public RsrtListAdapter(@NonNull Context context, int resource, @NonNull List<Restaurant> restaurantList, double[] priceScale) {
         super(context, resource, restaurantList);
 
         this.context = context;
         this.resource = resource;
-        this.settingsPriceNumber = settingPriceNumber;
         this.priceScale = priceScale;
         this.restaurantList = restaurantList;
     }
@@ -47,6 +47,9 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+        //get database
+        databaseHelper = new DatabaseHelper(context);
 
         //get restaurant information that's displayed on the widget
         String uiName = restaurantList.get(position).getName();
@@ -74,6 +77,11 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         editName.setText(uiName);
 
         //PRICE SETTINGS
+        priceScale = databaseHelper.getPriceList();
+
+        //PRICE VIEW SETTINGS
+        boolean settingsPriceNumber = databaseHelper.getSettings().get(0).getValue();
+
         if (settingsPriceNumber) {
             editPrice.setText("$" + formatPrice);
             editPrice.setTextSize(16);
@@ -127,5 +135,6 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
 
         return color;
     }
+
 
 }

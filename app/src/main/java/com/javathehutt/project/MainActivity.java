@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     //database managers
     private DatabaseHelper databaseHelper;
-    private Cursor databaseCursor;
 
     //activity managers
     private final int addSubmit_CONFIG_REQUEST = 1;
@@ -46,11 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView uiListView;
     private RsrtListAdapter adapter;
 
-    //price trackers
-        //array lines up with min/max prices - [0] is $, [5] is $$$$$
     public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
-//    public double[] priceList= databaseHelper.getPriceList(); //todo
-    public double priceAverage;
 
     //self-reference context
     private Context thisContext;
@@ -60,10 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean dataDeleted = false;
     public String dataSortType = "ID";
     public String dataSortOrder = "DESC";
-
-    //settings trackers
-    //update w databasehelper
-    private boolean settingPriceNumber = true;
+    private boolean settingsExist = false;
 
     //ui elements
     private Spinner uiSpinner;
@@ -83,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
 
         //update list of restaurants displayed
         updateList();
+
+        //first init of settings
+        if (!settingsExist) {
+            createSettings();
+        }
 
         //onClick listeners for list objects to get into viewRestaurant activity
         uiListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -109,7 +106,6 @@ public class MainActivity extends AppCompatActivity {
     //onClick for settings button - opens setting drawer
     public void clickSettings (View view){
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
-        //settingsIntent.putExtra("priceScale", priceScale);
         startActivityForResult(settingsIntent, settingsBack_CONFIG_REQUEST);
     }
 
@@ -120,16 +116,15 @@ public class MainActivity extends AppCompatActivity {
                 //on add activity -> click Submit
                 if (requestCode == addSubmit_CONFIG_REQUEST) {
                     if (resultCode == Activity.RESULT_OK) {
-                        Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
 
                         //updates ListView
                         updateList();
-
                     }
 
                     //on add activity -> clicked Back
                     if (resultCode == RESULT_CANCELED) {
-                        Toast.makeText(this, "switched over from back", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(this, "switched over from back", Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -145,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                             updateList();
                         }
 
-                        Toast.makeText(this, "switched over from view", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(this, "switched over from view", Toast.LENGTH_LONG).show();
 
                     }
                 }
@@ -154,18 +149,14 @@ public class MainActivity extends AppCompatActivity {
                 if (requestCode == settingsBack_CONFIG_REQUEST){
             if (resultCode == Activity.RESULT_CANCELED) {
 
-                //checks to see if any data was modified while in the activity
-                settingPriceNumber = submitData.getExtras().getBoolean("settingsPriceNumber");
-
                 updateList();
 
-                Toast.makeText(this, "switched over from settings and setting is now" + settingPriceNumber, Toast.LENGTH_LONG).show();
+//                Toast.makeText(this, "switched over from settings and setting is now" + settingPriceNumber, Toast.LENGTH_LONG).show();
 
             }
         }
 
     }
-
 
     //new updates Field below Spinner, depending on pa
     protected void updateList(){
@@ -183,16 +174,15 @@ public class MainActivity extends AppCompatActivity {
         } else {
             uiTxtEmpty.setVisibility(View.INVISIBLE);
             //populates listView from rsrtArrayList
-            adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, restaurantList, priceScale, settingPriceNumber);
+            adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, restaurantList, priceScale);
             uiListView.setAdapter(adapter);
 
         }
     }
 
-
     //spinner manager - handled populating the spinner of sort by choices
     protected void populateSpinner(){
-        String[] sortTypes = new String[]{"Recents", "Price - Low to High", "Price - High to Low", "Rating - Low to High", "Rating - High to Low", "Oldest"};
+        String[] sortTypes = new String[]{"Recents", "Oldest", "Price: Low to High", "Price: High to Low", "Rating: Low to High", "Rating: High to Low", "Alphabetic A-Z", "Alphabetic Z-A"};
 
         ArrayAdapter<String> spinAdapter = new ArrayAdapter<>(this, R.layout.spinner_widget, sortTypes);
         spinAdapter.setDropDownViewResource(R.layout.spinner_dropdown_widget);
@@ -206,38 +196,42 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
                         dataSortType = "ID"; //sort type
                         dataSortOrder = "DESC"; //sort order
-                        Toast.makeText(thisContext, "selected 0", Toast.LENGTH_SHORT).show();
                         updateList(); //updates list
                         break;
                     case 1:
-                        dataSortType = "PRICE";
+                        dataSortType = "ID";
                         dataSortOrder = "ASC";
-                        Toast.makeText(thisContext, "selected 1", Toast.LENGTH_SHORT).show();
                         updateList(); //updates list
                         break;
                     case 2:
                         dataSortType = "PRICE";
-                        dataSortOrder = "DESC";
-                        Toast.makeText(thisContext, "selected 2", Toast.LENGTH_SHORT).show();
+                        dataSortOrder = "ASC";
                         updateList(); //updates list
                         break;
                     case 3:
-                        dataSortOrder = "RATING";
-                        dataSortOrder = "ASC";
-                        Toast.makeText(thisContext, "selected 3", Toast.LENGTH_SHORT).show();
+                        dataSortType = "PRICE";
+                        dataSortOrder = "DESC";
                         updateList(); //updates list
                         break;
                     case 4:
-                        dataSortType = "RATING";
-                        dataSortOrder = "DESC";
-                        Toast.makeText(thisContext, "selected 4", Toast.LENGTH_SHORT).show();
+                        dataSortOrder = "RATING";
+                        dataSortOrder = "ASC";
                         updateList(); //updates list
                         break;
                     case 5:
-                        dataSortType = "ID";
-                        dataSortOrder = "ASC";
-                        Toast.makeText(thisContext, "selected 4", Toast.LENGTH_SHORT).show();
+                        dataSortType = "RATING";
+                        dataSortOrder = "DESC";
                         updateList(); //updates list
+                        break;
+                    case 6:
+                        dataSortType = "RestaurantName";
+                        dataSortOrder = "ASC";
+                        updateList();
+                        break;
+                    case 7:
+                        dataSortType = "RestaurantName";
+                        dataSortOrder = "DESC";
+                        updateList();
                         break;
                 }
             }
@@ -249,5 +243,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    protected void createSettings(){
+        Settings switchPriceNumber = new Settings("PriceView", false);
+
+        //0 is price/$$ switch
+        ArrayList<Settings> storedSettings = new ArrayList<Settings>();
+        storedSettings.add(switchPriceNumber);
+
+        databaseHelper.createSettings(storedSettings);
+
+        settingsExist = true;
+    }
 
 }

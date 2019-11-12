@@ -34,10 +34,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
     boolean dataUpdated = false;
     boolean dataDeleted = true;
 
-    //data sort types
-    public String dataSortType = "ID";
-    public String dataSortOrder = "DESC";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -130,7 +126,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
             }
         });
     }
-
 
     public void clickUpdate (View view){
         Intent updateIntent = new Intent(this, ViewRestaurantActivity.class);
