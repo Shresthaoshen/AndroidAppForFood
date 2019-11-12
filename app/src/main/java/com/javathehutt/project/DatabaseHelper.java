@@ -595,7 +595,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         long count = DatabaseUtils.queryNumEntries(database, TABLE_SETTINGS);
         database.close();
 
-        return (1 > count);
+        return (1 >= count);
     }
 
     public void closeDataBase() {

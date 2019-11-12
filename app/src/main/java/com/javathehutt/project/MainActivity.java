@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.chip.ChipGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private SearchView uiSearchView;
     private String searchQuery = "";
     private Boolean emptyResults;
+    private ChipGroup uiChipGroup;
+    private ChipGroup.LayoutParams uiChipParams;
 
     public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
 
@@ -73,13 +77,14 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         //initialize searchView
         uiSearchView = findViewById(R.id.uiSearch);
+        uiChipGroup = findViewById(R.id.uiChipGroup);
         uiSearchView.setOnQueryTextListener(this);
 
         //update list of restaurants displayed
         updateList(searchQuery);
 
         //first init of settings
-        if (databaseHelper.settingsExist()) {
+        if (!databaseHelper.settingsExist()) {
             createSettings();
         }
 
@@ -161,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     //new updates Field below Spinner, depending on pa
     protected void updateList(String searchText){
+
         databaseHelper = new DatabaseHelper(thisContext);
         List<Restaurant> restaurantList = databaseHelper.getAllRestaurants(dataSortType, dataSortOrder, searchText);
 
@@ -286,8 +292,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         }
 
-
-
         return false;
     }
 
@@ -295,11 +299,21 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public boolean onQueryTextChange(String searchText) {
         if (searchText.length() >= 1) {
             searchQuery = " WHERE RestaurantName LIKE \"%" + searchText + "%\"";
+            updateList(searchQuery);
+            if (emptyResults = true) {
+                uiTxtEmpty.setText("No search results found");
+            }
+
         }
 
-        else { searchQuery = ""; }
+        else { searchQuery = "";
+            updateList(searchQuery);
+            if (emptyResults = true) {
+                uiTxtEmpty.setText("No restaurants added \n Click the plus to add your first one");
+            }
+        }
 
-        updateList(searchQuery);
         return false;
     }
+
 }
