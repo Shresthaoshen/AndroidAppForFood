@@ -5,29 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
-
-import static java.lang.Integer.parseInt;
 
 
 //restaurant is going to be shortened to rsrt
 //if the user interacts with it for data reasons - user(Type)(Name)  example userTxtName
 //if it's for the ui - ui(Type)(Name) example uiTxtName (this includes activity changers like buttons - it only effects the UI, data is not stored)
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     //todo - tree system for tags - figure out how to do them as autofill/bubbles
 
@@ -43,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
     private ListView uiListView;
     private RsrtListAdapter adapter;
 
+    //search managers
+    private SearchView uiSearchView;
+    private String searchQuery = "";
+
     public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
 
     //self-reference context
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
     //ui elements
     private Spinner uiSpinner;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +69,12 @@ public class MainActivity extends AppCompatActivity {
         uiSpinner = findViewById(R.id.uiDropSort);
         populateSpinner();
 
+        //initialize searchView
+        uiSearchView = findViewById(R.id.uiSearch);
+        uiSearchView.setOnQueryTextListener(this);
+
         //update list of restaurants displayed
-        updateList();
+        updateList(searchQuery);
 
         //first init of settings
         if (databaseHelper.settingsExist()) {
@@ -90,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(viewIntent, viewBack_CONFIG_REQUEST);
             }
         });
+
+        testRestaurant();
 
     }
 
@@ -116,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
 //                        Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
 
                         //updates ListView
-                        updateList();
+                        updateList(searchQuery);
                     }
 
                     //on add activity -> clicked Back
@@ -134,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                         dataDeleted = submitData.getExtras().getBoolean("dataDeleted");
 
                         if (dataUpdated || dataDeleted){
-                            updateList();
+                            updateList(searchQuery);
                         }
 
 //                        Toast.makeText(this, "switched over from view", Toast.LENGTH_LONG).show();
@@ -146,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 if (requestCode == settingsBack_CONFIG_REQUEST){
             if (resultCode == Activity.RESULT_CANCELED) {
 
-                updateList();
+                updateList(searchQuery);
 
 //                Toast.makeText(this, "switched over from settings and setting is now" + settingPriceNumber, Toast.LENGTH_LONG).show();
 
@@ -156,9 +161,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //new updates Field below Spinner, depending on pa
-    protected void updateList(){
+    protected void updateList(String searchText){
         databaseHelper = new DatabaseHelper(thisContext);
-        List<Restaurant> restaurantList = databaseHelper.getAllRestaurants(dataSortType, dataSortOrder);
+        List<Restaurant> restaurantList = databaseHelper.getAllRestaurants(dataSortType, dataSortOrder, searchText);
 
         uiListView = findViewById(R.id.uiListRsrt);
         TextView uiTxtEmpty = findViewById(R.id.uiTxtEmpty);
@@ -193,42 +198,42 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
                         dataSortType = "ID"; //sort type
                         dataSortOrder = "DESC"; //sort order
-                        updateList(); //updates list
+                        updateList(searchQuery); //updates list
                         break;
                     case 1:
                         dataSortType = "ID";
                         dataSortOrder = "ASC";
-                        updateList(); //updates list
+                        updateList(searchQuery); //updates list
                         break;
                     case 2:
                         dataSortType = "PRICE";
                         dataSortOrder = "ASC";
-                        updateList(); //updates list
+                        updateList(searchQuery); //updates list
                         break;
                     case 3:
                         dataSortType = "PRICE";
                         dataSortOrder = "DESC";
-                        updateList(); //updates list
+                        updateList(searchQuery); //updates list
                         break;
                     case 4:
                         dataSortOrder = "RATING";
                         dataSortOrder = "ASC";
-                        updateList(); //updates list
+                        updateList(searchQuery); //updates list
                         break;
                     case 5:
                         dataSortType = "RATING";
                         dataSortOrder = "DESC";
-                        updateList(); //updates list
+                        updateList(searchQuery); //updates list
                         break;
                     case 6:
                         dataSortType = "RestaurantName";
                         dataSortOrder = "ASC";
-                        updateList();
+                        updateList(searchQuery);
                         break;
                     case 7:
                         dataSortType = "RestaurantName";
                         dataSortOrder = "DESC";
-                        updateList();
+                        updateList(searchQuery);
                         break;
                 }
             }
@@ -250,4 +255,31 @@ public class MainActivity extends AppCompatActivity {
         databaseHelper.createSettings(storedSettings);
     }
 
+    protected void testRestaurant(){
+
+        String restaurantName = "yo";
+        Double price = 6.9;
+        Double rating = 420.0;
+        String notes = "test";
+        String[] tag_names = {"test", "test1"};
+
+        databaseHelper.createRestaurant(restaurantName, price, rating, notes, tag_names);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String searchText) {
+        if (searchText.length() >= 1) {
+            searchQuery = " WHERE RestaurantName LIKE \"%" + searchText + "%\"";
+        }
+
+        else { searchQuery = ""; }
+
+        updateList(searchQuery);
+        return false;
+    }
 }

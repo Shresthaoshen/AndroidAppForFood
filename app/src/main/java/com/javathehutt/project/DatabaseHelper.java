@@ -6,9 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.media.session.PlaybackState;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -162,12 +160,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //get all restaurants in a list
-    public List<Restaurant> getAllRestaurants(String dataSortType, String dataSortOrder) {
+    public List<Restaurant> getAllRestaurants(String dataSortType, String dataSortOrder, String dataSearchQuery) {
         List<Restaurant> restaurants = new ArrayList<Restaurant>();
         //String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT;
-        String selectQuery = "SELECT * FROM " + TABLE_RESTAURANT + " ORDER BY " + dataSortType + " " + dataSortOrder; //ok - the issue? order by name/alphabet doesn't work. don't know why, it just doesn't todo figure out why
+        String selectQuery = "SELECT * " +
+                "FROM " + TABLE_RESTAURANT +
+                dataSearchQuery +
+                " ORDER BY " + dataSortType + " " + dataSortOrder;
 
-        Log.e(LOG, selectQuery);
+//        Log.e(LOG, selectQuery);
 
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor data = database.rawQuery(selectQuery, null);
@@ -565,11 +566,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.close();
 
         return (1 > count);
-    }
-
-    private int convertBoolToInt (Boolean convert){
-        if (convert){ return 1;}
-        return 0;
     }
 
     public void closeDataBase() {
