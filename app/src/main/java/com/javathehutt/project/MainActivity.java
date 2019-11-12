@@ -38,10 +38,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     //list managers
     private ListView uiListView;
     private RsrtListAdapter adapter;
+    private TextView uiTxtEmpty;
 
     //search managers
     private SearchView uiSearchView;
     private String searchQuery = "";
+    private Boolean emptyResults;
 
     public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
 
@@ -117,7 +119,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 if (requestCode == addSubmit_CONFIG_REQUEST) {
                     if (resultCode == Activity.RESULT_OK) {
 //                        Toast.makeText(this, "switched over from add", Toast.LENGTH_LONG).show();
-
                         //updates ListView
                         updateList(searchQuery);
                     }
@@ -164,18 +165,22 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         List<Restaurant> restaurantList = databaseHelper.getAllRestaurants(dataSortType, dataSortOrder, searchText);
 
         uiListView = findViewById(R.id.uiListRsrt);
-        TextView uiTxtEmpty = findViewById(R.id.uiTxtEmpty);
+        uiTxtEmpty = findViewById(R.id.uiTxtEmpty);
 
         //checks if list is empty
         if (restaurantList.isEmpty()) {
             Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
+            emptyResults = true;
             uiTxtEmpty.setVisibility(View.VISIBLE);
+            uiListView.setVisibility(View.INVISIBLE);
+
 
         } else {
             uiTxtEmpty.setVisibility(View.INVISIBLE);
             //populates listView from rsrtArrayList
             adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, restaurantList, priceScale);
             uiListView.setAdapter(adapter);
+            uiListView.setVisibility(View.VISIBLE);
 
         }
     }
@@ -268,11 +273,21 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public boolean onQueryTextSubmit(String searchText) {
         if (searchText.length() >= 1) {
             searchQuery = " WHERE RestaurantName LIKE \"%" + searchText + "%\"";
+            updateList(searchQuery);
+                if (emptyResults = true) {
+                    uiTxtEmpty.setText("No search results found");
+                }
         }
 
-        else { searchQuery = ""; }
+        else { searchQuery = "";
+            updateList(searchQuery);
+            if (emptyResults = true) {
+                uiTxtEmpty.setText("No restaurants added \n Click the plus to add your first one");
+            }
+        }
 
-        updateList(searchQuery);
+
+
         return false;
     }
 
