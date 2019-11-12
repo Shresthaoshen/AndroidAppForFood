@@ -19,7 +19,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
     //database managers
     DatabaseHelper databaseHelper;
-    Cursor databaseCursor;
 
     //UI Managers
     EditText editTitle, editPrice, editRating, editNotes, editTags;
@@ -27,9 +26,9 @@ public class EditRestaurantActivity extends AppCompatActivity {
     TextView btnDelete;
 
     //position records
-    int position;
-    String positionString;
-    long ID;
+    int id;
+    String idString;
+    Restaurant restaurant;
 
     //update tracker
     boolean dataUpdated = false;
@@ -46,11 +45,25 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
         //set up database managers
         databaseHelper = new DatabaseHelper(this);
-        databaseCursor = databaseHelper.getAllData(dataSortType, dataSortOrder);
 
         //get ID information from viewIntent
         Intent thisIntent = getIntent();
-        position = thisIntent.getExtras().getInt("id");
+        id = thisIntent.getExtras().getInt("id");
+        idString = id + "";
+
+        //builds information
+        buildInformation();
+
+        //updateData when called
+        updateData();
+
+        //deleteData when called
+        deleteData();
+    }
+
+    private void buildInformation(){
+        restaurant = databaseHelper.getRestaurant(id);
+
 
         //cast variables
         editTitle = (EditText) findViewById(R.id.userTxtTitle);
@@ -62,25 +75,12 @@ public class EditRestaurantActivity extends AppCompatActivity {
         btnUpdate = (Button) findViewById(R.id.uiBtnUpdate);
         btnDelete = (TextView) findViewById(R.id.uiBtnDelete);
 
-        //move cursor to position
-        databaseCursor.moveToPosition(position);
-
-        //get ID of current and cast to String
-        ID = (databaseCursor.getInt(0));
-        positionString = (String.valueOf(databaseCursor.getInt(0)));
-
         //prepopulate edit fields with current info
-        editTitle.setText(databaseCursor.getString(1));
-        editPrice.setText(databaseCursor.getDouble(2) + "");
-        editRating.setText(databaseCursor.getDouble(3) + "");
-        editNotes.setText(databaseCursor.getString(4));
-        String tags = (databaseCursor.getString(5));
-
-        //updateData when called
-        updateData();
-
-        //deleteData when called
-        deleteData();
+        editTitle.setText(restaurant.getName());
+        editPrice.setText(restaurant.getPrice() + "");
+        editRating.setText(restaurant.getRating() + "");
+        editNotes.setText(restaurant.getNotes());
+        //String tags = (databaseCursor.getString(5)); //todo get tags
 
     }
 
@@ -92,7 +92,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
                 String priceText = editPrice.getText().toString();
 
                 if (checkedCompletion()) {
-                    boolean isUpdate = databaseHelper.updateData(positionString,
+                    boolean isUpdate = databaseHelper.updateData(idString,
                             editTitle.getText().toString(),
                             (Double) parseDouble(editPrice.getText().toString()),
                             (Double) parseDouble(editRating.getText().toString()),
@@ -117,7 +117,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(EditRestaurantActivity.this, "Deleted Clicked", Toast.LENGTH_SHORT).show();
-                boolean isDelete = databaseHelper.deleteData(positionString);
+                boolean isDelete = databaseHelper.deleteData(idString);
 
                 if (isDelete == true) {
                     Toast.makeText(EditRestaurantActivity.this, "Data Deleted", Toast.LENGTH_LONG).show();

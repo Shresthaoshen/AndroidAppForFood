@@ -90,8 +90,6 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
                 Intent viewIntent = new Intent(thisContext, ViewRestaurantActivity.class);
 
-                //int ID = adapter.getItem(position).getID();
-
                 int ID = adapter.getItem(position).getID();
                 viewIntent.putExtra("ID", ID);
 
