@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     //price trackers
         //array lines up with min/max prices - [0] is $, [5] is $$$$$
     public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
-    public ArrayList<Double> priceList= databaseHelper.getPriceList;
+//    public double[] priceList= databaseHelper.getPriceList(); //todo
     public double priceAverage;
 
     //self-reference context
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
     //onClick for settings button - opens setting drawer
     public void clickSettings (View view){
         Intent settingsIntent = new Intent(this, SettingsActivity.class);
-        settingsIntent.putExtra("priceScale", priceScale);
+        //settingsIntent.putExtra("priceScale", priceScale);
         startActivityForResult(settingsIntent, settingsBack_CONFIG_REQUEST);
     }
 
@@ -176,14 +176,14 @@ public class MainActivity extends AppCompatActivity {
 
         uiListView = findViewById(R.id.uiListRsrt);
         TextView uiTxtEmpty = findViewById(R.id.uiTxtEmpty);
-        priceList = new ArrayList<Double>();
-
 
         //checks if list is empty
         if (restaurantList.isEmpty()) {
             Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
             uiTxtEmpty.setVisibility(View.VISIBLE);
+
         } else {
+            uiTxtEmpty.setVisibility(View.INVISIBLE);
             //populates listView from rsrtArrayList
             adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, restaurantList, priceScale, settingPriceNumber);
             uiListView.setAdapter(adapter);
@@ -191,79 +191,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    //list manager - handles populating the list and updating it
-//    protected void updateRecentList(){
-//        //initializes database managers
-//        databaseHelper = new DatabaseHelper(thisContext);
-//        databaseCursor = databaseHelper.getAllData(dataSortType, dataSortOrder); //i was going to pass this stuff into here for the sort but it's fighting me
-//
-//        //initialized ui elements
-//        uiListView = findViewById(R.id.uiListRsrt);
-//        TextView uiTxtEmpty = findViewById(R.id.uiTxtEmpty);
-//
-//        //creates a new ArrayList of type Restaurant
-//        rsrtArrayList = new ArrayList<>();
-//
-//        //creates empty price list
-//        priceList = new ArrayList<Double>();
-//
-//        //notifies of an empty restaurant list
-//        if (databaseCursor.getCount() == 0) {
-//            Toast.makeText(MainActivity.this,"empty", Toast.LENGTH_LONG).show();
-//            uiTxtEmpty.setVisibility(View.VISIBLE);
-//        }
-//
-//        else {
-//            //hides empty restaurant message
-//            uiTxtEmpty.setVisibility(View.INVISIBLE);
-//
-//            //populates restaurant object to be displayed on list view
-//            while(databaseCursor.moveToNext()){
-//                int ID = (databaseCursor.getInt(0));
-//                String title = (databaseCursor.getString(1));
-//                Double price = (databaseCursor.getDouble(2));
-//                Double rating = (databaseCursor.getDouble(3));
-//                String notes = (databaseCursor.getString(4));
-//                String tags = (databaseCursor.getString(5));
-//
-//
-//
-//                //finds the average
-//                //priceList.add(Double.parseDouble(price));
-//                priceList.add(price);
-//
-//                rsrtArrayList.add(new Restaurant(ID, title,price,rating,notes,tags));
-//            }
-//
-//        }
-//
-//        if (priceList.size() > 0){
-//            Collections.sort(priceList);
-//            priceAverage = 0;
-//
-//            for (int i = 0; i < priceList.size(); i++){
-//                priceAverage += priceList.get(i);
-//            }
-//
-//            priceAverage = priceAverage/(priceList.size());
-//
-//            //min ($)
-//            priceScale[0] = priceList.get(0);
-//            //max ($$$$$)
-//            priceScale[4] = priceList.get(priceList.size()-1);
-//            //average ($$$)
-//            priceScale[2] = priceAverage;
-//            //min average ($$)
-//            priceScale[1] = (priceAverage+priceScale[0])/2;
-//            //max average ($$$$)
-//            priceScale[3] = (priceAverage+priceScale[4])/2;
-//        }
-//
-//        //populates listView from rsrtArrayList
-//        adapter = new RsrtListAdapter(this, R.layout.activity_restaurant_widget, rsrtArrayList, priceScale, settingPriceNumber);
-//        uiListView.setAdapter(adapter);
-//
-//    }
 
     //spinner manager - handled populating the spinner of sort by choices
     protected void populateSpinner(){

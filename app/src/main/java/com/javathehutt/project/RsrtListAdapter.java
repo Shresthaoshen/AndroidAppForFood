@@ -32,23 +32,26 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
     private boolean settingsPriceNumber;
     private double[] priceScale;
 
-    public RsrtListAdapter(@NonNull Context cContext, int cResource, @NonNull List<Restaurant> cObjects, double[] cPriceScale, boolean cSettingPriceNumber) {
-        super(cContext, cResource, cObjects);
-        context = cContext;
-        resource = cResource;
-        settingsPriceNumber = cSettingPriceNumber;
-        priceScale = cPriceScale;
+    public List<Restaurant> restaurantList;
+
+    public RsrtListAdapter(@NonNull Context context, int resource, @NonNull List<Restaurant> restaurantList, double[] priceScale, boolean settingPriceNumber) {
+        super(context, resource, restaurantList);
+
+        this.context = context;
+        this.resource = resource;
+        this.settingsPriceNumber = settingPriceNumber;
+        this.priceScale = priceScale;
+        this.restaurantList = restaurantList;
     }
 
     @NonNull
     @Override
-    public View getView(int cPosition, @Nullable View cConvertView, @NonNull ViewGroup cParent) {
-        DecimalFormat priceFormat = new DecimalFormat("#.##");
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         //get restaurant information that's displayed on the widget
-        String uiName = getItem(cPosition).getName();
-        Double uiPrice = getItem(cPosition).getPrice();
-        Double uiRating = getItem(cPosition).getRating();
+        String uiName = restaurantList.get(position).getName();
+        Double uiPrice = restaurantList.get(position).getPrice();
+        Double uiRating = restaurantList.get(position).getRating();
 
         //number formatting
         double decimalRating = uiRating * 10;
@@ -59,14 +62,14 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
 
         //place information on the widget layout
         LayoutInflater inflater = LayoutInflater.from(context);
-        cConvertView = inflater.inflate(resource, cParent, false);
+        convertView = inflater.inflate(resource, parent, false);
 
         //assign information to widget
-        TextView editName = (TextView) cConvertView.findViewById(R.id.uiTxtTitleLabel);
-        TextView editPrice = (TextView) cConvertView.findViewById(R.id.uiTxtPriceLabel);
-        TextView editRating = (TextView) cConvertView.findViewById(R.id.uiTxtRatingLabel);
+        TextView editName = (TextView) convertView.findViewById(R.id.uiTxtTitleLabel);
+        TextView editPrice = (TextView) convertView.findViewById(R.id.uiTxtPriceLabel);
+        TextView editRating = (TextView) convertView.findViewById(R.id.uiTxtRatingLabel);
 
-        ProgressBar barRating = (ProgressBar) cConvertView.findViewById(R.id.uiBarRating);
+        ProgressBar barRating = (ProgressBar) convertView.findViewById(R.id.uiBarRating);
 
         editName.setText(uiName);
 
@@ -103,7 +106,7 @@ public class RsrtListAdapter extends ArrayAdapter<Restaurant> {
         progressDrawable.setColorFilter(Color.parseColor(getColor(intRating)), PorterDuff.Mode.SRC_IN);
 
 
-        return cConvertView;
+        return convertView;
     }
 
     //gets color for the rating bar

@@ -9,6 +9,7 @@ import android.media.session.PlaybackState;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -317,7 +318,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //get all tags in tag database
-
     public List<Tag> getAllTags() {
         List<Tag> tags = new ArrayList<Tag>();
         String selectQuery = "SELECT  * FROM " + TABLE_TAG;
@@ -341,10 +341,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return tags;
     }
 
-
-
     //update a tag
-
     public int updateTag(Tag tag) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -412,7 +409,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //update tag of a restaurant. 13
-
     public int updateRestaurantTag(long id, long tag_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -422,6 +418,60 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // updating row
         return db.update(TABLE_RESTAURANT, values, ID + " = ?",
                 new String[] { String.valueOf(id) });
+    }
+
+
+
+    //build price list
+    private double[] buildPriceList(){
+
+        List<Double> priceList = new ArrayList<Double>();
+        String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT;
+
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor data = database.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (data.moveToFirst()) {
+            do {
+                priceList.add(data.getDouble(data.getColumnIndex(PRICE)));
+            } while (data.moveToNext());
+        }
+
+        //price trackers
+        //array lines up with min/max prices - [0] is $, [5] is $$$$$
+        double[] priceScale = new double[]{0, 0, 0, 0, 0};
+
+        Collections.sort(priceList);
+
+        //finds the average
+        double priceAverage = 0;
+        if (priceList.size() > 0){
+
+                for (int i = 0; i < priceList.size(); i++) {
+                    priceAverage += priceList.get(i);
+                }
+            priceAverage = priceAverage/(priceList.size());
+
+
+            //min ($)
+            priceScale[0] = priceList.get(0);
+            //max ($$$$$)
+            priceScale[4] = priceList.get(priceList.size()-1);
+            //average ($$$)
+            priceScale[2] = priceAverage;
+            //min average ($$)
+            priceScale[1] = (priceAverage+priceScale[0])/2;
+            //max average ($$$$)
+            priceScale[3] = (priceAverage+priceScale[4])/2;
+        }
+
+        return priceScale;
+    }
+
+    //returns prices list
+    public double[] getPriceList(){
+        return buildPriceList();
     }
 
     public void closeDataBase() {
