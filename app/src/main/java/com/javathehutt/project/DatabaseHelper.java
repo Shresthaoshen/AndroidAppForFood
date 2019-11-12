@@ -323,39 +323,69 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //get tags belonging to restaurant
-    public List<Tag> getRestaurantsTags(int restaurant_id) {
+    public String getRestaurantsTags(int restaurant_id) {
         List<Tag> tags = new ArrayList<Tag>();
+        String ret = "";
+        String[] tagss = new String[6];
+
 
         SQLiteDatabase database = this.getReadableDatabase();
         String selectQuery = "SELECT  * FROM " + TABLE_RESTAURANT_TAG+" WHERE " + RESTAURANT_ID + " =?";
 
         Cursor data = database.rawQuery(selectQuery, new String[] { String.valueOf(restaurant_id) });
 
-        int tagIdRow = data.getColumnIndex(TAG_ID);
 
+//        int tagIdRow = data.getColumnIndex(TAG_ID);
+//
+//        //moves through pairings matching restaurant id
+//        for (data.moveToFirst(); !data.isAfterLast(); data.moveToNext()){
+//            ret+= String.valueOf(data.getInt(data.getColumnIndex(TAG_ID)));
+//        }
+//
+//        return ret;
+//
+        int tagIdRow = data.getColumnIndex(TAG_ID);
+        int i=0;
         //moves through pairings matching restaurant id
         for (data.moveToFirst(); !data.isAfterLast(); data.moveToNext()){
 
             //retrieve tagid of each data
-            int tag_id = (data.getInt((data.getColumnIndex(TAG_ID))));
+
+            //needs to be int array
+            tagss[i] = String.valueOf(data.getInt((data.getColumnIndex(TAG_ID))));
+            i++;
+        }
+
+        //so tagss is an array of tag ids as string that need to be retrieved from tag table
             //new
+
+        //for every tag id in tags
+        for (String tag: tagss) {
             String newQuery = "SELECT  * FROM " + TABLE_TAG+" WHERE " + ID + " =?";
 
-            Cursor tagData = database.rawQuery(newQuery, new String[] { String.valueOf(tag_id) });
-            int tagNameRow = data.getColumnIndex(TAG_NAME);
+            Cursor tagData = database.rawQuery(newQuery, new String[] { String.valueOf(tag) });
 
+            int tagNameRow = tagData.getColumnIndex(TAG_NAME);
+
+            //for each
             for (tagData.moveToFirst(); !tagData.isAfterLast(); tagData.moveToNext()){
-                Tag t = new Tag();
-                t.setID(tagData.getInt(tagData.getColumnIndex(ID)));
-                t.setTagName(tagData.getString(tagData.getColumnIndex(TAG_NAME)));
+//                Tag t = new Tag();
+//                t.setID(tagData.getInt(tagData.getColumnIndex(ID)));
+//                t.setTagName(tagData.getString(tagData.getColumnIndex(TAG_NAME)));
+//
+//                tags.add(t);
 
-                tags.add(t);
+
+                ret+= tagData.getString(tagNameRow) + " ";
 
 
             }
-
         }
-        return tags;
+
+
+
+
+        return ret;
     }
 
 

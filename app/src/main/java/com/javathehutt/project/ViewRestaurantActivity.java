@@ -78,11 +78,13 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
         //restaurant is restaurant object
         //can use id
-        List<Tag> tags = databaseHelper.getRestaurantsTags(id);
-        String tagString = "";
-        for (Tag t: tags) {
-            tagString += t.getTagName();
-        }
+        String tagString = databaseHelper.getRestaurantsTags(id);
+//        List<Tag> tags = databaseHelper.getRestaurantsTags(id);
+//
+//        String tagString = "";
+//        for (Tag t: tags) {
+//            tagString+= t.getTagName().toString() + " ";
+//        }
 
         editTags.setText(tagString);
 
