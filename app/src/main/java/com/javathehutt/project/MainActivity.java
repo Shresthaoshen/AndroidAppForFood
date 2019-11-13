@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     private SearchView uiSearchView;
     private String searchQuery = "";
     private Boolean emptyResults;
-    private ChipGroup uiChipGroup;
-    private ChipGroup.LayoutParams uiChipParams;
 
     public double[] priceScale = new double[]{10000, 0, 0, 0, 0};
 
@@ -77,14 +75,13 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         //initialize searchView
         uiSearchView = findViewById(R.id.uiSearch);
-        uiChipGroup = findViewById(R.id.uiChipGroup);
         uiSearchView.setOnQueryTextListener(this);
 
         //update list of restaurants displayed
         updateList(searchQuery);
 
         //first init of settings
-        if (!databaseHelper.settingsExist()) {
+        if (databaseHelper.settingsExist()) {
             createSettings();
         }
 
