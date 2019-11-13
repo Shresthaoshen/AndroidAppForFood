@@ -238,7 +238,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //update Restaurant entry
-    public boolean updateData(String id, String restaurantName, Double price, Double rating, String notes, String tags) {
+    public boolean updateData(String id, String restaurantName, Double price, Double rating, String notes) {
         //Database constructor
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

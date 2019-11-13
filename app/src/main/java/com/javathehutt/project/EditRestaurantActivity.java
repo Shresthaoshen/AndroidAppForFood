@@ -11,7 +11,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
+
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 import static java.lang.Double.parseDouble;
 
@@ -29,6 +33,10 @@ public class EditRestaurantActivity extends AppCompatActivity {
     int id;
     String idString;
     Restaurant restaurant;
+
+    //tag information
+    ArrayList<Tag> tagList;
+    ChipGroup chipGroup;
 
     //update tracker
     boolean dataUpdated = false;
@@ -78,6 +86,10 @@ public class EditRestaurantActivity extends AppCompatActivity {
         editNotes.setText(restaurant.getNotes());
         //String tags = (databaseCursor.getString(5)); //todo get tags
 
+        //get list of tags associated with restaurant
+        tagList = databaseHelper.getRestaurantsTags(id);
+        setTags(tagList);
+
     }
 
     public void updateData () {
@@ -92,8 +104,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
                             editTitle.getText().toString(),
                             (Double) parseDouble(editPrice.getText().toString()),
                             (Double) parseDouble(editRating.getText().toString()),
-                            editNotes.getText().toString(),
-                            editTags.getText().toString());
+                            editNotes.getText().toString());
 
                     if (isUpdate == true) {
                         Toast.makeText(EditRestaurantActivity.this, "Data Updated", Toast.LENGTH_LONG).show();
@@ -168,6 +179,19 @@ public class EditRestaurantActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+
+    private void setTags(ArrayList<Tag> tagList) {
+        for (int i = 0; i < tagList.size(); i++){
+
+            final String tagName = tagList.get(i).getTagName();
+            Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
+            chip.setText(tagName);
+            chip.setClickable(false);
+            chipGroup.addView(chip, chipGroup.getChildCount() - 1);
+
+        }
     }
 
 
