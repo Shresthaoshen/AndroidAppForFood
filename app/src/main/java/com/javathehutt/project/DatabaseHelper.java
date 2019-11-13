@@ -333,11 +333,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor data = database.rawQuery(selectQuery, new String[] { String.valueOf(restaurant_id) });
 
         //tags IDs from the pairing table are read into an array
-        int i = 0;
         for (data.moveToFirst(); !data.isAfterLast(); data.moveToNext()){
             //adds retrieved tag-id to tagID array
             tagIDs.add(String.valueOf(data.getInt((data.getColumnIndex(TAG_ID)))));
-            i++;
         }
 
         //for every tag id in the tag array loop, pull name
