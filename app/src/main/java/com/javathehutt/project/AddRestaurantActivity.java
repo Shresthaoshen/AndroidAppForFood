@@ -69,7 +69,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     if (checkedCompletion()) {
                         String tags = editTags.getText().toString();
-                        tagArray = tags.split(" ");
+                        tagArray = tags.split("\\s*,\\s*");
 
                         boolean isInserted = databaseHelper.createRestaurant(editTitle.getText().toString(),
                                 (Double) parseDouble(editPrice.getText().toString()),
@@ -122,6 +122,10 @@ public class AddRestaurantActivity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    private void makeChips(){
+
     }
 
 }

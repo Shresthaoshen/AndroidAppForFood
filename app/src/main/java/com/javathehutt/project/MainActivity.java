@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.chip.ChipGroup;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -161,6 +163,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     //new updates Field below Spinner, depending on pa
     protected void updateList(String searchText){
+
         databaseHelper = new DatabaseHelper(thisContext);
         List<Restaurant> restaurantList = databaseHelper.getAllRestaurants(dataSortType, dataSortOrder, searchText);
 
@@ -286,8 +289,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         }
 
-
-
         return false;
     }
 
@@ -295,11 +296,21 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     public boolean onQueryTextChange(String searchText) {
         if (searchText.length() >= 1) {
             searchQuery = " WHERE RestaurantName LIKE \"%" + searchText + "%\"";
+            updateList(searchQuery);
+            if (emptyResults = true) {
+                uiTxtEmpty.setText("No search results found");
+            }
+
         }
 
-        else { searchQuery = ""; }
+        else { searchQuery = "";
+            updateList(searchQuery);
+            if (emptyResults = true) {
+                uiTxtEmpty.setText("No restaurants added \n Click the plus to add your first one");
+            }
+        }
 
-        updateList(searchQuery);
         return false;
     }
+
 }

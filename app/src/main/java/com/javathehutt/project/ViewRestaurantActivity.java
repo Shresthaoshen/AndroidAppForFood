@@ -9,11 +9,16 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.LayoutInflater;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,6 +33,10 @@ public class ViewRestaurantActivity extends AppCompatActivity {
     //restaurant information
     int id;
     Restaurant restaurant;
+
+    //tag information
+    ArrayList<Tag> tagList;
+    ChipGroup chipGroup;
 
     //watches for updated data
     boolean dataUpdated = false;
@@ -60,8 +69,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         TextView editPrice = (TextView) findViewById(R.id.uiTxtPrice);
         TextView editRating = (TextView) findViewById(R.id.uiTxtRating);
         TextView editNotes = (TextView) findViewById(R.id.uiTxtNotes);
-        TextView editTags = (TextView) findViewById(R.id.uiTxtTags);
-
+        chipGroup = findViewById(R.id.uiTxtTags);
         ProgressBar barRating = (ProgressBar) findViewById(R.id.uiBarRating);
 
         //casting numbers to numbers
@@ -76,20 +84,9 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         editRating.setText(restaurant.getRating() + "/10");
         editNotes.setText(restaurant.getNotes());
 
-        //restaurant is restaurant object
-        //can use id
-        String tagString = databaseHelper.getRestaurantsTags(id);
-//        List<Tag> tags = databaseHelper.getRestaurantsTags(id);
-//
-//        String tagString = "";
-//        for (Tag t: tags) {
-//            tagString+= t.getTagName().toString() + " ";
-//        }
-
-        editTags.setText(tagString);
-
-        //get tags associated with restaurant id
-        //String tags = (databaseCursor.getString(5)); //todo figure this out ryan please save us
+        //get list of tags associated with restaurant
+        tagList = databaseHelper.getRestaurantsTags(id);
+        setTags(tagList);
 
         double decimalRating = restaurant.getRating() * 10;
         int intRating = (int) Math.round(decimalRating);
@@ -165,6 +162,18 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         if (90 < rating ){ color = "#00C721"; }
 
         return color;
+    }
+
+    private void setTags(ArrayList<Tag> tagList) {
+        for (int i = 0; i < tagList.size(); i++){
+
+            final String tagName = tagList.get(i).getTagName();
+                Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip, null, false);
+            chip.setText(tagName);
+                chip.setClickable(false);
+            chipGroup.addView(chip, chipGroup.getChildCount() - 1);
+
+        }
     }
 
 }
