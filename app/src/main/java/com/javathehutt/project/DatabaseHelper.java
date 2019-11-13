@@ -339,10 +339,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         //for every tag id in the tag array loop, pull name
-        for (int j = 0; j <= tagIDs.size(); j++){
+        for (int j = 0; j < tagIDs.size(); j++){
             String newQuery = "SELECT  * FROM " + TABLE_TAG + " WHERE " + ID + " = ?";
 
-            Cursor tagData = database.rawQuery(newQuery, new String[] { tagIDs.get(j)}); //todo is it because of this?
+            //querys tag databse to pull all tags that match IDs to the tagID array built above to get their name but i didnt really
+            //think it through or mess with this so it doesn't work lol
+            Cursor tagData = database.rawQuery(newQuery, new String[] { tagIDs.get(j)}); //todo is it because of this? i dont really know how
 
             //for each
             for (tagData.moveToFirst(); !tagData.isAfterLast(); tagData.moveToNext()){ //todo this starts at one instead of getting the actual tag from its ID
