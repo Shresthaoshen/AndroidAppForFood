@@ -179,8 +179,7 @@
                     android:textAppearance="?android:textAppearanceSmall"
                     android:checkable="false"
                     />
-                    android:text="example tag"
-                    android:textAppearance="?android:textAppearanceSmall" />
+
             </com.google.android.material.chip.ChipGroup>
 
             <EditText

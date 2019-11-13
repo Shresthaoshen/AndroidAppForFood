@@ -22,7 +22,7 @@ public class Tag {
         this.ID = ID;
     }
 
-    public void setTagName(String tag_name) {
+    public void setTagName(String tagName) {
         this.tagName = tagName;
     }
 
