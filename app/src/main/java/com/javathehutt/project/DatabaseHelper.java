@@ -398,7 +398,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //Delete a tag from the database
     // Will delete all restaurants under the tag name if boolean is true
-    public void deleteTag(Tag tag, boolean should_delete_all_tag_restaurants) {
+    public void deleteTags(Tag tag, boolean should_delete_all_tag_restaurants) {
         SQLiteDatabase database = this.getWritableDatabase();
 
         // before deleting tag
@@ -421,13 +421,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //remove tag assigned to a restaurant. NOT FINISHED todo
-//    public void deleteRestaurantTag(long id, long tag_id) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//
-//        db.delete(TABLE_TAG, ID + " = ?",
-//                new String[] { String.valueOf(tag_id) });
-//
-//    }
+    public void deleteTag(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        db.delete(TABLE_TAG, ID + " = ?",
+                new String[] { String.valueOf(id) });
+
+    }
 
     //update tag of a restaurant.
     public int updateRestaurantTag(long id, long tag_id) {

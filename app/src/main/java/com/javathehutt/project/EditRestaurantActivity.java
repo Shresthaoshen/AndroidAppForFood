@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.chip.ChipGroup;
 
 import java.text.DecimalFormat;
@@ -41,6 +43,11 @@ public class EditRestaurantActivity extends AppCompatActivity {
     //update tracker
     boolean dataUpdated = false;
     boolean dataDeleted = true;
+
+    //stuff for set tags
+    int i;
+    Chip chip;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,17 +189,26 @@ public class EditRestaurantActivity extends AppCompatActivity {
     }
 
 
-    private void setTags(ArrayList<Tag> tagList) {
-        for (int i = 0; i < tagList.size(); i++){
+    private void setTags(final ArrayList<Tag> tagList) {
+        for (i = 0; i < tagList.size(); i++){
 
-            final String tagName = tagList.get(i).getTagName();
-            Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
+            String tagName = tagList.get(i).getTagName();
+
+            chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
             chip.setText(tagName);
-            chip.setClickable(false);
             chipGroup.addView(chip, chipGroup.getChildCount() - 1);
+            chip.setClickable(true);
+            chip.setOnCloseIconClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    chipGroup.removeView(chip);
+                    databaseHelper.deleteTag(tagList.get(i).getId());
+                }
+            });
 
         }
     }
+
 
 
 }
