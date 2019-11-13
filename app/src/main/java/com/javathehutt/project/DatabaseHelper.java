@@ -342,15 +342,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         for (int j = 0; j <= tagIDs.size(); j++){
             String newQuery = "SELECT  * FROM " + TABLE_TAG + " WHERE " + ID + " = ?";
 
-            Cursor tagData = database.rawQuery(newQuery, new String[] { String.valueOf(j) });
+            Cursor tagData = database.rawQuery(newQuery, new String[] { tagIDs.get(j)}); //todo is it because of this?
 
             //for each
-            for (tagData.moveToFirst(); !tagData.isAfterLast(); tagData.moveToNext()){
+            for (tagData.moveToFirst(); !tagData.isAfterLast(); tagData.moveToNext()){ //todo this starts at one instead of getting the actual tag from its ID
                 Tag newTag = new Tag();
                     newTag.setID(tagData.getInt(tagData.getColumnIndex(ID)));
-                    //newTag.setTagName(tagData.getString(tagData.getColumnIndex(TAG_NAME)));
-                    String string = tagData.getString(tagData.getColumnIndex(TAG_NAME));
-                    newTag.setTagName(string); //todo why is this not settings the tag name?
+                    newTag.setTagName(tagData.getString(tagData.getColumnIndex(TAG_NAME)));
                 tagList.add(newTag);
             }
         }
