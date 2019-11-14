@@ -177,7 +177,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
                 Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip, null, false);
             chip.setText(tagName);
                 chip.setClickable(false);
-                chipGroup.addView(chip, chipGroup.getChildCount() - 1);
+                chipGroup.addView(chip, chipGroup.getChildCount());
         }
     }
 

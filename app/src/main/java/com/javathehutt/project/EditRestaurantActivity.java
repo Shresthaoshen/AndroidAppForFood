@@ -195,7 +195,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
             chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
             chip.setText(tagName);
-            chipGroup.addView(chip, chipGroup.getChildCount() - 1);
+            chipGroup.addView(chip, chipGroup.getChildCount());
             chip.setClickable(true);
 
 
