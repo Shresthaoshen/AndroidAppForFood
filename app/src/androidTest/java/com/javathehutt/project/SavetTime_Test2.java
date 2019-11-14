@@ -32,6 +32,7 @@ public class SavetTime_Test2 {
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
 
     @Test
+    //
     public void savetTime_Test2() {
         ViewInteraction imageButton = onView(
                 allOf(withId(R.id.uiBtnAdd),
