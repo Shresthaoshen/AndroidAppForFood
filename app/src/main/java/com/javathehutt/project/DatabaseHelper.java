@@ -263,7 +263,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
 
         return database.delete(TABLE_RESTAURANT, "ID = ?", new String[] { id }) != 0;
-
     }
 
     // -------------- TAGS -------------- //
@@ -358,7 +357,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return tagList;
     }
 
-
     //get all tags in tag database
     public List<Tag> getAllTags() {
         List<Tag> tags = new ArrayList<Tag>();
@@ -382,7 +380,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return tags;
     }
-
 
     //update a tag
     public int updateTag(Tag tag) {
@@ -573,8 +570,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (database != null && database.isOpen())
             database.close();
     }
-
-
-
 
 }

@@ -9,18 +9,15 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.LayoutInflater;
+
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class ViewRestaurantActivity extends AppCompatActivity {
 
@@ -69,7 +66,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         TextView editPrice = (TextView) findViewById(R.id.uiTxtPrice);
         TextView editRating = (TextView) findViewById(R.id.uiTxtRating);
         TextView editNotes = (TextView) findViewById(R.id.uiTxtNotes);
-        chipGroup = findViewById(R.id.uiTxtTags);
+        chipGroup = findViewById(R.id.uiChipGroup);
         ProgressBar barRating = (ProgressBar) findViewById(R.id.uiBarRating);
 
         //casting numbers to numbers
