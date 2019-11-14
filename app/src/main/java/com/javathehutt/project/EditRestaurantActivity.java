@@ -34,6 +34,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
     //tag information
     ArrayList<Tag> tagList;
+    ArrayList<Integer> deletedTags;
     ChipGroup chipGroup;
 
     //update tracker
@@ -71,6 +72,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     private void buildInformation(){
         restaurant = databaseHelper.getRestaurant(id);
 
+        deletedTags = new ArrayList<>();
 
         //cast variables
         editTitle = (EditText) findViewById(R.id.userTxtTitle);
@@ -116,6 +118,10 @@ public class EditRestaurantActivity extends AppCompatActivity {
                         Toast.makeText(EditRestaurantActivity.this, "Data Not Updated", Toast.LENGTH_LONG).show();
                     }
 
+                    for (int i = 0; i < deletedTags.size(); i++){
+                        databaseHelper.deleteTag(i);
+                    }
+
                     clickUpdate(view);
                 }
             }
@@ -144,6 +150,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     public void clickUpdate (View view){
         Intent updateIntent = new Intent(this, ViewRestaurantActivity.class);
             updateIntent.putExtra("dataUpdated", dataUpdated);
+            updateIntent.putExtra("tagUpdated", tagUpdated);
         setResult(RESULT_OK, updateIntent);
         finish();
     }
@@ -201,8 +208,8 @@ public class EditRestaurantActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     chipGroup.removeView(chip);
-                    databaseHelper.deleteTag(tagID);
                     tagList.remove(tagName);
+                    deletedTags.add(tagID);
                     tagUpdated = true;
                 }
             });
