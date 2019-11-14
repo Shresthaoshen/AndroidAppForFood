@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseInterface{
 
     //Logcat
     private static final String LOG = "DatabaseHelper";
@@ -87,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // -------------- RESTAURANTS -------------- //
-
+    @Override
     //insert data read from AddRestaurantActivity to SQLite database
     public boolean createRestaurant(String restaurantName, Double price, Double rating, String notes, String[] tag_names) {
 
@@ -136,6 +136,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //get single restaurant
+    @Override
     public Restaurant getRestaurant(long restaurant_id) {
         SQLiteDatabase database = this.getReadableDatabase();
 
@@ -236,6 +237,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return id;
     }
+
 
     //update Restaurant entry
     public boolean updateData(String id, String restaurantName, Double price, Double rating, String notes) {
