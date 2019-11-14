@@ -192,6 +192,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         for (i = 0; i < tagList.size(); i++){
 
             final String tagName = tagList.get(i).getTagName();
+            final int tagID = tagList.get(i).getId();
 
             chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
             chip.setText(tagName);
@@ -203,7 +204,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     chipGroup.removeView(chip);
-                    databaseHelper.deleteTag(tagName);
+                    databaseHelper.deleteTag(tagID);
                     tagList.remove(tagName);
                     tagUpdated = true;
                 }
@@ -211,10 +212,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
 
         }
-
-        }
-
-
+    }
 
 
 
