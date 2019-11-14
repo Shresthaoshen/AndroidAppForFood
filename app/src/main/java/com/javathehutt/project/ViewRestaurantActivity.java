@@ -66,7 +66,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         TextView editPrice = (TextView) findViewById(R.id.uiTxtPrice);
         TextView editRating = (TextView) findViewById(R.id.uiTxtRating);
         TextView editNotes = (TextView) findViewById(R.id.uiTxtNotes);
-        chipGroup = findViewById(R.id.uiTxtTagsTwo);
+        chipGroup = findViewById(R.id.uiChipGroup);
         ProgressBar barRating = (ProgressBar) findViewById(R.id.uiBarRating);
 
         //casting numbers to numbers

@@ -79,8 +79,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         editRating = (EditText) findViewById(R.id.userTxtRating);
         editNotes = (EditText) findViewById(R.id.userTxtNotes);
         editTags = (EditText) findViewById(R.id.userTextTags);
-        chipGroup = findViewById(R.id.uiEditTags);
-
+        chipGroup = findViewById(R.id.uiChipGroup);
         btnUpdate = (Button) findViewById(R.id.uiBtnUpdate);
         btnDelete = (TextView) findViewById(R.id.uiBtnDelete);
 
@@ -96,7 +95,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         setTags(tagList);
 
     }
-
+//psuh
     public void updateData () {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override

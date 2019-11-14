@@ -52,17 +52,6 @@ public class AddRestaurantActivity extends AppCompatActivity {
     //onClick listener for submit button
     public void SubmitData() {
 
-//        if (editTags.getText().toString().trim().length() == 0){
-//            tagList.add( (long) 0); //how are we going to add the long numbers from a string list?
-//            //adds to flexible list rn and then....
-//        }
-//
-//        //initalize tag array
-//        tagArray = new String[tagList.size()];
-//        tagArray[0] = tagList.get(0); //....casts it to an array (b/c size has to be predetermined?
-
-
-
         btnSubmit.setOnClickListener(
             new View.OnClickListener() {
                 @Override

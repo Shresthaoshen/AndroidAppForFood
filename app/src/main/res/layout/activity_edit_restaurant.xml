@@ -127,21 +127,44 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.chip.ChipGroup
-            android:id="@+id/uiEditTags"
-            android:layout_width="0dp"
+            android:id="@+id/uiChipGroup"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="36dp"
             android:layout_marginRight="36dp"
-            android:layout_marginBottom="16dp"
             android:text="TextView"
             android:textSize="18dp"
-            app:layout_constraintBottom_toTopOf="@+id/uiBtnUpdate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/uiTxtNotesLabel"></com.google.android.material.chip.ChipGroup>
+            app:layout_constraintTop_toBottomOf="@+id/uiTxtTagsLabel">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/exampleChip"
+                style="@style/Widget.MaterialComponents.Chip.Entry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="false"
+                android:text="example tag"
+                android:textAppearance="?android:textAppearanceSmall" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <Button
+            android:id="@+id/uiBtnUpdate"
+            android:layout_width="156sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="80dp"
+            android:onClick="clickUpdate"
+            android:text="Update"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uiTxtNotesLabel" />
 
         <TextView
             android:id="@+id/uiBtnDelete"
@@ -158,17 +181,6 @@
             app:layout_constraintTop_toBottomOf="@+id/uiBtnUpdate"
             app:layout_constraintVertical_bias="0.0" />
 
-        <Button
-            android:id="@+id/uiBtnUpdate"
-            android:layout_width="156sp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:onClick="clickUpdate"
-            android:text="Update"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/uiEditTags" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
