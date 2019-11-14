@@ -85,10 +85,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
         //get list of tags associated with restaurant
         tagList = databaseHelper.getRestaurantsTags(id);
 
-        int chipCount = chipGroup.getChildCount();
-        for (int i = 0; i < chipCount; i++){
-            chipGroup.removeView(chipGroup.getChildAt(i));
-        }
+        chipGroup.removeAllViews();
 
         setTags(tagList);
 

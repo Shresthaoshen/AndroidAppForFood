@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,6 +34,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
     //tag information
     ArrayList<Tag> tagList;
+    ArrayList<Integer> deletedTags;
     ChipGroup chipGroup;
 
     //update tracker
@@ -44,7 +44,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
     //stuff for set tags
     int i;
-    Chip chip;
 
 
     @Override
@@ -73,6 +72,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     private void buildInformation(){
         restaurant = databaseHelper.getRestaurant(id);
 
+        deletedTags = new ArrayList<>();
 
         //cast variables
         editTitle = (EditText) findViewById(R.id.userTxtTitle);
@@ -96,7 +96,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         setTags(tagList);
 
     }
-//psuh
+
     public void updateData () {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,6 +116,10 @@ public class EditRestaurantActivity extends AppCompatActivity {
                         dataUpdated = true;
                     } else {
                         Toast.makeText(EditRestaurantActivity.this, "Data Not Updated", Toast.LENGTH_LONG).show();
+                    }
+
+                    for (int i = 0; i < deletedTags.size(); i++){
+                        databaseHelper.deleteTag(i);
                     }
 
                     clickUpdate(view);
@@ -146,6 +150,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     public void clickUpdate (View view){
         Intent updateIntent = new Intent(this, ViewRestaurantActivity.class);
             updateIntent.putExtra("dataUpdated", dataUpdated);
+            updateIntent.putExtra("tagUpdated", tagUpdated);
         setResult(RESULT_OK, updateIntent);
         finish();
     }
@@ -194,25 +199,24 @@ public class EditRestaurantActivity extends AppCompatActivity {
             final String tagName = tagList.get(i).getTagName();
             final int tagID = tagList.get(i).getId();
 
-            chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
+            final Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
             chip.setText(tagName);
             chipGroup.addView(chip, chipGroup.getChildCount());
             chip.setClickable(true);
 
-
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     chipGroup.removeView(chip);
-                    databaseHelper.deleteTag(tagID);
                     tagList.remove(tagName);
+                    deletedTags.add(tagID);
                     tagUpdated = true;
                 }
             });
-
-
         }
     }
+
+
 
 
 
