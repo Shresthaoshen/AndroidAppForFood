@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,7 +43,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
     //stuff for set tags
     int i;
-    Chip chip;
 
 
     @Override
@@ -96,7 +94,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         setTags(tagList);
 
     }
-//psuh
+
     public void updateData () {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -194,25 +192,24 @@ public class EditRestaurantActivity extends AppCompatActivity {
             final String tagName = tagList.get(i).getTagName();
             final int tagID = tagList.get(i).getId();
 
-            chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
+            final Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
             chip.setText(tagName);
             chipGroup.addView(chip, chipGroup.getChildCount());
             chip.setClickable(true);
 
-
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
+                public void onClick(View view) {
                     chipGroup.removeView(chip);
                     databaseHelper.deleteTag(tagID);
                     tagList.remove(tagName);
                     tagUpdated = true;
                 }
             });
-
-
         }
     }
+
+
 
 
 
