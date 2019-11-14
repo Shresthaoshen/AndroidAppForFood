@@ -168,19 +168,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
-                android:layout_weight="1">
-
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/exampleChip"
-                    style="@style/Widget.MaterialComponents.Chip.Entry"
-                    android:text="example tag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:textAppearanceSmall"
-                    android:checkable="false"
-                    />
-
-            </com.google.android.material.chip.ChipGroup>
+                android:layout_weight="1"/>
 
             <EditText
                 android:id="@+id/userTextTags"
