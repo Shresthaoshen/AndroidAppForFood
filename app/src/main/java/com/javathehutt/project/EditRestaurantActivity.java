@@ -3,9 +3,7 @@ package com.javathehutt.project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,10 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.chip.ChipGroup;
 
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import static java.lang.Double.parseDouble;
@@ -82,6 +78,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         editRating = (EditText) findViewById(R.id.userTxtRating);
         editNotes = (EditText) findViewById(R.id.userTxtNotes);
         editTags = (EditText) findViewById(R.id.userTextTags);
+        chipGroup = findViewById(R.id.uiEditTags);
 
         btnUpdate = (Button) findViewById(R.id.uiBtnUpdate);
         btnDelete = (TextView) findViewById(R.id.uiBtnDelete);

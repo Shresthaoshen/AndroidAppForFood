@@ -32,7 +32,7 @@
         android:text="EDIT RESTAURANT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uiTxtTags" />
+        app:layout_constraintTop_toBottomOf="@+id/uiTxtTagsTwo" />
 
     <TextView
         android:id="@+id/uiTxtTitleLabel"
@@ -141,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@+id/uiTxtNotes" />
 
     <com.google.android.material.chip.ChipGroup
-        android:id="@+id/uiTxtTags"
+        android:id="@+id/uiTxtTagsTwo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"

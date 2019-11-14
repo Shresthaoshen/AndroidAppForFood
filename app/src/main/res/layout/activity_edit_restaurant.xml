@@ -126,20 +126,22 @@
                 android:inputType="textMultiLine" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
-            android:id="@+id/uiBtnUpdate"
-            android:layout_width="156sp"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/uiEditTags"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="80dp"
-            android:onClick="clickUpdate"
-            android:text="Update"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="36dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="36dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginBottom="16dp"
+            android:text="TextView"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toTopOf="@+id/uiBtnUpdate"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/uiTxtTags"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toBottomOf="@+id/uiTxtNotesLabel"></com.google.android.material.chip.ChipGroup>
 
         <TextView
             android:id="@+id/uiBtnDelete"
@@ -156,44 +158,17 @@
             app:layout_constraintTop_toBottomOf="@+id/uiBtnUpdate"
             app:layout_constraintVertical_bias="0.0" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/uiTxtTags"
-            android:layout_width="0dp"
+        <Button
+            android:id="@+id/uiBtnUpdate"
+            android:layout_width="156sp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginTop="16dp"
+            android:onClick="clickUpdate"
+            android:text="Update"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/uiTxtNotesLabel">
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/uiEditTags"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="36dp"
-                android:layout_marginRight="36dp"
-                android:text="TextView"
-                android:textSize="18dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/uiTxtTagsLabel"></com.google.android.material.chip.ChipGroup>
-
-            <EditText
-                android:id="@+id/userTextTags"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Tags"
-                android:visibility="invisible"/>
-
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@+id/uiEditTags" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
