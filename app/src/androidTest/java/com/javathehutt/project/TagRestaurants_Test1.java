@@ -35,7 +35,7 @@ public class TagRestaurants_Test1 {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
-
+    
     @Test
     public void tagRestaurants_Test1() {
         ViewInteraction floatingActionButton = onView(
