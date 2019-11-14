@@ -206,25 +206,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
             });
 
 
-//            final Chip chip = new Chip(this);
-//            int paddingDp = (int) TypedValue.applyDimension(
-//                    TypedValue.COMPLEX_UNIT_DIP, 10,
-//                    getResources().getDisplayMetrics()
-//            );
-//            chip.setPadding(paddingDp, paddingDp, paddingDp, paddingDp);
-//            chip.setText(tagName);
-////            chip.setCloseIconResource(R.drawable.ic_action_navigation_close);
-//            chip.setCloseIconEnabled(true);
-//            //Added click listener on close icon to remove tag from ChipGroup
-//            chip.setOnCloseIconClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    tagList.remove(tagName);
-//                    chipGroup.removeView(chip);
-//                }
-//            });
-//
-//            chipGroup.addView(chip);
         }
 
         }
