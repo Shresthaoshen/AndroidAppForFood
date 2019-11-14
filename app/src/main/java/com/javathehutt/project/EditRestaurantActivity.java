@@ -40,6 +40,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     //update tracker
     boolean dataUpdated = false;
     boolean dataDeleted = true;
+    boolean tagUpdated = false;
 
     //stuff for set tags
     int i;
@@ -153,6 +154,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         Intent backIntent = new Intent(this, ViewRestaurantActivity.class);
             dataUpdated = false;
             backIntent.putExtra("dataUpdated", dataUpdated);
+            backIntent.putExtra("tagUpdated", tagUpdated);
         setResult(RESULT_CANCELED, backIntent);
         finish();
     }
@@ -202,6 +204,8 @@ public class EditRestaurantActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     chipGroup.removeView(chip);
                     databaseHelper.deleteTag(tagName);
+                    tagList.remove(tagName);
+                    tagUpdated = true;
                 }
             });
 

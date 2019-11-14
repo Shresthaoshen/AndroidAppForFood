@@ -38,6 +38,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
     //watches for updated data
     boolean dataUpdated = false;
     boolean dataDeleted = false;
+    boolean tagUpdated = true;
 
     //data sort types
     public String dataSortType = "ID";
@@ -83,6 +84,12 @@ public class ViewRestaurantActivity extends AppCompatActivity {
 
         //get list of tags associated with restaurant
         tagList = databaseHelper.getRestaurantsTags(id);
+
+        int chipCount = chipGroup.getChildCount();
+        for (int i = 0; i < chipCount; i++){
+            chipGroup.removeView(chipGroup.getChildAt(i));
+        }
+
         setTags(tagList);
 
         double decimalRating = restaurant.getRating() * 10;
@@ -119,8 +126,10 @@ public class ViewRestaurantActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 dataUpdated = submitData.getExtras().getBoolean("dataUpdated");
                 dataDeleted = submitData.getExtras().getBoolean("dataDeleted");
+                tagUpdated = submitData.getExtras().getBoolean("tagUpdated");
 
-                if (dataUpdated){
+                if (dataUpdated || tagUpdated){
+                    tagList.clear();
                     buildInformation();
                     Toast.makeText(this, "switched over from edit", Toast.LENGTH_LONG).show();
                 }
@@ -168,8 +177,7 @@ public class ViewRestaurantActivity extends AppCompatActivity {
                 Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip, null, false);
             chip.setText(tagName);
                 chip.setClickable(false);
-            chipGroup.addView(chip, chipGroup.getChildCount() - 1);
-
+                chipGroup.addView(chip, chipGroup.getChildCount() - 1);
         }
     }
 
