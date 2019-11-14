@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -189,22 +190,47 @@ public class EditRestaurantActivity extends AppCompatActivity {
     private void setTags(final ArrayList<Tag> tagList) {
         for (i = 0; i < tagList.size(); i++){
 
-            String tagName = tagList.get(i).getTagName();
+            final String tagName = tagList.get(i).getTagName();
 
             chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
             chip.setText(tagName);
             chipGroup.addView(chip, chipGroup.getChildCount() - 1);
             chip.setClickable(true);
+
+
             chip.setOnCloseIconClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     chipGroup.removeView(chip);
-                    databaseHelper.deleteTag(tagList.get(i).getId());
+                    databaseHelper.deleteTag(tagName);
                 }
             });
 
+
+//            final Chip chip = new Chip(this);
+//            int paddingDp = (int) TypedValue.applyDimension(
+//                    TypedValue.COMPLEX_UNIT_DIP, 10,
+//                    getResources().getDisplayMetrics()
+//            );
+//            chip.setPadding(paddingDp, paddingDp, paddingDp, paddingDp);
+//            chip.setText(tagName);
+////            chip.setCloseIconResource(R.drawable.ic_action_navigation_close);
+//            chip.setCloseIconEnabled(true);
+//            //Added click listener on close icon to remove tag from ChipGroup
+//            chip.setOnCloseIconClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    tagList.remove(tagName);
+//                    chipGroup.removeView(chip);
+//                }
+//            });
+//
+//            chipGroup.addView(chip);
         }
-    }
+
+        }
+
+
 
 
 

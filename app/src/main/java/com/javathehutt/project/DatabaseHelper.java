@@ -421,11 +421,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //remove tag assigned to a restaurant. NOT FINISHED todo
-    public void deleteTag(int id) {
+    public void deleteTag(String tagName) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.delete(TABLE_TAG, ID + " = ?",
-                new String[] { String.valueOf(id) });
+
+        db.delete(TABLE_TAG, TAG_NAME + " = ?",new String[]{tagName} );
+        db.close();
 
     }
 
