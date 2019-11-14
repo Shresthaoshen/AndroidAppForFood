@@ -94,7 +94,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         setTags(tagList);
 
     }
-
+//psuh
     public void updateData () {
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
