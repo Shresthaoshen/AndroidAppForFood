@@ -36,7 +36,6 @@ public class AddRestaurantActivity extends AppCompatActivity {
     ChipGroup chipGroup;
 
     //tag managers
-    String[] tagArray;
     ArrayList<String> currentTags;
     ArrayList<String> tagComplete;
     ArrayAdapter<String> autoCompleteAdapter;
@@ -180,6 +179,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
 
     private void addChip(String inputTag){
         if (inputTag != null && !currentTags.contains(inputTag) && !inputTag.equals("") && !inputTag.equals(" ")){
+            editTags.setHint("");
             addChipToGroup(inputTag);
             currentTags.add(inputTag);
         }
