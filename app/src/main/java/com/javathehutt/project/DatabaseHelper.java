@@ -86,6 +86,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseInterfac
         onCreate(database);
     }
 
+
     // -------------- RESTAURANTS -------------- //
     @Override
     //insert data read from AddRestaurantActivity to SQLite database
@@ -238,7 +239,6 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseInterfac
         return id;
     }
 
-
     //update Restaurant entry
     public boolean updateData(String id, String restaurantName, Double price, Double rating, String notes) {
         //Database constructor
@@ -266,6 +266,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseInterfac
 
         return database.delete(TABLE_RESTAURANT, "ID = ?", new String[] { id }) != 0;
     }
+
 
     // -------------- TAGS -------------- //
 
@@ -378,6 +379,25 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseInterfac
 
                 // adding to tags list
                 tags.add(t);
+            } while (data.moveToNext());
+        }
+        return tags;
+    }
+
+    public ArrayList<String> getAllTagNames(){
+        ArrayList<String> tags = new ArrayList<String>();
+        String selectQuery = "SELECT  * FROM " + TABLE_TAG;
+
+        Log.e(LOG, selectQuery);
+
+        SQLiteDatabase database = this.getReadableDatabase();
+        Cursor data = database.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (data.moveToFirst()) {
+            do {
+                // adding to tags list
+                tags.add(data.getString(data.getColumnIndex(TAG_NAME)));
             } while (data.moveToNext());
         }
         return tags;

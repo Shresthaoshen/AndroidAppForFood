@@ -9,10 +9,13 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6063f41e-f352-49c8-b641-4577c950b64e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurant_Test2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurants_Test3.java" afterDir="false" />
+    <list default="true" id="bf6a576c-9bc2-4863-998b-863b72de3d5c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +27,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_27" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -35,60 +38,61 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/SaveTime_Test1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/SaveTime_Test3.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+            <state relative-caret-position="925">
+              <caret line="254" column="63" selection-start-line="254" selection-start-column="63" selection-end-line="254" selection-end-column="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/SavetTime_Test2.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/RsrtListAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+            <state relative-caret-position="925">
+              <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+              <folding>
+                <element signature="method#getColor#0;class#RsrtListAdapter#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurant_Test2.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/SettingsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-153" />
+            <state relative-caret-position="925">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
+              <folding>
+                <element signature="e#2262#2550#0" expanded="true" />
+                <element signature="e#2549#2550#0" expanded="true" />
+              </folding>
+            </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurants_Test3.java">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+            <state relative-caret-position="577">
+              <caret line="395" column="38" selection-start-line="395" selection-start-column="38" selection-end-line="395" selection-end-column="38" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2613#2898#0" />
+                <element signature="e#2904#3396#0" />
+                <element signature="e#3402#5180#0" />
+                <element signature="e#5186#6085#0" />
+                <element signature="e#6091#7456#0" />
+                <element signature="e#7462#8866#0" />
+                <element signature="e#8872#9280#0" />
+                <element signature="e#9287#10120#0" />
+                <element signature="e#10126#10351#0" />
+                <element signature="e#10403#10736#0" />
+                <element signature="e#10742#11219#0" />
+                <element signature="e#11225#11813#0" />
+                <element signature="e#11819#13746#0" />
+                <element signature="e#14613#14621#0" expanded="true" />
+                <element signature="e#14519#14889#0" />
+                <element signature="e#14895#15849#0" />
               </folding>
             </state>
           </provider>
@@ -96,27 +100,79 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2601">
-              <caret line="153" column="8" selection-start-line="153" selection-start-column="8" selection-end-line="153" selection-end-column="8" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/ViewRestaurantActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="154" column="55" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="815">
+              <caret line="152" column="5" lean-forward="true" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2063#2331#0" expanded="true" />
+                <element signature="e#2330#2331#0" expanded="true" />
+                <element signature="method#clickSubmit#0;class#AddRestaurantActivity#0" />
+                <element signature="method#clickBack#0;class#AddRestaurantActivity#0" />
+                <element signature="method#checkedCompletion#0;class#AddRestaurantActivity#0" />
+                <element signature="e#5296#5476#0" expanded="true" />
+                <element signature="e#5475#5476#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_restaurant.xml">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="730">
+              <caret line="213" column="15" lean-forward="true" selection-start-line="197" selection-start-column="12" selection-end-line="213" selection-end-column="15" />
+              <folding>
+                <element signature="method#onCreate#0;class#EditRestaurantActivity#0" />
+                <element signature="method#buildInformation#0;class#EditRestaurantActivity#0" />
+                <element signature="method#updateData#0;class#EditRestaurantActivity#0" />
+                <element signature="method#deleteData#0;class#EditRestaurantActivity#0" />
+                <element signature="method#clickUpdate#0;class#EditRestaurantActivity#0" />
+                <element signature="method#clickBack#0;class#EditRestaurantActivity#0" />
+                <element signature="method#clickDelete#0;class#EditRestaurantActivity#0" />
+                <element signature="method#checkedCompletion#0;class#EditRestaurantActivity#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="android-designer2" />
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml">
           <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="855">
+              <caret line="176" column="13" lean-forward="true" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Settings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -133,11 +189,7 @@
       <find>ViewRest</find>
       <find>tagList</find>
       <find>tagString</find>
-      <find>chipgr</find>
-      <find>chipGroup</find>
-      <find>setTag</find>
-      <find>dataDeleted</find>
-      <find>setTags</find>
+      <find>userTxtTa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -147,33 +199,29 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/SettingsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Restaurant.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/RsrtListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/RestaurantListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/chip.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Tag.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_restaurant.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/ViewRestaurantActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Tag.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_restaurant.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseInterface.java" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurants_Test1.java" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurants_Test2.java" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurant_Test2.java" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurants_Test3.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-13" />
-    <option name="width" value="1440" />
-    <option name="height" value="808" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-11" />
+    <option name="y" value="46" />
+    <option name="width" value="2246" />
+    <option name="height" value="2124" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -183,6 +231,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -204,14 +253,18 @@
             <path>
               <item name="CMSC 355 Application" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="project" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="CMSC 355 Application" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -234,12 +287,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_3_API_29" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-11-15T00:40:27.718Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_27" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-11-12T23:08:53.840Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/emulator-5556/data/data/com.javathehutt.project/databases" />
@@ -261,7 +314,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android Instrumented Tests.TagRestaurants_Test3">
+  <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -322,217 +375,13 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TagRestaurant_Test2" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <option name="TESTING_TYPE" value="2" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="com.javathehutt.project.TagRestaurant_Test2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Hybrid>
-      <Java />
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
-      </Profilers>
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TagRestaurants_Test1" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <option name="TESTING_TYPE" value="2" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="com.javathehutt.project.TagRestaurants_Test1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Hybrid>
-      <Java />
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
-      </Profilers>
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TagRestaurants_Test2" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <option name="TESTING_TYPE" value="2" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="com.javathehutt.project.TagRestaurants_Test2" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Hybrid>
-      <Java />
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
-      </Profilers>
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TagRestaurants_Test3" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <option name="TESTING_TYPE" value="2" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="com.javathehutt.project.TagRestaurants_Test3" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="EXTRA_OPTIONS" value="" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
-      <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Hybrid>
-      <Java />
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
-      </Profilers>
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Android Instrumented Tests.TagRestaurants_Test3" />
-        <item itemvalue="Android Instrumented Tests.TagRestaurant_Test2" />
-        <item itemvalue="Android Instrumented Tests.TagRestaurants_Test2" />
-        <item itemvalue="Android Instrumented Tests.TagRestaurants_Test1" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6063f41e-f352-49c8-b641-4577c950b64e" name="Default Changelist" comment="" />
+      <changelist id="bf6a576c-9bc2-4863-998b-863b72de3d5c" name="Default Changelist" comment="" />
       <created>1573477180592</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -629,74 +478,8 @@
       <option name="project" value="LOCAL" />
       <updated>1573614761321</updated>
     </task>
-    <task id="LOCAL-00014" summary="can't figure out why it's starting at one">
-      <created>1573616087592</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1573616087592</updated>
-    </task>
-    <task id="LOCAL-00015" summary="fixed edit restaurant">
-      <created>1573704176323</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1573704176323</updated>
-    </task>
-    <task id="LOCAL-00016" summary="unified some stuff">
-      <created>1573704371279</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1573704371279</updated>
-    </task>
-    <task id="LOCAL-00017" summary="remove deleted chips in view resturant">
-      <created>1573705829774</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1573705829774</updated>
-    </task>
-    <task id="LOCAL-00018" summary="delete fixes">
-      <created>1573706787992</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1573706787992</updated>
-    </task>
-    <task id="LOCAL-00019" summary="YES">
-      <created>1573708869432</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1573708869432</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Finalized Strategy Design Pattern (DatabaseInterface)">
-      <created>1573750184726</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1573750184726</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="14" />
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="TagRestaurants_Test1 - 2019.11.14 at 16h 35m 16s.xml">
-      <configuration name="TagRestaurants_Test1" configurationId="AndroidTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="TagRestaurants_Test2 - 2019.11.14 at 16h 38m 34s.xml">
-      <configuration name="TagRestaurants_Test2" configurationId="AndroidTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="TagRestaurants_Test2 - 2019.11.14 at 16h 43m 39s.xml">
-      <configuration name="TagRestaurants_Test2" configurationId="AndroidTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="TagRestaurant_Test2 - 2019.11.14 at 19h 55m 09s.xml">
-      <configuration name="TagRestaurant_Test2" configurationId="AndroidTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="TagRestaurants_Test3 - 2019.11.14 at 20h 04m 50s.xml">
-      <configuration name="TagRestaurants_Test3" configurationId="AndroidTestRunConfigurationType" />
-    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -708,12 +491,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="31" width="1497" height="1416" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="1" />
-      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.25503355" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.23382045" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
@@ -721,48 +504,50 @@
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Favorites" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Logcat" order="0" weight="0.52277654" />
-      <window_info anchor="bottom" id="TODO" order="1" weight="0.32867885" />
-      <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.32972136" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6945629" weight="0.33002833" />
-      <window_info active="true" anchor="bottom" id="Run" order="4" visible="true" weight="0.3243626" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50159913" side_tool="true" weight="0.22126746" />
-      <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49946696" weight="0.32975295" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49840087" weight="0.3569405" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.3285968" />
-      <window_info anchor="bottom" id="Find" order="9" weight="0.32975295" />
-      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.43017057" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" weight="0.37100214" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info id="Capture Tool" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.14925373" />
-      <window_info id="Structure" order="3" side_tool="true" />
-      <window_info id="Build Variants" order="4" side_tool="true" />
-      <window_info id="Image Layers" order="5" />
-      <window_info id="Designer" order="6" />
-      <window_info id="Resources Explorer" order="7" />
-      <window_info id="Favorites" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Logcat" order="0" weight="0.52277654" />
-      <window_info anchor="bottom" id="TODO" order="1" weight="0.32867885" />
+      <window_info anchor="bottom" id="TODO" order="1" weight="0.329718" />
       <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.32972136" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6945629" weight="0.3319012" />
       <window_info anchor="bottom" id="Run" order="4" weight="0.3265306" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50159913" side_tool="true" weight="0.22126746" />
-      <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49946696" weight="0.32975295" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49840087" weight="0.22019334" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32867885" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5031315" side_tool="true" visible="true" weight="0.22196262" />
+      <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49900597" weight="0.32972136" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49686846" visible="true" weight="0.22196262" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32975295" />
-      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.43017057" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.20994036" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" weight="0.37100214" />
+      <window_info anchor="right" id="Preview" order="5" weight="0.39602387" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.19397502" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" weight="0.32962227" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Run" order="0" weight="0.32972136" />
+      <window_info anchor="bottom" id="Logcat" order="1" weight="0.32972136" />
+      <window_info anchor="bottom" id="TODO" order="2" weight="0.32972136" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49821073" weight="0.32972136" />
+      <window_info anchor="bottom" id="Terminal" order="4" weight="0.32972136" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50143063" side_tool="true" weight="0.1977716" />
+      <window_info anchor="bottom" id="Version Control" order="6" weight="0.32972136" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.4985694" visible="true" weight="0.042075735" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4998012" weight="0.32972136" />
+      <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.32962227" />
+      <window_info anchor="right" id="Capture Analysis" order="1" />
+      <window_info anchor="right" id="Gradle" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.040057223" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Assistant" order="6" weight="0.3297568" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -794,29 +579,37 @@
     <MESSAGE value="unbreak" />
     <MESSAGE value="regex changes" />
     <MESSAGE value="tags in view restaurant" />
-    <MESSAGE value="can't figure out why it's starting at one" />
-    <MESSAGE value="fixed edit restaurant" />
-    <MESSAGE value="unified some stuff" />
-    <MESSAGE value="remove deleted chips in view resturant" />
-    <MESSAGE value="delete fixes" />
-    <MESSAGE value="YES" />
-    <MESSAGE value="Finalized Strategy Design Pattern (DatabaseInterface)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalized Strategy Design Pattern (DatabaseInterface)" />
+    <option name="LAST_COMMIT_MESSAGE" value="tags in view restaurant" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/RestaurantListAdapter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Restaurant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-262">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/SearchActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_restaurant_widget.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/restaurant_list.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="82" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="82" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
     <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/android.jar!/android/os/Looper.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -829,197 +622,173 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/RsrtListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chip_edit.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/android.jar!/android/app/Activity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#34696#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="2924">
-          <caret line="172" column="55" selection-start-line="172" selection-start-column="55" selection-end-line="172" selection-end-column="55" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_restaurant_widget.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chip.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1005">
-          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/SettingsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="17" column="46" selection-start-line="17" selection-start-column="46" selection-end-line="17" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Restaurant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/SortByPriceTest2.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/SortByPriceTest3.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/SortByPriceTest1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="41" column="44" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Tag.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="442">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#161#162#0" expanded="true" />
+            <element signature="e#199#200#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#362#363#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurants_Test2.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurants_Test1.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/FoodPreferances_Test2.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/FoodPreferences_Test3.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/ViewRestaurantActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="58" column="33" selection-start-line="58" selection-start-column="33" selection-end-line="58" selection-end-column="33" />
+        <state relative-caret-position="1479">
+          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#clickItem_Edit#0;class#ViewRestaurantActivity#0" />
+            <element signature="method#clickBack#0;class#ViewRestaurantActivity#0" />
+            <element signature="method#onActivityResult#0;class#ViewRestaurantActivity#0" />
+            <element signature="method#getProgressColor#0;class#ViewRestaurantActivity#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/SaveTime_Test1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_restaurant.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="2499">
+          <caret line="147" column="38" selection-start-line="147" selection-start-column="38" selection-end-line="147" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/SaveTime_Test3.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+        <state relative-caret-position="357">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+        <state relative-caret-position="925">
+          <caret line="254" column="63" selection-start-line="254" selection-start-column="63" selection-end-line="254" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/SettingsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="925">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+          <folding>
+            <element signature="e#2262#2550#0" expanded="true" />
+            <element signature="e#2549#2550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/RsrtListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="925">
+          <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+          <folding>
+            <element signature="method#getColor#0;class#RsrtListAdapter#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="176" column="13" lean-forward="true" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="577">
+          <caret line="395" column="38" selection-start-line="395" selection-start-column="38" selection-end-line="395" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2613#2898#0" />
+            <element signature="e#2904#3396#0" />
+            <element signature="e#3402#5180#0" />
+            <element signature="e#5186#6085#0" />
+            <element signature="e#6091#7456#0" />
+            <element signature="e#7462#8866#0" />
+            <element signature="e#8872#9280#0" />
+            <element signature="e#9287#10120#0" />
+            <element signature="e#10126#10351#0" />
+            <element signature="e#10403#10736#0" />
+            <element signature="e#10742#11219#0" />
+            <element signature="e#11225#11813#0" />
+            <element signature="e#11819#13746#0" />
+            <element signature="e#14613#14621#0" expanded="true" />
+            <element signature="e#14519#14889#0" />
+            <element signature="e#14895#15849#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2601">
-          <caret line="153" column="8" selection-start-line="153" selection-start-column="8" selection-end-line="153" selection-end-column="8" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/ViewRestaurantActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="82" column="48" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="154" column="55" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_restaurant.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/SavetTime_Test2.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
+        <state relative-caret-position="730">
+          <caret line="213" column="15" lean-forward="true" selection-start-line="197" selection-start-column="12" selection-end-line="213" selection-end-column="15" />
+          <folding>
+            <element signature="method#onCreate#0;class#EditRestaurantActivity#0" />
+            <element signature="method#buildInformation#0;class#EditRestaurantActivity#0" />
+            <element signature="method#updateData#0;class#EditRestaurantActivity#0" />
+            <element signature="method#deleteData#0;class#EditRestaurantActivity#0" />
+            <element signature="method#clickUpdate#0;class#EditRestaurantActivity#0" />
+            <element signature="method#clickBack#0;class#EditRestaurantActivity#0" />
+            <element signature="method#clickDelete#0;class#EditRestaurantActivity#0" />
+            <element signature="method#checkedCompletion#0;class#EditRestaurantActivity#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurant_Test2.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153" />
+        <state relative-caret-position="815">
+          <caret line="152" column="5" lean-forward="true" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2063#2331#0" expanded="true" />
+            <element signature="e#2330#2331#0" expanded="true" />
+            <element signature="method#clickSubmit#0;class#AddRestaurantActivity#0" />
+            <element signature="method#clickBack#0;class#AddRestaurantActivity#0" />
+            <element signature="method#checkedCompletion#0;class#AddRestaurantActivity#0" />
+            <element signature="e#5296#5476#0" expanded="true" />
+            <element signature="e#5475#5476#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/com/javathehutt/project/TagRestaurants_Test3.java">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

@@ -79,7 +79,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         editPrice = (EditText) findViewById(R.id.userTxtPrice);
         editRating = (EditText) findViewById(R.id.userTxtRating);
         editNotes = (EditText) findViewById(R.id.userTxtNotes);
-        editTags = (EditText) findViewById(R.id.userTextTags);
+        editTags = (EditText) findViewById(R.id.userTagText);
         chipGroup = findViewById(R.id.uiChipGroup);
         btnUpdate = (Button) findViewById(R.id.uiBtnUpdate);
         btnDelete = (TextView) findViewById(R.id.uiBtnDelete);
@@ -191,7 +191,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
 
         return true;
     }
-
 
     private void setTags(final ArrayList<Tag> tagList) {
         for (i = 0; i < tagList.size(); i++){

@@ -3,13 +3,17 @@ package com.javathehutt.project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.util.Log;
+
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
 
@@ -21,11 +25,16 @@ public class AddRestaurantActivity extends AppCompatActivity {
     DatabaseHelper databaseHelper;
 
     //ui managers
-    EditText editTitle, editPrice, editRating, editNotes, editTags;
+    EditText editTitle, editPrice, editRating, editNotes;
+    AutoCompleteTextView editTags;
     Button btnSubmit;
+    ChipGroup chipGroup;
 
-    //tag array
+    //tag managers
     String[] tagArray;
+    ArrayList<String> currentTags;
+    ArrayList<String> tagComplete;
+    ArrayAdapter<String> autoCompleteAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +49,11 @@ public class AddRestaurantActivity extends AppCompatActivity {
         editPrice = (EditText) findViewById(R.id.userTxtPrice);
         editRating = (EditText) findViewById(R.id.userTxtRating);
         editNotes = (EditText) findViewById(R.id.userTxtNotes);
-        editTags = (EditText) findViewById(R.id.userTxtTags);
+        editTags = (AutoCompleteTextView) findViewById(R.id.userTagText);
+        chipGroup = (ChipGroup) findViewById(R.id.uiChipGroup);
         btnSubmit = (Button) findViewById(R.id.uiBtnAdd);
 
-        //init tagList
-//        tagList = new ArrayList<>();
+        loadChipUI();
 
         SubmitData();
     }
@@ -113,8 +122,44 @@ public class AddRestaurantActivity extends AppCompatActivity {
         return true;
     }
 
-    private void makeChips(){
+    private void loadChipUI(){
+        //init tagList
+        tagComplete = new ArrayList<String>(databaseHelper.getAllTagNames());
+        autoCompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, tagComplete);
+        editTags.setAdapter(autoCompleteAdapter);
+        editTags.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id){
+                addChip(adapterView.getAdapter().getItem(position).toString());
+                editTags.setText(null);
+            }
+        });
+
 
     }
+
+    private void addChip(String inputTag){
+        if (inputTag != null && !currentTags.contains(inputTag)){
+            addChipToGroup(inputTag);
+            currentTags.add(inputTag);
+        }
+    }
+
+    private void addChipToGroup(String tagName){
+        final Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
+            chip.setText(tagName);
+            chip.setClickable(true);
+        chipGroup.addView(chip, chipGroup.getChildCount());
+
+        chip.setOnCloseIconClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chipGroup.removeView(chip);
+
+            }
+        });
+    }
+
+
 
 }
