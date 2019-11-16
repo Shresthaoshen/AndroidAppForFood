@@ -151,18 +151,19 @@
                     android:layout_height="wrap_content"
                     app:chipSpacingVertical="4dp">
 
+                    <AutoCompleteTextView
+                        android:id="@+id/userTagText"
+                        android:layout_width="fill_parent"
+                        android:minWidth="60dp"
+                        android:layout_height="wrap_content"
+                        android:completionThreshold="1"
+                        android:hint="Tags"
+                        android:imeOptions="actionDone"
+                        android:inputType="textAutoComplete"
+                        android:background="@android:color/transparent"
+                        android:text="NEED TO FIGURE OUT LINE"/>
 
                 </com.google.android.material.chip.ChipGroup>
-
-                <AutoCompleteTextView
-                    android:id="@+id/userTagText"
-                    android:layout_width="fill_parent"
-                    android:minWidth="60dp"
-                    android:layout_height="wrap_content"
-                    android:completionThreshold="1"
-                    android:hint="Tags"
-                    android:imeOptions="actionDone"
-                    android:inputType="textAutoComplete" />
 
 
 

@@ -189,7 +189,7 @@ public class AddRestaurantActivity extends AppCompatActivity {
         final Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
             chip.setText(tagName);
             chip.setClickable(true);
-        chipGroup.addView(chip, chipGroup.getChildCount());
+        chipGroup.addView(chip, chipGroup.getChildCount()-1);
 
         Toast.makeText(this, "Added to group", Toast.LENGTH_SHORT).show();
 
