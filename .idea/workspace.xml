@@ -9,13 +9,15 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf6a576c-9bc2-4863-998b-863b72de3d5c" name="Default Changelist" comment="">
+    <list default="true" id="bf6a576c-9bc2-4863-998b-863b72de3d5c" name="Default Changelist" comment="tags in view restaurant">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,88 +42,19 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="925">
-              <caret line="254" column="63" selection-start-line="254" selection-start-column="63" selection-end-line="254" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/RsrtListAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="925">
-              <caret line="87" column="9" selection-start-line="87" selection-start-column="9" selection-end-line="87" selection-end-column="9" />
+            <state relative-caret-position="302">
+              <caret line="265" column="67" selection-start-line="265" selection-start-column="67" selection-end-line="265" selection-end-column="67" />
               <folding>
-                <element signature="method#getColor#0;class#RsrtListAdapter#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/SettingsActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="925">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
-              <folding>
-                <element signature="e#2262#2550#0" expanded="true" />
-                <element signature="e#2549#2550#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="577">
-              <caret line="395" column="38" selection-start-line="395" selection-start-column="38" selection-end-line="395" selection-end-column="38" />
-              <folding>
-                <element signature="e#2613#2898#0" />
-                <element signature="e#2904#3396#0" />
-                <element signature="e#3402#5180#0" />
-                <element signature="e#5186#6085#0" />
-                <element signature="e#6091#7456#0" />
-                <element signature="e#7462#8866#0" />
-                <element signature="e#8872#9280#0" />
-                <element signature="e#9287#10120#0" />
-                <element signature="e#10126#10351#0" />
-                <element signature="e#10403#10736#0" />
-                <element signature="e#10742#11219#0" />
-                <element signature="e#11225#11813#0" />
-                <element signature="e#11819#13746#0" />
-                <element signature="e#14613#14621#0" expanded="true" />
-                <element signature="e#14519#14889#0" />
-                <element signature="e#14895#15849#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml">
-          <provider selected="true" editor-type-id="android-designer2" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="154" column="55" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="815">
-              <caret line="152" column="5" lean-forward="true" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2063#2331#0" expanded="true" />
-                <element signature="e#2330#2331#0" expanded="true" />
-                <element signature="method#clickSubmit#0;class#AddRestaurantActivity#0" />
-                <element signature="method#clickBack#0;class#AddRestaurantActivity#0" />
-                <element signature="method#checkedCompletion#0;class#AddRestaurantActivity#0" />
-                <element signature="e#5296#5476#0" expanded="true" />
-                <element signature="e#5475#5476#0" expanded="true" />
+                <element signature="method#onCreate#0;class#MainActivity#0" />
+                <element signature="method#clickAdd#0;class#MainActivity#0" />
+                <element signature="method#clickSettings#0;class#MainActivity#0" />
+                <element signature="method#onActivityResult#0;class#MainActivity#0" />
+                <element signature="method#updateList#0;class#MainActivity#0" />
+                <element signature="method#populateSpinner#0;class#MainActivity#0" />
+                <element signature="method#createSettings#0;class#MainActivity#0" />
+                <element signature="e#10047#10055#0" expanded="true" />
+                <element signature="method#onQueryTextSubmit#0;class#MainActivity#0" />
+                <element signature="method#onQueryTextChange#0;class#MainActivity#0" />
               </folding>
             </state>
           </provider>
@@ -130,47 +63,114 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="730">
-              <caret line="213" column="15" lean-forward="true" selection-start-line="197" selection-start-column="12" selection-end-line="213" selection-end-column="15" />
+            <state relative-caret-position="272">
+              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="27" />
               <folding>
-                <element signature="method#onCreate#0;class#EditRestaurantActivity#0" />
-                <element signature="method#buildInformation#0;class#EditRestaurantActivity#0" />
-                <element signature="method#updateData#0;class#EditRestaurantActivity#0" />
-                <element signature="method#deleteData#0;class#EditRestaurantActivity#0" />
-                <element signature="method#clickUpdate#0;class#EditRestaurantActivity#0" />
-                <element signature="method#clickBack#0;class#EditRestaurantActivity#0" />
-                <element signature="method#clickDelete#0;class#EditRestaurantActivity#0" />
-                <element signature="method#checkedCompletion#0;class#EditRestaurantActivity#0" />
+                <element signature="e#2883#4041#0" expanded="true" />
+                <element signature="e#4040#4041#0" expanded="true" />
+                <element signature="e#4119#4795#0" expanded="true" />
+                <element signature="e#4794#4795#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1086">
+              <caret line="178" column="5" selection-start-line="127" selection-start-column="29" selection-end-line="178" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#SubmitData#0;class#AddRestaurantActivity#0" />
+                <element signature="method#clickSubmit#0;class#AddRestaurantActivity#0" />
+                <element signature="method#clickBack#0;class#AddRestaurantActivity#0" />
+                <element signature="method#checkedCompletion#0;class#AddRestaurantActivity#0" />
+                <element signature="e#5468#5895#0" expanded="true" />
+                <element signature="e#5894#5895#0" expanded="true" />
+                <element signature="e#6853#7033#0" expanded="true" />
+                <element signature="e#7032#7033#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chip_edit.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="55" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-43">
+              <caret line="132" column="45" lean-forward="true" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-          <provider selected="true" editor-type-id="android-designer2" />
           <provider editor-type-id="text-editor">
             <state relative-caret-position="476">
               <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
             </state>
           </provider>
+          <provider selected="true" editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml">
-          <provider editor-type-id="android-designer2" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="176" column="13" lean-forward="true" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
+            <state relative-caret-position="274">
+              <caret line="126" column="2" selection-start-line="126" selection-start-column="2" selection-end-line="126" selection-end-column="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#6092#7457#0" />
+                <element signature="e#7463#8867#0" />
+                <element signature="e#8873#9281#0" />
+                <element signature="e#9287#10120#0" />
+                <element signature="e#10126#10351#0" />
+                <element signature="e#10404#10737#0" />
+                <element signature="e#10743#11220#0" />
+                <element signature="e#11226#11814#0" />
+                <element signature="e#11820#13747#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Settings.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chip.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="119">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="56" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="152" column="20" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="20" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -199,29 +199,31 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/SettingsActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Restaurant.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/RsrtListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/RestaurantListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/chip.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/ViewRestaurantActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Tag.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_view_restaurant.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseInterface.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/chip_edit.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="y" value="46" />
-    <option name="width" value="2246" />
-    <option name="height" value="2124" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="y" value="32" />
+    <option name="width" value="1112" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
@@ -231,7 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -265,6 +266,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -491,12 +493,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="31" width="1497" height="1416" extended-state="0" />
+    <frame x="-8" y="24" width="1936" height="1064" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info id="Capture Tool" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.23382045" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.122068234" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
@@ -506,11 +508,11 @@
       <window_info anchor="bottom" id="Logcat" order="0" weight="0.52277654" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.329718" />
       <window_info anchor="bottom" id="Android Profiler" order="2" weight="0.32972136" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6945629" weight="0.3319012" />
-      <window_info anchor="bottom" id="Run" order="4" weight="0.3265306" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6945629" visible="true" weight="0.32867885" />
+      <window_info anchor="bottom" id="Run" order="4" weight="0.3264642" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5031315" side_tool="true" visible="true" weight="0.22196262" />
       <window_info anchor="bottom" id="Version Control" order="6" sideWeight="0.49900597" weight="0.32972136" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49686846" visible="true" weight="0.22196262" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49686846" weight="0.22234157" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.329718" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32975295" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.20994036" />
@@ -518,7 +520,7 @@
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
-      <window_info anchor="right" id="Preview" order="5" weight="0.39602387" />
+      <window_info active="true" anchor="right" id="Preview" order="5" visible="true" weight="0.3955224" />
     </layout>
     <layout-to-restore>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
@@ -596,46 +598,20 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/SearchActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_search.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_settings.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_restaurant_widget.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/restaurant_list.xml">
-      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="82" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="82" />
         </state>
       </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/android.jar!/android/os/Looper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-          <folding>
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chip.xml">
       <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Tag.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -650,39 +626,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/ViewRestaurantActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1479">
-          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#clickItem_Edit#0;class#ViewRestaurantActivity#0" />
-            <element signature="method#clickBack#0;class#ViewRestaurantActivity#0" />
-            <element signature="method#onActivityResult#0;class#ViewRestaurantActivity#0" />
-            <element signature="method#getProgressColor#0;class#ViewRestaurantActivity#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_view_restaurant.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
         <state relative-caret-position="2499">
           <caret line="147" column="38" selection-start-line="147" selection-start-column="38" selection-end-line="147" selection-end-column="38" />
         </state>
       </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="254" column="63" selection-start-line="254" selection-start-column="63" selection-end-line="254" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -707,88 +662,154 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/android.jar!/android/os/Looper.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="176" column="13" lean-forward="true" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="395" column="38" selection-start-line="395" selection-start-column="38" selection-end-line="395" selection-end-column="38" />
+        <state relative-caret-position="255">
+          <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
           <folding>
-            <element signature="e#2613#2898#0" />
-            <element signature="e#2904#3396#0" />
-            <element signature="e#3402#5180#0" />
-            <element signature="e#5186#6085#0" />
-            <element signature="e#6091#7456#0" />
-            <element signature="e#7462#8866#0" />
-            <element signature="e#8872#9280#0" />
-            <element signature="e#9287#10120#0" />
-            <element signature="e#10126#10351#0" />
-            <element signature="e#10403#10736#0" />
-            <element signature="e#10742#11219#0" />
-            <element signature="e#11225#11813#0" />
-            <element signature="e#11819#13746#0" />
-            <element signature="e#14613#14621#0" expanded="true" />
-            <element signature="e#14519#14889#0" />
-            <element signature="e#14895#15849#0" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="154" column="55" selection-start-line="154" selection-start-column="55" selection-end-line="154" selection-end-column="55" />
+    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-29/android.jar!/android/widget/TextView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#36874#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/ViewRestaurantActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#clickItem_Edit#0;class#ViewRestaurantActivity#0" />
+            <element signature="method#clickBack#0;class#ViewRestaurantActivity#0" />
+            <element signature="method#getProgressColor#0;class#ViewRestaurantActivity#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/EditRestaurantActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="730">
-          <caret line="213" column="15" lean-forward="true" selection-start-line="197" selection-start-column="12" selection-end-line="213" selection-end-column="15" />
+        <state relative-caret-position="272">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="27" />
           <folding>
-            <element signature="method#onCreate#0;class#EditRestaurantActivity#0" />
-            <element signature="method#buildInformation#0;class#EditRestaurantActivity#0" />
-            <element signature="method#updateData#0;class#EditRestaurantActivity#0" />
-            <element signature="method#deleteData#0;class#EditRestaurantActivity#0" />
-            <element signature="method#clickUpdate#0;class#EditRestaurantActivity#0" />
-            <element signature="method#clickBack#0;class#EditRestaurantActivity#0" />
-            <element signature="method#clickDelete#0;class#EditRestaurantActivity#0" />
-            <element signature="method#checkedCompletion#0;class#EditRestaurantActivity#0" />
+            <element signature="e#2883#4041#0" expanded="true" />
+            <element signature="e#4040#4041#0" expanded="true" />
+            <element signature="e#4119#4795#0" expanded="true" />
+            <element signature="e#4794#4795#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="126" column="2" selection-start-line="126" selection-start-column="2" selection-end-line="126" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6092#7457#0" />
+            <element signature="e#7463#8867#0" />
+            <element signature="e#8873#9281#0" />
+            <element signature="e#9287#10120#0" />
+            <element signature="e#10126#10351#0" />
+            <element signature="e#10404#10737#0" />
+            <element signature="e#10743#11220#0" />
+            <element signature="e#11226#11814#0" />
+            <element signature="e#11820#13747#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="265" column="67" selection-start-line="265" selection-start-column="67" selection-end-line="265" selection-end-column="67" />
+          <folding>
+            <element signature="method#onCreate#0;class#MainActivity#0" />
+            <element signature="method#clickAdd#0;class#MainActivity#0" />
+            <element signature="method#clickSettings#0;class#MainActivity#0" />
+            <element signature="method#onActivityResult#0;class#MainActivity#0" />
+            <element signature="method#updateList#0;class#MainActivity#0" />
+            <element signature="method#populateSpinner#0;class#MainActivity#0" />
+            <element signature="method#createSettings#0;class#MainActivity#0" />
+            <element signature="e#10047#10055#0" expanded="true" />
+            <element signature="method#onQueryTextSubmit#0;class#MainActivity#0" />
+            <element signature="method#onQueryTextChange#0;class#MainActivity#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/javathehutt/project/AddRestaurantActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="815">
-          <caret line="152" column="5" lean-forward="true" selection-start-line="152" selection-start-column="5" selection-end-line="152" selection-end-column="5" />
+        <state relative-caret-position="1086">
+          <caret line="178" column="5" selection-start-line="127" selection-start-column="29" selection-end-line="178" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2063#2331#0" expanded="true" />
-            <element signature="e#2330#2331#0" expanded="true" />
+            <element signature="method#SubmitData#0;class#AddRestaurantActivity#0" />
             <element signature="method#clickSubmit#0;class#AddRestaurantActivity#0" />
             <element signature="method#clickBack#0;class#AddRestaurantActivity#0" />
             <element signature="method#checkedCompletion#0;class#AddRestaurantActivity#0" />
-            <element signature="e#5296#5476#0" expanded="true" />
-            <element signature="e#5475#5476#0" expanded="true" />
+            <element signature="e#5468#5895#0" expanded="true" />
+            <element signature="e#5894#5895#0" expanded="true" />
+            <element signature="e#6853#7033#0" expanded="true" />
+            <element signature="e#7032#7033#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chip_edit.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="55" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="28" selection-end-column="4" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/chip.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="56" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_edit_restaurant.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-43">
+          <caret line="132" column="45" lean-forward="true" selection-start-line="132" selection-start-column="45" selection-end-line="132" selection-end-column="45" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_add_restaurant.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="152" column="20" selection-start-line="152" selection-start-column="20" selection-end-line="152" selection-end-column="20" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
   </component>
 </project>

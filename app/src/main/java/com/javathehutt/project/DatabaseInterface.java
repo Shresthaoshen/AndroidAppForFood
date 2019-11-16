@@ -8,7 +8,7 @@ import java.util.List;
 public interface DatabaseInterface {
 
     // -------------- RESTAURANTS -------------- //
-    boolean createRestaurant(String restaurantName, Double price, Double rating, String notes, String[] tag_names);
+    boolean createRestaurant(String restaurantName, Double price, Double rating, String notes, ArrayList<String> tag_names);
 
     Restaurant getRestaurant(long restaurant_id);
 

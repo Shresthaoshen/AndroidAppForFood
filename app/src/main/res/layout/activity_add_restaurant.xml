@@ -145,21 +145,26 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/uiChipGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipSpacingVertical="4dp">
+
+
+                </com.google.android.material.chip.ChipGroup>
+
                 <AutoCompleteTextView
                     android:id="@+id/userTagText"
-                    android:layout_width="match_parent"
+                    android:layout_width="fill_parent"
+                    android:minWidth="60dp"
                     android:layout_height="wrap_content"
                     android:completionThreshold="1"
-                    android:hint="Tags, separated with commas"
+                    android:hint="Tags"
                     android:imeOptions="actionDone"
                     android:inputType="textAutoComplete" />
 
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/uiChipGroup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:chipSpacingVertical="4dp">
-                </com.google.android.material.chip.ChipGroup>
+
 
             </LinearLayout>
 

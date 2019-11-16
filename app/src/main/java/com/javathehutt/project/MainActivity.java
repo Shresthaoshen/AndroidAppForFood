@@ -267,7 +267,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         Double price = 10.10;
         Double rating = 20.20;
         String notes = "TEST NOTES -- ADDED IN CODE";
-        String[] tag_names = {"CodeTag1", "CodeTag2"};
+        ArrayList<String> tag_names = new ArrayList<String>();
+            tag_names.add("CODE TAG - 1");
+            tag_names.add("CODE TAG - 2");
+            tag_names.add("CODE TAG - 3");
 
         databaseHelper.createRestaurant(restaurantName, price, rating, notes, tag_names);
     }

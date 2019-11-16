@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.chip.Chip;
@@ -66,14 +71,12 @@ public class AddRestaurantActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     if (checkedCompletion()) {
-                        String tags = editTags.getText().toString();
-                        tagArray = tags.split("\\s*,\\s*");
 
                         boolean isInserted = databaseHelper.createRestaurant(editTitle.getText().toString(),
                                 (Double) parseDouble(editPrice.getText().toString()),
                                 (Double) parseDouble(editRating.getText().toString()),
                                 editNotes.getText().toString(),
-                                tagArray);
+                                currentTags);
                         if (isInserted == true) {
                             Toast.makeText(AddRestaurantActivity.this, "Data Inserted", Toast.LENGTH_LONG).show();
                         } else {
@@ -123,10 +126,15 @@ public class AddRestaurantActivity extends AppCompatActivity {
     }
 
     private void loadChipUI(){
+
+        currentTags = new ArrayList<String>();
+
         //init tagList
         tagComplete = new ArrayList<String>(databaseHelper.getAllTagNames());
         autoCompleteAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, tagComplete);
         editTags.setAdapter(autoCompleteAdapter);
+
+        //select from autocomplete
         editTags.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id){
@@ -135,27 +143,61 @@ public class AddRestaurantActivity extends AppCompatActivity {
             }
         });
 
+        //done keyboard button is pressed
+        editTags.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int actionID, KeyEvent keyEvent) {
+                if (actionID == EditorInfo.IME_ACTION_DONE){
+                    addChip(textView.getText().toString());
+                    editTags.setText(null);
+                    return true;
+                }
+                return false;
+            }
+        });
 
+        //comma is detected
+        editTags.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() != 0 && editable.charAt(editable.length()-1) == ','){
+                    addChip(editTags.getText().toString().substring(0, editable.length()-1));
+                    editTags.setText(null);
+                }
+            }
+        });
     }
 
     private void addChip(String inputTag){
-        if (inputTag != null && !currentTags.contains(inputTag)){
+        if (inputTag != null && !currentTags.contains(inputTag) && !inputTag.equals("") && !inputTag.equals(" ")){
             addChipToGroup(inputTag);
             currentTags.add(inputTag);
         }
     }
 
-    private void addChipToGroup(String tagName){
+    private void addChipToGroup(final String tagName){
         final Chip chip = (Chip) this.getLayoutInflater().inflate(R.layout.chip_edit, null, false);
             chip.setText(tagName);
             chip.setClickable(true);
         chipGroup.addView(chip, chipGroup.getChildCount());
 
+        Toast.makeText(this, "Added to group", Toast.LENGTH_SHORT).show();
+
         chip.setOnCloseIconClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 chipGroup.removeView(chip);
-
+                currentTags.remove(tagName);
             }
         });
     }

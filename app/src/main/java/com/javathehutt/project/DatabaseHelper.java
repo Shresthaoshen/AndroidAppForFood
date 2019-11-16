@@ -90,7 +90,7 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseInterfac
     // -------------- RESTAURANTS -------------- //
     @Override
     //insert data read from AddRestaurantActivity to SQLite database
-    public boolean createRestaurant(String restaurantName, Double price, Double rating, String notes, String[] tag_names) {
+    public boolean createRestaurant(String restaurantName, Double price, Double rating, String notes, ArrayList<String> tag_names) {
 
         boolean added = false;
 
@@ -116,8 +116,8 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseInterfac
         //if tag already exists, use existing tag-id for pair calling createRestaurantTag
         //if tag doesn't exist, createTag then createRestaurantTag
 
-        for (int i = 0; i< tag_names.length;i++) {
-            long tag_id = createTag(tag_names[i]);
+        for (int i = 0; i< tag_names.size();i++) {
+            long tag_id = createTag(tag_names.get(i));
             createRestaurantTag(restaurant_id, tag_id);
         }
 
