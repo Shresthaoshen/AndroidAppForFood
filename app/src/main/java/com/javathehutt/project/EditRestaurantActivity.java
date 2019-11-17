@@ -108,7 +108,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         buildSavedTags(tagList);
 
         //turns off tag hint if there's tags
-        if (tagList.size() <= 0){
+        if (tagList.size() >= 1){
             editTags.setHint("");
         }
 
