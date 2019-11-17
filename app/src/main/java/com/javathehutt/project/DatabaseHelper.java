@@ -588,6 +588,18 @@ public class DatabaseHelper extends SQLiteOpenHelper implements DatabaseInterfac
         return (1 >= count);
     }
 
+    //deleted all data
+    public boolean deleteFullDatabase(){
+        SQLiteDatabase database = this.getWritableDatabase();
+        database.delete(TABLE_RESTAURANT, null, null);
+        database.delete(TABLE_TAG, null, null);
+        database.delete(TABLE_RESTAURANT_TAG, null, null);
+
+        database.close();
+
+        return true;
+    }
+
     public void closeDataBase() {
         SQLiteDatabase database = this.getReadableDatabase();
         if (database != null && database.isOpen())

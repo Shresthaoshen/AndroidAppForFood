@@ -68,6 +68,14 @@ public class SettingsActivity extends AppCompatActivity {
         userSwitchPriceNumber.setChecked(1 <= storedSettings.get(0).getValue());
     }
 
+    public void clickDelete (View view){
+        Boolean dateDeleted = databaseHelper.deleteFullDatabase();
+
+        if (dateDeleted){
+            Toast.makeText(this, "Database Deleted", Toast.LENGTH_LONG).show();
+        }
+    }
+
     //saves data when switched
     public void checkListeners (){
         //price vs. $$$s

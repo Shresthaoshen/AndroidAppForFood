@@ -189,7 +189,7 @@
                 android:background="#c0c0c0"/>
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/uiTextHeader_Group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -207,7 +207,7 @@
                 android:layout_marginRight="12dp">
 
                 <TextView
-                    android:id="@+id/textView7"
+                    android:id="@+id/uiTxtSettingName"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="Settings 1"
@@ -223,7 +223,7 @@
 
             </LinearLayout>
             <TextView
-                android:id="@+id/uiTxtDescSet1"
+                android:id="@+id/uiTxtSettingDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
@@ -254,6 +254,58 @@
                     />
 
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_height="1dp"
+                android:background="#c0c0c0"/>
+
+            <TextView
+                android:id="@+id/uiTextHeader_Delete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="36dp"
+                android:gravity="bottom"
+                android:text="CLEAR DATABASE"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/uiDeleteData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="12dp">
+
+                <TextView
+                    android:id="@+id/uiTxtDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:onClick="clickDelete"
+                    android:text="Delete All Data"
+                    android:textColor="#101010"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/uiTxtDeleteDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:text="Delete all restaurants and tags"
+                android:textSize="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"/>
 
             <View
                 android:layout_width="match_parent"
